@@ -1,0 +1,13 @@
+.navbar{
+    justify-content: space-between;
+}
+
+/* #logo-main {
+    width: 200px;
+} */
+
+footer {
+    text-align: center;
+    background-color: aqua;
+    bottom: 0;
+}
