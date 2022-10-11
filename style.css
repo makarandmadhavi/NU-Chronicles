@@ -1,3 +1,7 @@
+html {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 .navbar{
     justify-content: space-between;
 }
@@ -6,8 +10,75 @@
     width: 200px;
 } */
 
+section{
+    /* height: 100vh; */
+    padding-top: 60px;
+}
+
+.carousel-item {
+    max-height: 90vh;
+    width: 100%;
+}
+
+.carousel-item img{
+    width: 100vw;
+}
+
+#home {
+    width: 100% !important;
+    padding: 0px !important;
+    margin-top: 50px;
+
+}
+
+#resources {
+    background-color: #212529;
+    color: white;
+}
+
+#list-example a.active {
+    background-color: #DD242C;
+    color: white;
+    border: none;
+}
+
+
+#list-example a {
+    background-color: #212529;
+    color: white;
+    border: none;
+}
+
+.list-group-item{
+    background-color: #212529;
+    color: white;
+}
 footer {
+    position: relative;
     text-align: center;
     background-color: aqua;
     bottom: 0;
+}
+
+.carousel-caption{
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+
+}
+
+.carousel-caption h5, .carousel-caption p {
+    color: #212529;
+}
+
+.red-btn {
+    background-color: #DD242C !important;
+    outline: #DD242C;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+h1{
+    text-align: center;
 }
