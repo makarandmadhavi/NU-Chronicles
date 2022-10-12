@@ -2,6 +2,17 @@ html {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+html a {
+    text-decoration: none;
+}
+
+.me-4 :hover{
+    color: #DD242C;
+}
+
+footer a :hover{
+    color: #DD242C;
+}
 body::-webkit-scrollbar {
     width: 0.5em;
   }
