@@ -2,26 +2,53 @@ html {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+body::-webkit-scrollbar {
+    width: 0.5em;
+  }
+  .scrollspy-example::-webkit-scrollbar {
+    width: 0.3em;
+  }
+  .scrollspy-example::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 4px;
+  }
+   
+  body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px #212529;
+    
+  }
+   
+  body::-webkit-scrollbar-thumb {
+    background-color: white;
+    outline: 1px solid grey;
+  }
+
 .navbar{
     justify-content: space-between;
 }
 
+.dropdown-item:active {
+    background-color: #DD242C !important;
+    color: white !important;
+}
 /* #logo-main {
     width: 200px;
 } */
 
 section{
     /* height: 100vh; */
-    padding-top: 60px;
+    padding-top: 30px;
 }
 
 .carousel-item {
     max-height: 90vh;
     width: 100%;
+   
 }
 
 .carousel-item img{
-    width: 100vw;
+    width: 100%;
+    max-height: 90vh;
 }
 
 #home {
@@ -30,10 +57,23 @@ section{
     margin-top: 50px;
 
 }
-
+   
 #resources {
     background-color: #212529;
     color: white;
+}
+
+.offcanvas-body ul li a {
+ text-decoration: none;
+ color:#212529;
+ 
+}
+.offcanvas-body ul li a:hover {
+    color: #DD242C;
+    
+   }
+#offcanvasExample{
+    opacity: 0.9;
 }
 
 #list-example a.active {
@@ -61,13 +101,13 @@ footer {
 }
 
 .carousel-caption{
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+   
 
 }
 
-.carousel-caption h5, .carousel-caption p {
-    color: #212529;
+.carousel-caption h4, .carousel-caption p {
+    color: black;
 }
 
 .red-btn {
