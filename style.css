@@ -133,3 +133,14 @@ footer {
 h1{
     text-align: center;
 }
+
+
+.accordion-button{
+    background-color: #212529 !important;
+    color: white !important;
+}
+.checked {
+    color: orange;
+  }
+ 
+ 
