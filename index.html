@@ -163,19 +163,20 @@
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                 aria-label="Close"></button>
                         </div>
+                        <br>
                         <div class="offcanvas-body">
                             <div>
                                 <ul style="list-style: none;">
 
-                                    <li><a href="https://northeastern.sharepoint.com/sites/studenthub/SitePages/Student-Resources.aspx#/resources" target="_blank"> <i class="fa fa-home"
+                                    <li><a href="https://northeastern.sharepoint.com/sites/studenthub/SitePages/Student-Resources.aspx#/resources" target="_blank" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="You will find all important student resources here."> <i class="fa fa-home"
                                                 aria-hidden="true"></i> NU Student Hub</a></li> <br>
-                                    <li><a href="https://northeastern.instructure.com/" target="_blank"> <i class="fa fa-book"
+                                    <li><a href="https://northeastern.instructure.com/" target="_blank" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="You will find all coursework, assignments, grades, syllabus here."> <i class="fa fa-book"
                                         aria-hidden="true"></i> Canvas</a></li> <br>
                                     <li><a href="https://calendar.northeastern.edu/#_ga=2.82547862.1073769387.1665519946-283250814.1634905989"
-                                            target="_blank"><i class="fa fa-calendar" aria-hidden="true"></i> NU
+                                            target="_blank" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="You will find out about all upcoming events here."><i class="fa fa-calendar" aria-hidden="true"></i> NU
                                             Events</a></li> <br>
                                     <li><a href="https://hr.northeastern.edu/#_ga=2.82547862.1073769387.1665519946-283250814.1634905989"
-                                            target="_blank"><i class="fa fa-gear" aria-hidden="true"></i> NU Works</a>
+                                            target="_blank" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="You will find out about work opportunities here."><i class="fa fa-gear" aria-hidden="true"></i> NU Works</a>
                                     </li><br>
 
 
@@ -604,7 +605,12 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
+    <script>
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
 
 </body>
 
