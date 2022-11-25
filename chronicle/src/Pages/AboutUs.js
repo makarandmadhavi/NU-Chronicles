@@ -11,13 +11,13 @@ import './aboutus.css';
 function AboutUs() {
   return (
     <>
-   <Container fluid className='mt-2'>
+   <Container className='mt-5'>
    <Row className='align-items-center'>
     
-    <Col sm='8' className='text-left'>
+    <Col sm={8} className='text-left'>
     <br />
-                    <p>
-                        NU Chronicles is a one-stop solution for all new international students at Northeastern
+ <p>
+      NU Chronicles is a one-stop solution for all new international students at Northeastern
                         University.</p>
                     <p>
                         It provides students with a list of the most cost-effective options for accommodation, grocery
@@ -28,8 +28,6 @@ function AboutUs() {
                         accurate source of information for all incoming international NU students.
                     </p>
                     <br />
-                    
-                    
                     {/* <Button variant='outline-danger'> */}
                     <OffCanvasComponent variant='outline-danger' name='NU Useful Links' placement='start' >
 
@@ -38,10 +36,9 @@ function AboutUs() {
 
 
 
-
     </Col>
-    <Col sm='4'>
-        <img src='images/logo.png' id='logo-main'/>
+    <Col sm={4}>
+        <img src='images/logo.png' id='logo-main' />
     </Col>
    </Row>
    </Container>
