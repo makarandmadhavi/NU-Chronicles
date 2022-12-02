@@ -1,5 +1,8 @@
 import React from 'react';
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 import './css/footer.css';
 
 export default function Footer() {
@@ -93,19 +96,15 @@ export default function Footer() {
             <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4'>
               <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
               <p>
-                <MDBIcon icon="home" className="me-2" />
-                Boston, MA
+              <FontAwesomeIcon icon={faHome} />  Boston, MA
               </p>
               <p>
-                <MDBIcon icon="envelope" className="me-3" />
-                nuchronicles@northeastern.edu
+              <FontAwesomeIcon icon={faEnvelope} /> nuchronicles@northeastern.edu
               </p>
               <p>
-                <MDBIcon icon="phone" className="me-3" /> + 01 234 567 88
+              <FontAwesomeIcon icon={faPhone} /> + 01 234 567 88
               </p>
-              <p>
-                <MDBIcon icon="print" className="me-3" /> + 01 234 567 89
-              </p>
+             
             </MDBCol>
           </MDBRow>
         </MDBContainer>
