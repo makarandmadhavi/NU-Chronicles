@@ -1,23 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 import OffCanvasComponent from './OffCanvasComponent';
 import Image from 'react-bootstrap/Image'
 import { AlignDirection } from 'react-bootstrap/esm/types';
 import './aboutus.css';
 
 function AboutUs() {
+
   return (
     <>
-   <Container className='mt-5'>
-   <Row className='align-items-center'>
-    
-    <Col sm={8} className='text-left'>
-    <br />
- <p>
-      NU Chronicles is a one-stop solution for all new international students at Northeastern
+    <section id='about' >
+        <Container>
+            <Row>
+                <Col sm={8} style={{padding: '10px' }}>
+                {/* <div className='col-sm-8'> */}
+                <p>
+                        NU Chronicles is a one-stop solution for all new international students at Northeastern
                         University.</p>
                     <p>
                         It provides students with a list of the most cost-effective options for accommodation, grocery
@@ -27,21 +32,17 @@ function AboutUs() {
                         Each option has been examined and rated by NU students, making it the most reputable and
                         accurate source of information for all incoming international NU students.
                     </p>
-                    <br />
-                    {/* <Button variant='outline-danger'> */}
-                    <OffCanvasComponent variant='outline-danger' name='NU Useful Links' placement='start' >
-
+                   
+                    <OffCanvasComponent variant='outline-danger' name='NU Useful Links' placement='start'>
                     </OffCanvasComponent>
-                    {/* </Button> */}
-
-
-
-    </Col>
-    <Col sm={4}>
-        <img src='images/logo.png' id='logo-main' />
-    </Col>
-   </Row>
-   </Container>
+                    {/* </div> */}
+                </Col>
+               
+                    <img className='col-sm-4' src='images/logo.png' id="logo-main" />
+                </Row>
+        </Container>
+    
+    </section>
    </>
   )
 }
