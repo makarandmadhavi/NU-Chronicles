@@ -1,0 +1,14 @@
+li a{
+    list-style: none;
+}
+
+.link{
+   
+    text-decoration: none;
+}
+
+.spanLink{
+    color: black;
+    padding: 10px;
+}
+

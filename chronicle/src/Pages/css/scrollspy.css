@@ -1,0 +1,21 @@
+/* Styles required only for the example above */
+.scrollspy-example {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+  }
+
+section {
+    margin-top: 50px;
+    padding: 20px;
+}
+
+  #resources {
+    background-color: #212529;
+    color: white;
+}
+
+#scrollspy-div{
+    overflow-y: auto;
+    height: 280px;
+}

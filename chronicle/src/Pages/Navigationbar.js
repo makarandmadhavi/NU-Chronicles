@@ -13,7 +13,7 @@ import './NavigationBar.css'
 function Navigationbar() {
   return (
     <>
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar bg="dark" variant="dark fixed-top" expand="lg">
     <Container fluid>
         
         <Navbar.Brand href="#home">
