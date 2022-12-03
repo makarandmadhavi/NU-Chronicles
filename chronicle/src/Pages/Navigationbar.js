@@ -8,8 +8,6 @@ import Button from 'react-bootstrap/Button';
 
 import './NavigationBar.css'
 
-
-
 function Navigationbar() {
   return (
     <>
@@ -28,6 +26,7 @@ function Navigationbar() {
 
           </Nav>
           <Button variant="danger">Login</Button>{" "}
+         
         </Navbar.Collapse>
         
         
