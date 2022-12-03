@@ -5,6 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/Button';
+import LoginModal from './LoginModal';
 
 import './css/NavigationBar.css'
 
@@ -27,7 +28,7 @@ function Navigationbar() {
             <Nav.Link href="#link">Top Hits</Nav.Link>
 
           </Nav>
-          <Nav.Link href="#login"><Button variant="danger">Login</Button></Nav.Link> 
+          <LoginModal/> 
         </Navbar.Collapse>
         
         

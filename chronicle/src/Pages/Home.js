@@ -5,6 +5,8 @@ import AboutUs from '../components/AboutUs';
 import ScrollspyComponent from '../components/ScrollspyComponent';
 import Tophits from '../components/Tophits';
 import Footer from '../components/Footer';
+import LoginModal from '../components/LoginModal';
+
 function Home() {
   return (
     <div>
@@ -14,6 +16,7 @@ function Home() {
     <ScrollspyComponent />
     <Tophits />
     <Footer />
+    
     </div>
   )
 }
