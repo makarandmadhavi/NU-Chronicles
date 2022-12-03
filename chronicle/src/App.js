@@ -6,6 +6,7 @@ import AboutUs from './Pages/AboutUs';
 import ScrollspyComponent from './Pages/ScrollspyComponent';
 import Footer from './Pages/Footer';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Tophits from './Pages/Tophits';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <ControlledCarousel />
       <AboutUs />
       <ScrollspyComponent />
+      <Tophits />
       <Footer />
       </Router>
     </div>
