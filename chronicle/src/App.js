@@ -1,13 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
 import Navigationbar from './Pages/Navigationbar';
 import ControlledCarousel from './Pages/ControlledCarousel';
+import Dashboard from './Pages/Dashboard';
 
 function App() {
   return (
     <div className="App">
-      <Navigationbar />
-      <ControlledCarousel />
+      {/* <Navigationbar />
+      <ControlledCarousel /> */}
+      <Dashboard />
     </div>
   );
 }
