@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-module.exports = mongoose.model('user', {
+var user = new mongoose.Schema({
     email : {type:  String, default: ''},
     firstName: {type: String, default: ''},
     lastName: {type: String, default: ''},
@@ -11,3 +11,5 @@ module.exports = mongoose.model('user', {
     // photo: {type: Buffer, default:''},
     versionKey: false
 })
+
+module.exports = mongoose.model('user', user);

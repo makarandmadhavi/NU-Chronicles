@@ -1,9 +1,10 @@
-const express = require('express')
-const app = express()
-const port = 4000
+require('./api/models/user');
+const express = require('express');
+const app = express();
+const port = 4000;
 
 const bodyParser = require('body-parser');
-const routes = require('./app/routes/routes')
+const routes = require('./api/routes/routes');
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://bhavya:bhavya1234@cluster0.kde993z.mongodb.net/?retryWrites=true&w=majority', { 
