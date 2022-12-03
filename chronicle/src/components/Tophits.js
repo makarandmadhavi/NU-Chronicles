@@ -1,5 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle} from '@fortawesome/free-solid-svg-icons'
 function Tophits() {
   return (
     <div>
@@ -24,12 +25,13 @@ function Tophits() {
                           <h5 className="card-title">Hungtinton Avenue</h5>
                           <p className="card-text">This is one of the closest and safiest
                             area near Northeastern University with a distance of 1 miles.</p>
+                            {/* <FontAwesomeIcon icon={faStar} />
                           <span className="fa fa-star checked" />
                           <span className="fa fa-star checked" />
                           <span className="fa fa-star checked" />
                           <span className="fa fa-star" />
                           <span className="fa fa-star" /> (25)
-                          <a href="#" className="btn btn-outline-danger">View More</a>
+                          <a href="#" className="btn btn-outline-danger">View More</a> */}
                         </div>
                       </div>
                     </div>
@@ -41,12 +43,12 @@ function Tophits() {
                           <p className="card-text">This is one of the popular and affordable
                             accommodation near Northeastern University with a distance of 0.5 miles.
                           </p>
-                          <span className="fa fa-star checked" />
+                          {/* <span className="fa fa-star checked" />
                           <span className="fa fa-star checked" />
                           <span className="fa fa-star" />
                           <span className="fa fa-star" />
                           <span className="fa fa-star" />(31)
-                          <a href="#" className="btn btn-outline-danger">View More</a>
+                          <a href="#" className="btn btn-outline-danger">View More</a> */}
                         </div>
                       </div>
                     </div>
@@ -58,12 +60,12 @@ function Tophits() {
                           <p className="card-text">It's known for being closer to grocery stores as well
                             the university
                             with a distance of 0.8 miles</p>
-                          <span className="fa fa-star checked" />
+                          {/* <span className="fa fa-star checked" />
                           <span className="fa fa-star checked" />
                           <span className="fa fa-star checked" />
                           <span className="fa fa-star checked" />
                           <span className="fa fa-star" />(55)
-                          <a href="#" className="btn btn-outline-danger">View More</a>
+                          <a href="#" className="btn btn-outline-danger">View More</a> */}
                         </div>
                       </div>
                     </div>
@@ -89,12 +91,12 @@ function Tophits() {
                           <h5 className="card-title">Target </h5>
                           <p className="card-text">Your all in one store where you
                             can find all the household essential products as well as groceries.</p>
-                          <span className="fa fa-star checked" />
+                          {/* <span className="fa fa-star checked" />
                           <span className="fa fa-star checked" />
                           <span className="fa fa-star checked" />
                           <span className="fa fa-star checked" />
                           <span className="fa fa-star" />(35)
-                          <a href="#" className="btn btn-outline-danger">View More</a>
+                          <a href="#" className="btn btn-outline-danger">View More</a> */}
                         </div>
                       </div>
                     </div>
@@ -106,12 +108,12 @@ function Tophits() {
                           <p className="card-text">Best place to buy
                             economical and fresh groceries for students.They can find fruits,
                             vegetables and meat.</p>
-                          <span className="fa fa-star checked" />
+                          {/* <span className="fa fa-star checked" />
                           <span className="fa fa-star checked" />
                           <span className="fa fa-star checked" />
                           <span className="fa fa-star " />
                           <span className="fa fa-star" />(29)
-                          <a href="#" className="btn btn-outline-danger">View More</a>
+                          <a href="#" className="btn btn-outline-danger">View More</a> */}
                         </div>
                       </div>
                     </div>
@@ -123,12 +125,12 @@ function Tophits() {
                           <p className="card-text">One stop solution for ordering
                             groceries from different stores that are straight delivered at your
                             door-step.</p>
-                          <span className="fa fa-star checked" />
+                          {/* <span className="fa fa-star checked" />
                           <span className="fa fa-star checked" />
                           <span className="fa fa-star " />
                           <span className="fa fa-star " />
                           <span className="fa fa-star" />(22)
-                          <a href="#" className="btn btn-outline-danger">View More</a>
+                          <a href="#" className="btn btn-outline-danger">View More</a> */}
                         </div>
                       </div>
                     </div>
@@ -151,11 +153,11 @@ function Tophits() {
                       <div className="card" style={{width: '100%'}}>
                         <img src="images/amritesh.jpeg" className="card-img-top" alt="..." />
                         <div className="card-body">
-                          <h5 className="card-title">Amritesh Raj <i className="fa fa-check-circle" aria-hidden="true" /> </h5>
+                          <h5 className="card-title">Amritesh Raj<FontAwesomeIcon icon={faCheckCircle} /> </h5>
                           <p className="card-text">He graduated from NU in 2019.He is currently working as
                             a Software Engineer at Google. Look for his reviews and ratings on our
                             website.</p>
-                          <a href="#" className="btn btn-outline-danger">View More</a>
+                          {/* <a href="#" className="btn btn-outline-danger">View More</a> */}
                         </div>
                       </div>
                     </div>
@@ -163,11 +165,11 @@ function Tophits() {
                       <div className="card" style={{width: '100%'}}>
                         <img src="images/chris.jpeg" className="card-img-top" alt="..." />
                         <div className="card-body">
-                          <h5 className="card-title">Chris Martin <i className="fa fa-check-circle" aria-hidden="true"> </i></h5>
+                          <h5 className="card-title">Chris Martin <FontAwesomeIcon icon={faCheckCircle} /></h5>
                           <p className="card-text">He graduated from NU in 2015.He is currently working as
                             a Technical Program Manager at Aspen Technologies. Look for his reviews
                             and ratings on our website.</p>
-                          <a href="#" className="btn btn-outline-danger">View More</a>
+                          {/* <a href="#" className="btn btn-outline-danger">View More</a> */}
                         </div>
                       </div>
                     </div>
@@ -175,11 +177,11 @@ function Tophits() {
                       <div className="card" style={{width: '100%'}}>
                         <img src="images/xhua.jpeg" className="card-img-top" alt="..." />
                         <div className="card-body">
-                          <h5 className="card-title">Xuang Hu <i className="fa fa-check-circle" aria-hidden="true"> </i></h5>
+                          <h5 className="card-title">Xuang Hu <FontAwesomeIcon icon={faCheckCircle} /></h5>
                           <p className="card-text">He graduated from NU in 2020 .He is currently a PHD
                             researcher st Sanford University. Look for his reviews and ratings on
                             our website.</p>
-                          <a href="#" className="btn btn-outline-danger">View More</a>
+                          {/* <a href="#" className="btn btn-outline-danger">View More</a> */}
                         </div>
                       </div>
                     </div>

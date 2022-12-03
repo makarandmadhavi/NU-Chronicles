@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import OffCanvasComponent from './OffCanvasComponent';
 import Image from 'react-bootstrap/Image'
 import { AlignDirection } from 'react-bootstrap/esm/types';
-import './aboutus.css';
+import './css/aboutus.css';
 
 function AboutUs() {
 
