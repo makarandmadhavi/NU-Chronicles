@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/Button';
 
-import './NavigationBar.css'
+import './css/NavigationBar.css'
 
 
 
@@ -27,7 +27,7 @@ function Navigationbar() {
             <Nav.Link href="#link">Top Hits</Nav.Link>
 
           </Nav>
-          <Button variant="danger">Login</Button>{" "}
+          <Nav.Link href="#login"><Button variant="danger">Login</Button></Nav.Link> 
         </Navbar.Collapse>
         
         
