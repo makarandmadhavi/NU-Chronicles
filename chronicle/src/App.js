@@ -5,6 +5,7 @@ import Profile from './Pages/Profile';
 import Home from './Pages/Home';
 import Register from './components/Register';
 import Navigationbar from './components/Navigationbar';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
           <Route path='/profile' element={ <Profile />}>Register</Route>
         </Routes>
       </Router>
-
+      <Footer />
     </div>
   );
 }

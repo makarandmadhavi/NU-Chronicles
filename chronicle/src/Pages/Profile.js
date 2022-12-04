@@ -1,7 +1,7 @@
 import React from 'react'
 import './css/Profile.css'
 import Accordion from 'react-bootstrap/Accordion';
-import Footer from '../components/Footer';
+
 
 function Profile() {
   return (
@@ -119,7 +119,7 @@ function Profile() {
   </div>
   
 </div>
-<Footer />
+
     </div>
   )
 }
