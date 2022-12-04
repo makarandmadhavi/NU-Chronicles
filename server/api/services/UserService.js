@@ -1,5 +1,6 @@
 const user = require('../models/user');
 const bcrypt = require('bcryptjs');
+const housing = require('../models/housing');
 
 
 const regexForEmail = /^([\w.]+)@northeastern\.edu$/;
@@ -75,6 +76,118 @@ function createUser (data) {
     }
 }
 
+async function deleteUser(email) {
+    let emailDelete = email;
+    console.log(emailDelete + "email delete in services");
+    var result = {};
+        await user.findOneAndDelete({email:emailDelete}).then(function(doc, error){
+            console.log("The document deleted is " + doc + " " + error);
+            if(error){
+                result.status = 500;
+                result.message = "Delete failed! Try again.";
+                console.log("Delete failed!");
+            }
+            if(!doc){
+                result.status = 400;
+                result.message = "No Record found!! Please check the details again.";
+            }
+            else{
+                // result = doc;
+                result.status = 200;
+                result.message = "Data record deleted successfully with email: "+emailDelete;
+            }
+            // return result;
+        });
+        return result;
+}
+
+//Update User
+async function updateUser(user_id, newUserData) {
+    var email = newUserData.email;
+    var password = newUserData.password;
+    var firstName = newUserData.firstName;
+    var lastName = newUserData.lastName;
+    var role = newUserData.role;
+    var phoneNumber = newUserData.phoneNumber;
+    var NUID = newUserData.NUID;
+
+    var result = {};
+
+    if (email && !email.trim().match(regexForEmail)) {
+        return { 
+            status: 400, 
+            message: "Email ID entered is not valid or correct. Please check entered details again." 
+        };
+    }
+
+    else if (password) {
+        return { status: 400, 
+        message: "Cannot change password with this API " 
+    };
+    }
+
+    else if (firstName && !firstName.trim().match(regexforName)) {
+        return { status: 400, message: "Please enter valid First Name" };
+    }
+
+    else if (lastName && !lastName.trim().match(regexforName)) {
+        return { status: 400, message: "Please enter valid Last Name" };
+    }
+
+    else if (NUID && !NUID.trim().match(regexforNUID)) {
+        return { status: 400, message: "Please enter valid 9 digit NUID number" };
+    }
+
+    else if (phoneNumber && !phoneNumber.trim().match(regexforPhone)) {
+        return { status: 400, message: "Please enter valid Phone Number" };
+    }
+    else{
+        // var result = {};
+        console.log("Inside else and before update================================= ");
+        return await user.findByIdAndUpdate(user_id, newUserData).then(function (doc, err) {
+            if (err){
+                console.log(err);
+                result.status = 500;
+                result.message = "Could not update " + err;
+            }
+            else{
+                console.log("Updated User : ", doc);
+                result.status = 200;
+                result.message = "User Updated";
+            }
+            return result;
+        });
+    //    return result;
+    }
+
+}
+
+async function getUsers() {
+    var result = {};
+    await user.find().then(function(data, error) {
+        if (error){
+            console.log("Error Occured " + error);
+            result.status = 500;
+            result.message =  "could not get data " + data;
+            return;
+        }
+        
+        result = data;
+        console.log("Result after data is assignered " + result);
+        result.status = 200;
+        console.log(result.status);
+        result.message = "all done";
+        return;
+    });
+    return result;
+    
+}
+
+
+
 module.exports = {
-    createUser
+    createUser,
+    deleteUser,
+    getUsers,
+    updateUser
 }
