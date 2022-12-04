@@ -8,6 +8,7 @@ import Navigationbar from './components/Navigationbar';
 import Footer from './components/Footer';
 import Login from './Pages/loginPage/index'
 
+import Dashboard from './Pages/Dashboard';
 
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path='/profile' element={ <Profile />}>Register</Route>
+        </Routes>
+        <Routes>
+          <Route path='/dashboard' element={ <Dashboard />}>Register</Route>
         </Routes>
       </Router>
       <Footer />

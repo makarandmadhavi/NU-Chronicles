@@ -17,13 +17,13 @@ function Navigationbar() {
     <Navbar bg="dark" variant="dark fixed-top" expand="lg">
     <Container fluid>
         
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
             <img src='images/D.png' height="30"/>
             </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">About Us</Nav.Link>
+            <Nav.Link href="/">About Us</Nav.Link>
             <Nav.Link href="#link">Explore</Nav.Link>
             <Nav.Link href="#link">Top Hits</Nav.Link>
 
