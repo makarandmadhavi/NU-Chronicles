@@ -1,4 +1,4 @@
-const { createHousing, getHousing, updateHousing } = require('../services/HousingService');
+const { createHousing, getHousing, updateHousing, deleteHousing, addReview } = require('../services/HousingService');
 
 const addHousing = async (req, res) => {
     const house = req.body;
@@ -31,10 +31,43 @@ const getHouse = async (req, res) => {
 const updateHouse = async (req, res) => {
     const data = req.body;
     try{
-        let result = await updateHousing(data);
+        let result = await updateHousing(req.body._id, data);
 
         res.status(result.status);
         res.json(result);
+    }
+    catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+}
+
+const deleteHouse = async (req, res) => {
+    const id = req.body._id;
+    try{
+        let result = await deleteHousing(id);
+
+        res.status(result.status);
+        res.json(result);
+
+    }
+    catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+}
+
+const insertReview = async (req, res) => {
+    const id  = req.body._id; // Housing ID to find the House
+    var rating = {};
+    rating.user = req.body.user;
+    rating.rating = req.body.rating;
+    rating.review = req.body.review;
+    try {
+        let result = await addReview(id, rating);
+
+        res.send(result.status);
+        res.json(result.message);
     }
     catch(e) {
         console.log(e);
@@ -46,5 +79,6 @@ module.exports = {
     addHousing,
     getHouse,
     updateHouse,
+    deleteHouse,
     
 }

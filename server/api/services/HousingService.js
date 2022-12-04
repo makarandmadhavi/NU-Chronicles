@@ -1,6 +1,8 @@
 const housing = require('../models/housing');
 const user = require('../models/housing');
 
+
+
 //Create Data
 async function createHousing(data) {
     var title = data.title;
@@ -70,11 +72,16 @@ async function getHousing() {
 }
 
 
-async function updateHousing(data) {
-    const title ={title: data.title };
+async function updateHousing(userId, data) {
+    // const id ={_id: userId };
     var result = {};
     try{
-        let doc = await housing.findOneAndUpdate(title , data, {returnOriginal: false });
+        let doc = await housing.findByIdAndUpdate(userId , data, {returnOriginal: false });
+        if (!doc){
+            result.status = 400;
+            result.message = "No record found";
+            return result;
+        }
         result = doc;
         result.status = 200;
         result.message = "Update Successfully";
@@ -89,8 +96,62 @@ async function updateHousing(data) {
     
 }
 
+async function deleteHousing(housingId) {
+    // let emailDelete = email;
+    // console.log(emailDelete + "email delete in services");
+    var result = {};
+        await housing.findByIdAndDelete(housingId).then(function(doc, error){
+            console.log("The document deleted is " + doc + " " + error);
+            if(error){
+                result.status = 500;
+                result.message = "Delete failed! Try again.";
+                console.log("Delete failed!");
+            }
+            if(!doc){
+                result.status = 400;
+                result.message = "No Record found!! Please check the details again.";
+            }
+            else{
+                // result = doc;
+                result.status = 200;
+                result.message = "Data record deleted successfully";
+            }
+            // return result;
+        });
+        return result;
+}
+
+// Adding rating
+async function addReview (housingID, rating){
+    var result = {};
+    await housing.findById(housingID).then((doc, err) => {
+        if(err){
+            result.status = 500;
+            result.message = "Error occured.";
+            console.log("Error!! failed!");
+        }
+        if(!doc){
+            result.status = 400;
+            result.message = "No Record found!! Please check the details again.";
+        }
+        else{
+            console.log(doc + "===========================DOC===============================");
+            // console.log(doc.rating_list[0]);
+            doc.rating_list.push(rating);
+            result.status = 200;
+            result.message = "Review Added";
+            return result;
+            // console.log(doc.rating_list.push(rating));
+
+        }
+    })
+}
+
+
 module.exports = {
     createHousing, 
     getHousing,
-    updateHousing
+    updateHousing,
+    deleteHousing,
+    
 }
