@@ -4,18 +4,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons'
 import './css/ElementCard.css'
 
-function ElementCard() {
+function ElementCard(props) {
+    const data = props.data;
     return (
         <Card className='elementCard'>
             <Card.Header>Category</Card.Header>
             <Card.Img variant="top" src='images/house1.jpg' />
             <Card.Body>
                 <Card.Title>
-                    Title
+                    {data.title}
                 </Card.Title>
                 <Card.Text>
-                    Some quick example text to build on the card title and make up the
-                    bulk of the card's content.
+                {data.description}
                 </Card.Text>
             </Card.Body>
             <Card.Footer >

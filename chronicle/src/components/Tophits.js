@@ -1,12 +1,33 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import ElementCard from './ElementCard'
+import housingapi from '../apiservice/housingapi'
+
 function Tophits() {
+
+  const [housingData, setHousingData] = useState(null);
+
+  const getHousing = async () => {
+    const response = await housingapi.get('/get');
+    let data = response.data.map((element,i) => 
+      <div  key={i} className="col-lg-4 mb-3 d-flex align-items-stretch">
+        <ElementCard data={element}></ElementCard>
+      </div>
+    );
+    setHousingData(data);
+    console.log(data);
+  };
+
+  useEffect(() => {
+    getHousing();
+
+  }, []);
+
+
   return (
     <div>
-
-
       <section id="tophits" className="container">
         <div className="accordion" id="accordionPanelsStayOpenExample">
           <div className="accordion-item">
@@ -19,15 +40,7 @@ function Tophits() {
               <div className="accordion-body">
                 <div className="accordion-body">
                   <div className="row">
-                    <div className="col-lg-4 mb-3 d-flex align-items-stretch">
-                      <ElementCard></ElementCard>
-                    </div>
-                    <div className="col-lg-4 mb-3 d-flex align-items-stretch">
-                    <ElementCard></ElementCard>
-                    </div>
-                    <div className="col-lg-4 mb-3 d-flex align-items-stretch">
-                    <ElementCard></ElementCard>
-                    </div>
+                    {housingData}
                   </div>
                 </div>
               </div>
@@ -42,16 +55,16 @@ function Tophits() {
             <div id="panelsStayOpen-collapseTwo" className="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
               <div className="accordion-body">
                 <div className="accordion-body">
-                <div className="row">
+                  <div className="row">
+                    {/* <div className="col-lg-4 mb-3 d-flex align-items-stretch">
+                      <ElementCard></ElementCard>
+                    </div>
                     <div className="col-lg-4 mb-3 d-flex align-items-stretch">
                       <ElementCard></ElementCard>
                     </div>
                     <div className="col-lg-4 mb-3 d-flex align-items-stretch">
-                    <ElementCard></ElementCard>
-                    </div>
-                    <div className="col-lg-4 mb-3 d-flex align-items-stretch">
-                    <ElementCard></ElementCard>
-                    </div>
+                      <ElementCard></ElementCard>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -66,16 +79,16 @@ function Tophits() {
             <div id="panelsStayOpen-collapseThree" className="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
               <div className="accordion-body">
                 <div className="accordion-body">
-                <div className="row">
+                  <div className="row">
+                    {/* <div className="col-lg-4 mb-3 d-flex align-items-stretch">
+                      <ElementCard></ElementCard>
+                    </div>
                     <div className="col-lg-4 mb-3 d-flex align-items-stretch">
                       <ElementCard></ElementCard>
                     </div>
                     <div className="col-lg-4 mb-3 d-flex align-items-stretch">
-                    <ElementCard></ElementCard>
-                    </div>
-                    <div className="col-lg-4 mb-3 d-flex align-items-stretch">
-                    <ElementCard></ElementCard>
-                    </div>
+                      <ElementCard></ElementCard>
+                    </div> */}
                   </div>
                 </div>
               </div>
