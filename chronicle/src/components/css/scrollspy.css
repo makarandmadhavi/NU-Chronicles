@@ -2,7 +2,7 @@
 .scrollspy-example {
     position: relative;
     height: 200px;
-    overflow: auto;
+    overflow: hidden;
   }
 
 section {
@@ -16,6 +16,13 @@ section {
 }
 
 #scrollspy-div{
-    overflow-y: auto;
+    overflow: hidden;
     height: 280px;
+}
+.scrollspy-example::-webkit-scrollbar {
+  width: 0.3em;
+}
+.scrollspy-example::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 4px;
 }
