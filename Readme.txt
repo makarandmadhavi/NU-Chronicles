@@ -40,3 +40,39 @@ Bootstrap Components:
 10. Modal- Opens up when user clicks the ‘Login’ button on navbar.
 11. Badge- The ‘New’ badge is used along headers for each top hits.
 12. Tooltip- Used to describe different NU links on Offcanvas.
+
+
+
+
+
+Pages
+HomePage
+Register
+Login
+Dashboard -reviews for all / QA
+	housing 
+	grocery
+	seasonal clothing 
+	attractions 
+	live events
+
+Profile
+Create/Edit Post
+	 housing 
+	 grocery
+	 seasonal clothing 
+	 attractions 
+	 live events
+
+events
+     View events 
+	 Booking tickets
+
+Profile - 
+	user infor
+	your bookings 
+	your posts
+
+
+
+
