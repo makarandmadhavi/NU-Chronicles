@@ -9,7 +9,7 @@ function Search() {
                 <Form.Group className="mb-3 inputGroup">
                     <Form.Label htmlFor="category">Category</Form.Label>
                     <Form.Select id="category">
-                        <option disabled>select...</option>
+                        <option disabled selected>All</option>
                         <option>Housing</option>
                         <option>Seasonal Clothing</option>
                         <option>Events</option>
@@ -19,7 +19,7 @@ function Search() {
                 <Form.Group className="mb-3 inputGroup">
                    
                     <Form.Control id="disabledTextInput" placeholder="Search... " />
-                    <Button type="submit">Search</Button>
+                    <Button type="submit" variant='danger'>Search</Button>
                     
                 </Form.Group>
 

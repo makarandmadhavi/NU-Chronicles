@@ -111,8 +111,8 @@ export default function Footer() {
       </section>
 
       <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
-        © 2021 Copyright:
-        <a className='text-reset fw-bold' href='https://mdbootstrap.com/'>
+        © 2021 Copyright&nbsp;
+        <a className='text-reset fw-bold' href='/'>
          NU Chronicles
         </a>
       </div>
