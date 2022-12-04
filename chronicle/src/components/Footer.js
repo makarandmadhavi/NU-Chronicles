@@ -45,7 +45,7 @@ export default function Footer() {
              
             </MDBCol>
 
-            <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
+            {/* <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
               <h6 className='text-uppercase fw-bold mb-4'>Resources</h6>
               <p>
                 <a href='#!' className='text-reset'>
@@ -91,7 +91,7 @@ export default function Footer() {
                   Help
                 </a>
               </p>
-            </MDBCol>
+            </MDBCol> */}
 
             <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4'>
               <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
@@ -113,7 +113,7 @@ export default function Footer() {
       <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
         © 2021 Copyright:
         <a className='text-reset fw-bold' href='https://mdbootstrap.com/'>
-          MDBootstrap.com
+         NU Chronicles
         </a>
       </div>
     </MDBFooter>
