@@ -1,0 +1,5 @@
+.my-modal {
+    width: 70% ;   /* Occupy the 90% of the screen width */
+    max-width: 100%;
+   opacity: 0.9;
+}

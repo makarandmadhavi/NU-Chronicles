@@ -7,7 +7,7 @@ import Register from './components/Register';
 import Navigationbar from './components/Navigationbar';
 import Footer from './components/Footer';
 import Login from './Pages/loginPage/index'
-
+import Addpost from './Pages/Addpost'
 import Dashboard from './Pages/Dashboard';
 
 
@@ -28,6 +28,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path='/dashboard' element={ <Dashboard />}>Register</Route>
+        </Routes>
+        <Routes>
+          <Route path='/addpost' element={ <Addpost />}>Register</Route>
         </Routes>
       </Router>
       <Footer />
