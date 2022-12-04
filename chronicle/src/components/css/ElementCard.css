@@ -1,0 +1,17 @@
+.fa-star, .fa-star-half {
+    color: #FEA51D;
+}
+
+.card-footer{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.elementCard {
+    transition: all 0.25s ease-in-out;
+}
+
+.elementCard:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
