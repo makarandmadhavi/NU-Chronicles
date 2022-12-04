@@ -15,7 +15,7 @@ function Home() {
     <AboutUs />
     <ScrollspyComponent />
     <Tophits />
-    <Footer />
+   
     
     </div>
   )
