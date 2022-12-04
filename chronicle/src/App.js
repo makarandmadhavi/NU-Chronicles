@@ -6,6 +6,8 @@ import Home from './Pages/Home';
 import Register from './components/Register';
 import Navigationbar from './components/Navigationbar';
 import Footer from './components/Footer';
+import Login from './Pages/loginPage/index'
+
 import Dashboard from './Pages/Dashboard';
 
 
@@ -16,7 +18,7 @@ function App() {
       <Navigationbar />
       <Router>
       <Routes>
-          <Route path='/register' element={<Register />}>Register</Route>
+          <Route path='/register' element={<Login />}>Register</Route>
       </Routes>
         <Routes>
           <Route path='/' element={<Home />}>Register</Route>

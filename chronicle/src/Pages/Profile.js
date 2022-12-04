@@ -1,6 +1,8 @@
 import React from 'react'
 import './css/Profile.css'
 import Accordion from 'react-bootstrap/Accordion';
+import Dropzone from 'react-dropzone';
+import { Box } from '@mui/material'
 
 
 function Profile() {
@@ -22,7 +24,26 @@ function Profile() {
           {/* Profile picture help block*/}
           <div className="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
           {/* Profile picture upload button*/}
-          <button className="btn btn-danger" type="button">Upload new image</button>
+          <Dropzone
+                    acceptedFiles=".jpg,.jpeg,.png"
+                    multiple={false}
+                    onDrop={(acceptedFiles) =>
+                      console.log(acceptedFiles)
+                    }
+                  >
+                    {({ getRootProps, getInputProps }) => (
+                      <Box
+                        {...getRootProps()}
+                        border={`2px dashed red`}
+                        p="1rem"
+                        sx={{ "&:hover": { cursor: "pointer" } }}
+                      >
+                        <input {...getInputProps()} />
+                          <p>Add Picture Here</p>
+                          
+                      </Box>
+                    )}
+                  </Dropzone>
         </div>
       </div>
     </div>
