@@ -10,6 +10,7 @@ import {
   FormControlLabel,
   FormControl, FormLabel
 } from "@mui/material";
+import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import Dropzone from "react-dropzone";
 
 
@@ -125,10 +126,12 @@ const Form = () => {
                         {...getRootProps()}
                         border={`2px dashed #DC143C`}
                         p="1rem"
+                        textAlign="center"
                         sx={{ "&:hover": { cursor: "pointer" } }}
                       >
+                        <ArrowCircleUpIcon />
                         <input {...getInputProps()} />
-                          <p>Add Picture Here</p>
+                          <p style={{textAlign: "center", margin: "5px"}}>Add Picture Here</p>
                           
                       </Box>
                     )}

@@ -3,6 +3,7 @@ import './css/Profile.css'
 import Accordion from 'react-bootstrap/Accordion';
 import Dropzone from 'react-dropzone';
 import { Box } from '@mui/material'
+import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 
 
 function Profile() {
@@ -34,12 +35,14 @@ function Profile() {
                     {({ getRootProps, getInputProps }) => (
                       <Box
                         {...getRootProps()}
-                        border={`2px dashed red`}
+                        border={`2px dashed #DC143C`}
                         p="1rem"
+                        textAlign="center"
                         sx={{ "&:hover": { cursor: "pointer" } }}
                       >
+                        <ArrowCircleUpIcon />
                         <input {...getInputProps()} />
-                          <p>Add Picture Here</p>
+                          <p style={{textAlign: "center", margin: "5px"}}>Add Picture Here</p>
                           
                       </Box>
                     )}
