@@ -49,6 +49,19 @@ const Form = () => {
               name="password"
               sx={{ gridColumn: "span 4" }}
             />
+            <Button
+              fullWidth
+              type="submit"
+              sx={{
+                width: 420,
+                m: "2rem 0",
+                p: "1rem",
+                backgroundColor: "#DC143C",
+                color: "black",
+                "&:hover": { color: "white", backgroundColor: "#8B0000"},
+              }}
+            > LOGIN
+            </Button>
               </>
             )}
             
@@ -147,6 +160,18 @@ const Form = () => {
                     )}
                   </Dropzone>
                 </Box>
+                <Button
+                  type="submit"
+                  sx={{
+                    width: 420,
+                    m: "2rem 0",
+                    p: "1rem",
+                    backgroundColor: "#DC143C",
+                    color: "black",
+                    "&:hover": { color: "white", backgroundColor: "#8B0000"},
+                  }}
+                > REGISTER
+                </Button>
               </>
             )}
 
@@ -157,7 +182,7 @@ const Form = () => {
 
           {/* BUTTONS */}
           <Box>
-            <Button
+            {/* <Button
               fullWidth
               type="submit"
               sx={{
@@ -168,7 +193,7 @@ const Form = () => {
                 "&:hover": { color: "white", backgroundColor: "#8B0000"},
               }}
             > {isLogin ? "LOGIN" : "REGISTER"}
-            </Button>
+            </Button> */}
             <Typography
               onClick={() => {
                 setPageType(isLogin ? "register" : "login");
