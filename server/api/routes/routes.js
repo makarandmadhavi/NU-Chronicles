@@ -1,8 +1,8 @@
 const bodyParser = require('body-parser');
 const Sample = require('../models/user');
 const { addNewUser, deleteExistingUser, getAllUsers, updateExistingUser } = require('../controllers/UserController');
-const { addHousing, getHouse, updateHouse, deleteHouse, insertReview, deleteReview } = require('../controllers/housingController');
-const housing = require('../models/housing');
+const { addPosting, getPosting, updatePosting, deletePosting, insertReview, deleteReview } = require('../controllers/postController');
+const post = require('../models/post');
 
 
 module.exports = (app) => {
@@ -13,7 +13,7 @@ module.exports = (app) => {
     //Get one User
     app.post('/user/loginApi', function (req, res) {
         console.log("EMAIL: " + req.body.email);
-        housing.findOne({ email: req.body.email }, function (error, samples) {
+        post.findOne({ email: req.body.email }, function (error, samples) {
             if (error)
                 res.send(error);
             console.log("In server : " + req.body.email);
@@ -32,17 +32,17 @@ module.exports = (app) => {
     app.put('/user/updateuser', bodyParser.json(), updateExistingUser);
 
 
-    //addhousing
-    app.post('/housing/create', bodyParser.json(), addHousing);
+    //addpost
+    app.post('/post/create', bodyParser.json(), addPosting);
 
-    //get Housing Data
-    app.get('/housing/get', getHouse);
+    //get Post Data
+    app.get('/post/get', getPosting);
 
-    //Update Housing
-    app.put('/housing/update', updateHouse);
+    //Update Post
+    app.put('/post/update', updatePosting);
 
-    //Delete housing
-    app.delete('/housing/delete', bodyParser.json(), deleteHouse);
+    //Delete post
+    app.delete('/post/delete', bodyParser.json(), deletePosting);
 
 
     //add Review/ Rating

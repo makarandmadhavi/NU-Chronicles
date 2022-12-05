@@ -1,7 +1,5 @@
 const user = require('../models/user');
 const bcrypt = require('bcryptjs');
-const housing = require('../models/housing');
-
 
 const regexForEmail = /^([\w.]+)@northeastern\.edu$/;
 const regexforName = /^[\w]+$/;

@@ -1,10 +1,10 @@
-const { createHousing, getHousing, updateHousing, deleteHousing, addReview, deleteRating } = require('../services/HousingService');
+const { createPost, getPost, updatePost, deletePost, addReview, deleteRating } = require('../services/PostService');
 
-const addHousing = async (req, res) => {
-    const house = req.body;
+const addPosting = async (req, res) => {
+    const post = req.body;
     // console.log("in add housing " + req.body.QnA_List[0].answers);
     try {
-        let result = await createHousing(house);
+        let result = await createPost(post);
 
         res.status(result.status);
         res.json(result);
@@ -14,9 +14,9 @@ const addHousing = async (req, res) => {
     }
 }
 
-const getHouse = async (req, res) => {
+const getPosting = async (req, res) => {
     try {
-        let result = await getHousing();
+        let result = await getPost();
 
         // console.log("In controller " + result);
         res.status(result.status);
@@ -28,10 +28,10 @@ const getHouse = async (req, res) => {
     }
 }
 
-const updateHouse = async (req, res) => {
+const updatePosting = async (req, res) => {
     const data = req.body;
     try{
-        let result = await updateHousing(req.body._id, data);
+        let result = await updatePost(req.body._id, data);
 
         res.status(result.status);
         res.json(result);
@@ -42,10 +42,10 @@ const updateHouse = async (req, res) => {
     }
 }
 
-const deleteHouse = async (req, res) => {
+const deletePosting = async (req, res) => {
     const id = req.body._id;
     try{
-        let result = await deleteHousing(id);
+        let result = await deletePost(id);
 
         res.status(result.status);
         res.json(result);
@@ -58,7 +58,7 @@ const deleteHouse = async (req, res) => {
 }
 
 const insertReview = async (req, res) => {
-    const id  = req.body._id; // Housing ID to find the House
+    const id  = req.body._id; // Post ID to find the Post
     var rating = {};
     rating.user = req.body.user;
     rating.rating = req.body.rating;
@@ -76,10 +76,10 @@ const insertReview = async (req, res) => {
 }
 
 const deleteReview = async (req, res) => {
-    const houseID = req.body._id;
+    const PostID = req.body._id;
     const reviewId = req.body.reviewId;
     try {
-        let result = await deleteRating(houseID, reviewId);
+        let result = await deleteRating(PostID, reviewId);
 
         res.status(result.status);
         res.json(result);
@@ -91,10 +91,10 @@ const deleteReview = async (req, res) => {
 }
 
 module.exports = {
-    addHousing,
-    getHouse,
-    updateHouse,
-    deleteHouse,
+    addPosting,
+    getPosting,
+    updatePosting,
+    deletePosting,
     insertReview,
     deleteReview
 }
