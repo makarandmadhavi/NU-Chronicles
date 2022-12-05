@@ -10,6 +10,7 @@ import Login from './Pages/loginPage/index'
 import Addpost from './Pages/Addpost'
 import Dashboard from './Pages/Dashboard';
 import AdminDash from './Pages/AdminDash';
+import Viewpost from './Pages/Viewpost';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
     <div className="App">
      
       <Navigationbar />
+      <div>
       <Router>
       <Routes>
           <Route path='/register' element={<Login />}>Register</Route>
@@ -36,7 +38,11 @@ function App() {
         <Routes>
           <Route path='/addpost' element={ <Addpost />}>Register</Route>
         </Routes>
+        <Routes>
+          <Route path='/viewpost' element={ <Viewpost/>}>Register</Route>
+        </Routes>
       </Router>
+      </div>
       <Footer />
     </div>
   );
