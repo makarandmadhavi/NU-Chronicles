@@ -17,7 +17,7 @@ function AdminDash(){
             >
                 <Box
                 gridColumn="span 3"
-                backgroundColor="indigo"
+                backgroundColor="#222"
                 display="flex"
                 alignItems="center"
                 justifyContent="center"
@@ -29,25 +29,107 @@ function AdminDash(){
                                 <Typography
                                     variant="h5"
                                     fontWeight="bold"
-                                    sx={{ color: "#000" }}
+                                    sx={{ color: "#fff" }}
                                 >
                                     Users
                                 </Typography>
                             </Box>
                         </Box>
                         <Box display="flex" justifyContent="space-between" mt="2px">
-                        <Typography variant="h6" sx={{ color: "#DC143C" }}>
+                        {/* <Typography variant="h6" sx={{ color: "#DC143C" }}>
                             subtitle
-                        </Typography>
+                        </Typography> */}
                         <Typography
                             variant="h5"
                             fontStyle="italic"
-                            sx={{ color: "#000" }}
+                            sx={{ color: "#8B0000" }}
                         >
-                            increase
+                            No. of Users
                         </Typography>
                         </Box>
                     </Box>
+
+                    
+
+                </Box>
+
+
+
+                <Box
+                gridColumn="span 3"
+                backgroundColor="#222"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                >
+                    <Box width="100%" m="0 30px">
+                        <Box display="flex" justifyContent="space-between">
+                            <Box>
+                                <GroupIcon sx={{color: "#DC143C"}} />
+                                <Typography
+                                    variant="h5"
+                                    fontWeight="bold"
+                                    sx={{ color: "#fff" }}
+                                >
+                                    Users
+                                </Typography>
+                            </Box>
+                        </Box>
+                        <Box display="flex" justifyContent="space-between" mt="2px">
+                        {/* <Typography variant="h6" sx={{ color: "#DC143C" }}>
+                            subtitle
+                        </Typography> */}
+                        <Typography
+                            variant="h5"
+                            fontStyle="italic"
+                            sx={{ color: "#8B0000" }}
+                        >
+                            No. of Users
+                        </Typography>
+                        </Box>
+                    </Box>
+
+                    
+
+                </Box>
+
+
+                <Box
+                gridColumn="span 5"
+                backgroundColor="#222"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                >
+                    <Box width="100%" m="0 30px">
+                        <Box display="flex" justifyContent="space-between">
+                            <Box>
+                                <GroupIcon sx={{color: "#DC143C"}} />
+                                <Typography
+                                    variant="h5"
+                                    fontWeight="bold"
+                                    sx={{ color: "#fff" }}
+                                >
+                                    Users
+                                </Typography>
+                            </Box>
+                        </Box>
+                        <Box display="flex" justifyContent="space-between" mt="2px">
+                        {/* <Typography variant="h6" sx={{ color: "#DC143C" }}>
+                            subtitle
+                        </Typography> */}
+                        <Typography
+                            variant="h5"
+                            fontStyle="italic"
+                            sx={{ color: "#8B0000" }}
+                        >
+                            No. of Users
+                        </Typography>
+                        </Box>
+                    </Box>
+
+                    
+
                 </Box>
             </Box>
         </Box>
