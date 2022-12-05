@@ -124,7 +124,43 @@ async function deleteHousing(housingId) {
 // Adding rating
 async function addReview (housingID, rating){
     var result = {};
-    await housing.findById(housingID).then((doc, err) => {
+    await housing.findById(housingID).then( async (doc, err) => {
+        if(err){
+            result.status = 500;
+            result.message = "Error occured.";
+            console.log("Error!! failed!");
+        }
+        if(!doc){
+            result.status = 400;
+            result.message = "No housing record found!! Please check the details again.";
+        }
+        else{
+            console.log(doc + "===========================DOC===============================");
+            // console.log(doc.rating_list[0]);
+            let list = doc.rating_list;
+            // list.push(rating)
+            
+            doc.rating_list.push(rating);
+            let updatedres = await housing.findByIdAndUpdate(housingID, doc,  {returnOriginal: false });
+            if (!updatedres){
+                result.status = 400;
+                result.message = "Could not add review";
+                return result;
+            }
+            result.status = 200;
+            result.message = "Review Added";
+            return result;
+            // console.log(doc.rating_list.push(rating));
+
+        }
+    })
+    return result;
+}
+
+//Update rating
+async function deleteRating (housingID, reviewID){
+    var result = {};
+    await housing.findById(housingID).then(async (doc, err) => {
         if(err){
             result.status = 500;
             result.message = "Error occured.";
@@ -135,16 +171,34 @@ async function addReview (housingID, rating){
             result.message = "No Record found!! Please check the details again.";
         }
         else{
-            console.log(doc + "===========================DOC===============================");
-            // console.log(doc.rating_list[0]);
-            doc.rating_list.push(rating);
-            result.status = 200;
-            result.message = "Review Added";
-            return result;
-            // console.log(doc.rating_list.push(rating));
+            await doc.rating_list.forEach((element,index, object) => {
+                // console.log(element._id + " ============================= "+ reviewID + " " + (element._id == reviewID));
+                
+                if (element._id == reviewID){
+                    // console.log(element.review + " ============================= ");
 
-        }
+                    object.splice(index,1);
+                    return
+                }
+                result.status = 400;
+                result.message = "Did not find required review record";
+                return result;
+            });
+            if (result.status != 400){
+            let updatedres = await housing.findByIdAndUpdate(housingID, doc,  {returnOriginal: false });
+            if (!updatedres){
+                result.status = 400;
+                result.message = "Could not delete review";
+                return result;
+            }
+            result.status = 200;
+            result.message = "Review Deleted";
+            return result;      
+            }     
+         }
+         return result;
     })
+    return result;
 }
 
 
@@ -153,5 +207,6 @@ module.exports = {
     getHousing,
     updateHousing,
     deleteHousing,
-    
+    addReview,
+    deleteRating
 }

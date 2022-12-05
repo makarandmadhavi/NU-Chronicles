@@ -1,4 +1,4 @@
-const { createHousing, getHousing, updateHousing, deleteHousing, addReview } = require('../services/HousingService');
+const { createHousing, getHousing, updateHousing, deleteHousing, addReview, deleteRating } = require('../services/HousingService');
 
 const addHousing = async (req, res) => {
     const house = req.body;
@@ -66,8 +66,23 @@ const insertReview = async (req, res) => {
     try {
         let result = await addReview(id, rating);
 
-        res.send(result.status);
+        res.status(result.status);
         res.json(result.message);
+    }
+    catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+}
+
+const deleteReview = async (req, res) => {
+    const houseID = req.body._id;
+    const reviewId = req.body.reviewId;
+    try {
+        let result = await deleteRating(houseID, reviewId);
+
+        res.status(result.status);
+        res.json(result);
     }
     catch(e) {
         console.log(e);
@@ -80,5 +95,6 @@ module.exports = {
     getHouse,
     updateHouse,
     deleteHouse,
-    
+    insertReview,
+    deleteReview
 }
