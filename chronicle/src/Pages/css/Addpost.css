@@ -1,0 +1,28 @@
+
+
+form {
+    
+    margin-top: 10% !important;
+   
+    
+  
+}
+.card-header {
+    padding: 1rem 1.35rem !important;
+    margin-bottom: 0;
+    background-color: #212529!important;
+    color: white !important;
+    border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+    font-size: 20px !important;
+    text-align: center!important;
+}
+.card-body{
+    margin: auto !important;
+    width: 70% !important;
+    font-size: 20px !important;
+    font-weight: 20px!important;
+}
+#savepost{
+    width: 100% !important;
+    margin: auto !important;
+}
