@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Card from 'react-bootstrap/card'
+import { Rating } from '@mui/material'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons'
 import './css/ElementCard.css'
 
 function ElementCard(props) {
     const data = props.data;
+    const [ value, setValue ] = useState("5")
     return (
         <Card className='elementCard'>
             <Card.Header>Category</Card.Header>
@@ -20,10 +22,15 @@ function ElementCard(props) {
             </Card.Body>
             <Card.Footer >
                 <span>
-                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faStarHalf}></FontAwesomeIcon>
+                <Rating
+                    name="simple-controlled"
+                    sx={{size: "large"}}
+                    value={value}
+                    onChange={(event, newValue )  => {
+                        setValue(newValue);
+                    }}
+                />
                 </span>
-                
                 (31)
             </Card.Footer>
         </Card>
