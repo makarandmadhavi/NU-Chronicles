@@ -1,10 +1,10 @@
-const housing = require('../models/housing');
-const user = require('../models/housing');
+const post = require('../models/post');
+const user = require('../models/user');
 
 
 
 //Create Data
-async function createHousing(data) {
+async function createPost(data) {
     var title = data.title;
     var address = data.address;
     var floorPlan = data.floorPlan;
@@ -15,20 +15,20 @@ async function createHousing(data) {
 
     var result = {};
 
-    await housing.findOne({title : data.title }).then((doc) => {
+    await post.findOne({title : data.title }).then((doc) => {
         if (doc) {
                 
             result.status = 400;
             result.message =  "User already exists with same title: " + title;
         } 
         else{
-            var newHousing = new housing(data);
+            var newPost = new post(data);
 
-            newHousing.save(function(message, data){
+            newPost.save(function(message, data){
                 if (message) {
                     console.log(message);
                     result.status = 500;
-                    result.message =  "Housing not created";
+                    result.message =  "Post not created";
                     return;
                 }
                 result = data;
@@ -50,9 +50,9 @@ async function createHousing(data) {
 }
 
 // get data
-async function getHousing() {
+async function getPost() {
     var result = {};
-    await housing.find().then(function(data, error) {
+    await post.find().then(function(data, error) {
         if (error){
             console.log("Error Occured " + error);
             result.status = 500;
@@ -72,11 +72,11 @@ async function getHousing() {
 }
 
 
-async function updateHousing(userId, data) {
+async function updatePost(userId, data) {
     // const id ={_id: userId };
     var result = {};
     try{
-        let doc = await housing.findByIdAndUpdate(userId , data, {returnOriginal: false });
+        let doc = await post.findByIdAndUpdate(userId , data, {returnOriginal: false });
         if (!doc){
             result.status = 400;
             result.message = "No record found";
@@ -96,11 +96,11 @@ async function updateHousing(userId, data) {
     
 }
 
-async function deleteHousing(housingId) {
+async function deletePost(postId) {
     // let emailDelete = email;
     // console.log(emailDelete + "email delete in services");
     var result = {};
-        await housing.findByIdAndDelete(housingId).then(function(doc, error){
+        await post.findByIdAndDelete(postId).then(function(doc, error){
             console.log("The document deleted is " + doc + " " + error);
             if(error){
                 result.status = 500;
@@ -122,9 +122,9 @@ async function deleteHousing(housingId) {
 }
 
 // Adding rating
-async function addReview (housingID, rating){
+async function addReview (postID, rating){
     var result = {};
-    await housing.findById(housingID).then( async (doc, err) => {
+    await post.findById(postID).then( async (doc, err) => {
         if(err){
             result.status = 500;
             result.message = "Error occured.";
@@ -132,7 +132,7 @@ async function addReview (housingID, rating){
         }
         if(!doc){
             result.status = 400;
-            result.message = "No housing record found!! Please check the details again.";
+            result.message = "No post record found!! Please check the details again.";
         }
         else{
             console.log(doc + "===========================DOC===============================");
@@ -141,7 +141,7 @@ async function addReview (housingID, rating){
             // list.push(rating)
             
             doc.rating_list.push(rating);
-            let updatedres = await housing.findByIdAndUpdate(housingID, doc,  {returnOriginal: false });
+            let updatedres = await post.findByIdAndUpdate(postID, doc,  {returnOriginal: false });
             if (!updatedres){
                 result.status = 400;
                 result.message = "Could not add review";
@@ -158,9 +158,9 @@ async function addReview (housingID, rating){
 }
 
 //Update rating
-async function deleteRating (housingID, reviewID){
+async function deleteRating (postID, reviewID){
     var result = {};
-    await housing.findById(housingID).then(async (doc, err) => {
+    await post.findById(postID).then(async (doc, err) => {
         if(err){
             result.status = 500;
             result.message = "Error occured.";
@@ -185,7 +185,7 @@ async function deleteRating (housingID, reviewID){
                 return result;
             });
             if (result.status != 400){
-            let updatedres = await housing.findByIdAndUpdate(housingID, doc,  {returnOriginal: false });
+            let updatedres = await post.findByIdAndUpdate(postID, doc,  {returnOriginal: false });
             if (!updatedres){
                 result.status = 400;
                 result.message = "Could not delete review";
@@ -203,10 +203,10 @@ async function deleteRating (housingID, reviewID){
 
 
 module.exports = {
-    createHousing, 
-    getHousing,
-    updateHousing,
-    deleteHousing,
+    createPost, 
+    getPost,
+    updatePost,
+    deletePost,
     addReview,
     deleteRating
 }

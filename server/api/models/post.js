@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-var housing = new mongoose.Schema({
+var post = new mongoose.Schema({
     title: { type: String, default:''},
     address: { type: String, default:''},
     floorPlan: { type: String, default:''},
@@ -18,4 +18,4 @@ var housing = new mongoose.Schema({
     
 })
 
-module.exports = mongoose.model('housing', housing);
+module.exports = mongoose.model('post', post);
