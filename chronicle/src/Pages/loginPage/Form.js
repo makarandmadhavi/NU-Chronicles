@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import {
   Box,
   Button,
@@ -16,6 +17,7 @@ import Dropzone from "react-dropzone";
 
 const Form = () => {
   const [pageType, setPageType] = useState("login");
+  const [ value, setValue ] = useState("")
 
   const isNonMobile = useMediaQuery("(min-width:600px)");
   const isLogin = pageType === "login";
@@ -115,11 +117,12 @@ const Form = () => {
                   sx={{color: "black"}}
                 >
                   <Dropzone
-                    acceptedFiles=".jpg,.jpeg,.png"
+                    acceptedFiles="image/*"
                     multiple={false}
                     onDrop={(acceptedFiles) =>
-                      console.log(acceptedFiles)
+                      setValue(acceptedFiles[0])
                     }
+                    
                   >
                     {({ getRootProps, getInputProps }) => (
                       <Box
@@ -129,10 +132,17 @@ const Form = () => {
                         textAlign="center"
                         sx={{ "&:hover": { cursor: "pointer" } }}
                       >
-                        <ArrowCircleUpIcon />
+                        
                         <input {...getInputProps()} />
-                          <p style={{textAlign: "center", margin: "5px"}}>Add Picture Here</p>
+                        <ArrowCircleUpIcon />
+                          {!value.name ? (
+                            <p style={{textAlign: "center", margin: "5px"}}>Add Picture Here</p>
+                          ) : (
+                            <Typography sx={{textAlign: "center"}}>{value.name}</Typography>
+                            
+                          )}
                           
+                               
                       </Box>
                     )}
                   </Dropzone>
