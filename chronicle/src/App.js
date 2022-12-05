@@ -11,7 +11,7 @@ import Addpost from './Pages/Addpost'
 import Dashboard from './Pages/Dashboard';
 import AdminDash from './Pages/AdminDash';
 import Viewpost from './Pages/Viewpost';
-
+import { ProtectedRoute } from './components/ProtectedRoute';
 
 function App() {
   return (
@@ -21,13 +21,13 @@ function App() {
       <div>
       <Router>
       <Routes>
-          <Route path='/register' element={<Login />}>Register</Route>
+          <Route path='/register' element={ <Login />}>Register</Route>
       </Routes>
         <Routes>
           <Route path='/' element={<Home />}>Register</Route>
         </Routes>
         <Routes>
-          <Route path='/profile' element={ <Profile />}>Register</Route>
+          <Route path='/profile' element={ <ProtectedRoute> <Profile /></ProtectedRoute>}>Register</Route>
         </Routes>
         <Routes>
           <Route path='/admin' element={ <AdminDash />}>Register</Route>

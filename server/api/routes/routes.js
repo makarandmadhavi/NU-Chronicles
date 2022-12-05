@@ -1,6 +1,6 @@
 const bodyParser = require('body-parser');
 const Sample = require('../models/user');
-const { addNewUser, deleteExistingUser, getAllUsers, updateExistingUser } = require('../controllers/UserController');
+const { addNewUser, deleteExistingUser, getAllUsers, updateExistingUser, login } = require('../controllers/UserController');
 const { addPosting, getPosting, updatePosting, deletePosting, insertReview, deleteReview, getReviews, insertQuestion, deleteQnA } = require('../controllers/postController');
 const post = require('../models/post');
 
@@ -11,16 +11,18 @@ module.exports = (app) => {
 
 
     //Get one User
-    app.post('/user/loginApi', function (req, res) {
-        console.log("EMAIL: " + req.body.email);
-        post.findOne({ email: req.body.email }, function (error, samples) {
-            if (error)
-                res.send(error);
-            console.log("In server : " + req.body.email);
-            res.status(200);
-            res.json(samples);
-        });
-    });
+    // app.post('/user/loginApi', function (req, res) {
+    //     console.log("EMAIL: " + req.body.email);
+    //     post.findOne({ email: req.body.email }, function (error, samples) {
+    //         if (error)
+    //             res.send(error);
+    //         console.log("In server : " + req.body.email);
+    //         res.status(200);
+    //         res.json(samples);
+    //     });
+    // });
+
+    app.post('/user/loginApi', bodyParser.json(), login);
 
     //delete User
     app.delete('/user/delete', bodyParser.json(), deleteExistingUser);

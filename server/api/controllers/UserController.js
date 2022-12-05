@@ -1,4 +1,4 @@
-const { createUser, deleteUser, getUsers, updateUser } = require('../services/UserService');
+const { createUser, deleteUser, getUsers, updateUser, getAuthentication } = require('../services/UserService');
 
 /*
  * call other imported services, or same service but different functions here if you need to
@@ -62,9 +62,24 @@ const getAllUsers = async (req, res) => {
     }
 }
 
+const login = async (req, res) => {
+    try{
+        let result = await getAuthentication(req.body.email, req.body.password);
+
+        res.status(result.status);
+        res.json(result);
+
+    }
+    catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+}
+
 module.exports = {
     addNewUser,
     deleteExistingUser,
     getAllUsers,
-    updateExistingUser
+    updateExistingUser,
+    login
 }
