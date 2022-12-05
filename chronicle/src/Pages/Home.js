@@ -10,7 +10,7 @@ import LoginModal from '../components/LoginModal';
 function Home() {
   return (
     <div>
-    <Navigationbar />
+    {/* <Navigationbar /> */}
     <ControlledCarousel />
     <AboutUs />
     <ScrollspyComponent />

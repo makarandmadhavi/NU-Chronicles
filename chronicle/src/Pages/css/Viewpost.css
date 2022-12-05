@@ -1,0 +1,16 @@
+.card-title{
+    padding: 1rem 1.35rem !important;
+    margin-bottom: 0;
+    background-color: #212529!important;
+    color: white !important;
+    border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+    font-size: 20px !important;
+    text-align: center!important;
+}
+.card-body{
+    width: auto !important;
+}
+.card-img{
+    width: 100% !important;
+    height: 100% !important;
+}
