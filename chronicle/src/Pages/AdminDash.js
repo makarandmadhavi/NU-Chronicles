@@ -18,6 +18,7 @@ function AdminDash(){
                 <Box
                 gridColumn="span 3"
                 backgroundColor="#222"
+                borderRadius="1rem"
                 display="flex"
                 alignItems="center"
                 justifyContent="center"
@@ -58,6 +59,7 @@ function AdminDash(){
                 <Box
                 gridColumn="span 3"
                 backgroundColor="#222"
+                borderRadius="1rem"
                 display="flex"
                 alignItems="center"
                 justifyContent="center"
@@ -97,6 +99,7 @@ function AdminDash(){
                 <Box
                 gridColumn="span 5"
                 backgroundColor="#222"
+                borderRadius="1rem"
                 display="flex"
                 alignItems="center"
                 justifyContent="center"
@@ -134,6 +137,7 @@ function AdminDash(){
                 gridColumn="span 11"
                 backgroundColor="#222"
                 display="flex"
+                borderRadius="1rem"
                 alignItems="center"
                 justifyContent="center"
                 >
