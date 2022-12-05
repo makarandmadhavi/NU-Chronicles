@@ -6,12 +6,13 @@ import { Box } from '@mui/material'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './css/Addpost.css'
+import housingapi from '../apiservice/housingapi'
 
 function Addpost() {
   const [category, setCategory] = useState('Housing');
   
   useEffect(() =>{
-  console.log(category);
+  
   if(category=='Housing'){
    document.getElementById('floorplan').style.display='block';
    document.getElementById('eventdate').style.display='none';
@@ -32,7 +33,7 @@ function Addpost() {
         address: '',
         description: '',
         floorPlan:'',
-        images:''
+        // images:''
 
     }
     
@@ -47,21 +48,42 @@ const handleChange = (e) => {
   })
   
 }
-console.log(newHouse)
+
+const addData = async(newHouse) =>{
+  housingapi.post('/create',newHouse).then((response) => {
+    console.log(response , "created");
+   
+  
+})
+.catch((error)=> {
+  console.log("byee")
+    
+    if (error.response+"1") {
+      // The request was made and the server responded with a status code
+      // that falls out of the range of 2xx
+      //console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    } else if (error.request+"2") {
+      // The request was made but no response was received
+      // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+      // http.ClientRequest in node.js
+      console.log(error.request+"3");
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      console.log('Error', error.message+"3");
+    }
+})
+ 
+
+};
+
 const handleSubmit = (e) => {
   e.preventDefault();
-  // const formData = new FormData();
-  // formData.append('photo', new.photo);
-  // formData.append('birthdate', newUser.birthdate);
-  // formData.append('name', newUser.name);
-
-  // axios.post('http://localhost:5000/users/add/', formData)
-  //      .then(res => {
-  //         console.log(res);
-  //      })
-  //      .catch(err => {
-  //         console.log(err);
-  //      });
+  console.log(newHouse, "submit");
+  setHouse(newHouse);
+  addData(newHouse);
+  setHouse([]);
 }
   
   return (
@@ -69,7 +91,7 @@ const handleSubmit = (e) => {
     <br></br>
     <Container>
      
-    <Form className='card'>
+    <Form className='card' onSubmit={handleSubmit}>
     <div className="card-header">Add a New Post</div>
     <fieldset className='card-body'>
     <label className="small mb-1" htmlFor="inputName">Name of the Place</label>
@@ -128,101 +150,7 @@ const handleSubmit = (e) => {
 </Container>
 </div>
 
-//     <div>
-//     <br/><br/>
-//     <div className="container-xl px-4 mt-4">
-// {/* Account page navigation*/}
 
-// <hr className="mt-0 mb-4" />
-// <div className="row">
-// <div className="col-xl-2"></div>
-// <div className="col-xl-8">
-//   {/* Account details card*/}
-//   <div className="card mb-4">
-//     <div className="card-header">Add a new Post</div>
-//     <div className="card-body">
-//       <form>
-        
-//         {/* Form Row*/}
-//         <div className="row gx-3 mb-3">
-//           {/* Form Group (first name)*/}
-//           <div className="col-md-8">
-//             <label className="small mb-1" htmlFor="inputName">Name of the place</label>
-//             <input className="form-control" id="inputName" type="text" placeholder="Enter name"  />
-//           </div>
-//           {/* Form Group (last name)*/}
-//           <div className="col-md-8">
-//             <label className="small mb-1" htmlFor="inputAddress">Address of the place</label>
-//             <input className="form-control" id="inputLastName" type="text" placeholder="Enter address"  />
-//           </div>
-//         </div>
-//         {/* Form Row        */}
-        
-//           {/* Form Group (organization name)*/}
-//           <div className="col-md-8">
-//             <label className="small mb-1" htmlFor="inputDesc">Description</label>
-//             <textarea className="form-control" id="inputDesc"  placeholder="Enter description"  />
-
-//         </div>
-//         <br/><br/>
-      
-//       <div className="col-md-6">
-//           <Form.Group className="mb-3 inputGroup">
-//                     <Form.Label htmlFor="category">Category</Form.Label>
-//                     <Form.Select id="category">
-//                         <option disabled>select...</option>
-//                         <option>Housing</option>
-//                         <option>Seasonal Clothing</option>
-//                         <option>Events</option>
-//                         <option>Nearby Attractions</option>
-//                     </Form.Select>
-//                 </Form.Group>
-         
-        
-//         </div>
-//       <div className="col-md-8">
-//       <Dropzone
-//                 acceptedFiles=".jpg,.jpeg,.png"
-//                 multiple={false}
-//                 onDrop={(acceptedFiles) =>
-//                   console.log(acceptedFiles)
-//                 }
-//               >
-//                 {({ getRootProps, getInputProps }) => (
-//                   <Box
-//                     {...getRootProps()}
-//                     border={`2px dashed red`}
-//                     p="1rem"
-//                     sx={{ "&:hover": { cursor: "pointer" } }}
-//                   >
-//                     <input {...getInputProps()} />
-//                       <p>Add Picture Here</p>
-                      
-//                   </Box>
-//                 )}
-//               </Dropzone>
-//               </div>
-//         {/* Form Row*/}
-       
-//           {/* Form Group (phone number)*/}
-         
-        
-        
-//         {/* Save changes button*/}
-//         <br/><br/>
-//         <div className="col-md-8">
-//         <button className="btn btn-danger" type="button">Save changes</button>
-//         </div>
-//       </form>
-//     </div>
-//   </div>
-// </div>
-
-// </div>
-
-// </div>
-
-// </div>
   )
 }
 

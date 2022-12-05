@@ -2,7 +2,7 @@ const { createHousing, getHousing, updateHousing, deleteHousing, addReview } = r
 
 const addHousing = async (req, res) => {
     const house = req.body;
-    console.log("in add housing " + req.body.QnA_List[0].answers);
+    // console.log("in add housing " + req.body.QnA_List[0].answers);
     try {
         let result = await createHousing(house);
 

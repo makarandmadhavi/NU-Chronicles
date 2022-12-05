@@ -2,7 +2,8 @@ require('./api/models/user');
 const express = require('express');
 const app = express();
 const port = 4000;
-
+var cors = require('cors')
+app.use(cors())
 const bodyParser = require('body-parser');
 const routes = require('./api/routes/routes');
 

@@ -32,8 +32,8 @@ async function createHousing(data) {
                     return;
                 }
                 result = data;
-                console.log("Answers in request " + QnA_List[0].answers);
-                console.log("Answers in result " + result.QnA_List[0].answers);
+                // console.log("Answers in request " + QnA_List[0].answers);
+                // console.log("Answers in result " + result.QnA_List[0].answers);
                 console.log(message);
             });
             // result = data;
