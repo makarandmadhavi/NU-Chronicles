@@ -5,7 +5,6 @@ import {
   TextField,
   useMediaQuery,
   Typography,
-  useTheme,
   Radio,
   RadioGroup,
   FormControlLabel,
@@ -16,7 +15,7 @@ import Dropzone from "react-dropzone";
 
 const Form = () => {
   const [pageType, setPageType] = useState("login");
-  const { palette } = useTheme();
+
   const isNonMobile = useMediaQuery("(min-width:600px)");
   const isLogin = pageType === "login";
   const isRegister = pageType === "register";
@@ -124,7 +123,7 @@ const Form = () => {
                     {({ getRootProps, getInputProps }) => (
                       <Box
                         {...getRootProps()}
-                        border={`2px dashed blue`}
+                        border={`2px dashed #DC143C`}
                         p="1rem"
                         sx={{ "&:hover": { cursor: "pointer" } }}
                       >
@@ -151,9 +150,9 @@ const Form = () => {
               sx={{
                 m: "2rem 0",
                 p: "1rem",
-                backgroundColor: "red",
+                backgroundColor: "#DC143C",
                 color: "black",
-                "&:hover": { color: "white"},
+                "&:hover": { color: "white", backgroundColor: "#8B0000"},
               }}
             > {isLogin ? "LOGIN" : "REGISTER"}
             </Button>
@@ -163,10 +162,10 @@ const Form = () => {
               }}
               sx={{
                 textDecoration: "underline",
-                color: palette.primary.main,
+                color: "#1E90FF",
                 "&:hover": {
                   cursor: "pointer",
-                  color: palette.primary.light,
+                  color: "#00BFFF",
                 },
               }}
             >
