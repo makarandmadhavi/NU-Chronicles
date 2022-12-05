@@ -14,13 +14,13 @@ function Dashboard() {
         <hr /> 
         <Row>
           <Col sm={4}>
-          <ElementCard></ElementCard>
+          {/* <ElementCard></ElementCard> */}
           </Col> 
           <Col sm={4}>
-          <ElementCard></ElementCard>
+          {/* <ElementCard></ElementCard> */}
           </Col> 
           <Col sm={4}>
-          <ElementCard></ElementCard>
+          {/* <ElementCard></ElementCard> */}
           </Col> 
         </Row> 
       </Container>
