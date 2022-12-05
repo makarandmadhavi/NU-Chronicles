@@ -1,4 +1,4 @@
-const { createPost, getPost, updatePost, deletePost, addReview, deleteRating } = require('../services/PostService');
+const { createPost, getPost, updatePost, deletePost, addReview, deleteRating, getRating, addQuestion, deleteQuestionAns } = require('../services/PostService');
 
 const addPosting = async (req, res) => {
     const post = req.body;
@@ -60,7 +60,7 @@ const deletePosting = async (req, res) => {
 const insertReview = async (req, res) => {
     const id  = req.body._id; // Post ID to find the Post
     var rating = {};
-    rating.user = req.body.user;
+    rating.userID = req.body.userID;
     rating.rating = req.body.rating;
     rating.review = req.body.review;
     try {
@@ -74,6 +74,22 @@ const insertReview = async (req, res) => {
         res.sendStatus(500);
     }
 }
+
+//Get review
+const getReviews = async (req, res) => {
+    const PostID = req.body._id;
+    try {
+        let result = await getRating(PostID);
+
+        res.status(result.status);
+        res.json(result);
+    }
+    catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+}
+
 
 const deleteReview = async (req, res) => {
     const PostID = req.body._id;
@@ -90,11 +106,48 @@ const deleteReview = async (req, res) => {
     }
 }
 
+//insert Question
+const insertQuestion = async (req, res) => {
+    const id  = req.body._id; // Post ID to find the Post
+    var rating = {};
+    userID = req.body.user_id;
+    question = req.body.question;
+    try {
+        let result = await addQuestion(id, userID, question);
+
+        res.status(result.status);
+        res.json(result.message);
+    }
+    catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+}
+
+//delete qna
+const deleteQnA = async (req, res) => {
+    const PostID = req.body._id;
+    const QnA_ID = req.body.QnA_ID;
+    try {
+        let result = await deleteQuestionAns(PostID, QnA_ID);
+
+        res.status(result.status);
+        res.json(result);
+    }
+    catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+}
+
 module.exports = {
     addPosting,
     getPosting,
     updatePosting,
     deletePosting,
     insertReview,
-    deleteReview
+    deleteReview,
+    getReviews,
+    insertQuestion,
+    deleteQnA
 }

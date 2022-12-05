@@ -157,7 +157,7 @@ async function addReview (postID, rating){
     return result;
 }
 
-//Update rating
+//Delete rating
 async function deleteRating (postID, reviewID){
     var result = {};
     await post.findById(postID).then(async (doc, err) => {
@@ -172,13 +172,14 @@ async function deleteRating (postID, reviewID){
         }
         else{
             await doc.rating_list.forEach((element,index, object) => {
-                // console.log(element._id + " ============================= "+ reviewID + " " + (element._id == reviewID));
+                console.log(element._id + " ============================= "+ reviewID + " " + (element._id == reviewID));
                 
                 if (element._id == reviewID){
                     // console.log(element.review + " ============================= ");
 
                     object.splice(index,1);
-                    return
+                    result.status = 200;
+                    return;
                 }
                 result.status = 400;
                 result.message = "Did not find required review record";
@@ -201,6 +202,129 @@ async function deleteRating (postID, reviewID){
     return result;
 }
 
+//Get Reviews
+async function getRating (postID){
+    var result = {};
+    await post.findById(postID).then(async (doc, err) => {
+        if(err){
+            result.status = 500;
+            result.message = "Error occured.";
+            console.log("Error!! failed!");
+        }
+        if(!doc){
+            result.status = 400;
+            result.message = "No Record found!! Please check the details again.";
+        }
+        else{
+            result.list = doc.rating_list;     
+            result.status = 200;
+            result.message = "Reviews found";
+         }
+         return result;
+    })
+    return result;
+}
+
+
+//Add Question
+async function addQuestion (postID, user_ID, question){
+    var result = {};
+    await post.findById(postID).then( async (doc, err) => {
+        if(err){
+            result.status = 500;
+            result.message = "Error occured.";
+            console.log("Error!! failed!");
+        }
+        if(!doc){
+            result.status = 400;
+            result.message = "No post record found!! Please check the details again.";
+        }
+        else{
+            console.log(doc + "===========================DOC===============================");
+            // console.log(doc.rating_list[0]);
+            let list = doc.QnA_List;
+            // list.push(rating)
+            
+            // doc.QnA_List.forEach(element => {
+            //     if (element )
+            // });
+            if(doc.QnA_List.find((element) => {
+                console.log(question);
+                return element.question.value == question;
+            })){
+                result.status = 400;
+                result.message = "Question Already exist";
+                return result;
+            }
+            
+                var Question = {};
+                Question.question = {};
+                Question.question.userID = user_ID;
+                Question.question.value = question;
+                doc.QnA_List.push(Question);
+                
+            
+            let updatedres = await post.findByIdAndUpdate(postID, doc,  {returnOriginal: false });
+            if (!updatedres){
+                result.status = 400;
+                result.message = "Could not add review";
+                return result;
+            }
+            result.status = 200;
+            result.message = "Question Added";
+            return result;
+            // console.log(doc.rating_list.push(rating));
+        }
+    })
+    return result;
+}
+
+//Delete Question And Answers
+async function deleteQuestionAns (postID, QnA_ID){
+    var result = {};
+    await post.findById(postID).then(async (doc, err) => {
+        if(err){
+            result.status = 500;
+            result.message = "Error occured.";
+            console.log("Error!! failed!");
+        }
+        if(!doc){
+            result.status = 400;
+            result.message = "No Record found!! Please check the details again.";
+        }
+        else{
+            await doc.QnA_List.forEach((element,index, object) => {
+                // console.log(element._id + " ============================= "+ QnA_ID + " " + (element._id == QnA_ID));
+                
+                if (element._id == QnA_ID){
+                    // console.log(element.review + " ============================= ");
+
+                    object.splice(index,1);
+                    result.status = 200;
+                    return;
+                }
+                result.status = 400;
+                result.message = "Did not find required review record";
+                return result;
+            });
+            if (result.status != 400){
+            let updatedres = await post.findByIdAndUpdate(postID, doc,  {returnOriginal: false });
+            if (!updatedres){
+                result.status = 400;
+                result.message = "Could not delete QnA";
+                return result;
+            }
+            result.status = 200;
+            result.message = "QnA Deleted";
+            return result;      
+            }     
+         }
+         return result;
+    })
+    return result;
+}
+
+
 
 module.exports = {
     createPost, 
@@ -208,5 +332,8 @@ module.exports = {
     updatePost,
     deletePost,
     addReview,
-    deleteRating
+    deleteRating,
+    getRating,
+    addQuestion,
+    deleteQuestionAns
 }
