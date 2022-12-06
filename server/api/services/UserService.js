@@ -14,7 +14,7 @@ function createUser(data) {
     var firstName = data.firstName;
     var lastName = data.lastName;
     var role = data.role;
-    var phoneNumber = data.phoneNumber;
+    // var phoneNumber = data.phoneNumber;
     var NUID = data.NUID;
 
     var result = {};
@@ -45,9 +45,9 @@ function createUser(data) {
         return { status: 400, message: "Please enter valid 9 digit NUID number" };
     }
 
-    else if (!phoneNumber.trim().match(regexforPhone)) {
-        return { status: 400, message: "Please enter valid Phone Number" };
-    }
+    // else if (!phoneNumber.trim().match(regexforPhone)) {
+    //     return { status: 400, message: "Please enter valid Phone Number" };
+    // }
 
     else {
         return user.findOne({ email: email }).then((doc) => {
@@ -107,7 +107,7 @@ async function updateUser(user_id, newUserData) {
     var firstName = newUserData.firstName;
     var lastName = newUserData.lastName;
     var role = newUserData.role;
-    var phoneNumber = newUserData.phoneNumber;
+    // var phoneNumber = newUserData.phoneNumber;
     var NUID = newUserData.NUID;
 
     var result = {};
@@ -138,9 +138,9 @@ async function updateUser(user_id, newUserData) {
         return { status: 400, message: "Please enter valid 9 digit NUID number" };
     }
 
-    else if (phoneNumber && !phoneNumber.trim().match(regexforPhone)) {
-        return { status: 400, message: "Please enter valid Phone Number" };
-    }
+    // else if (phoneNumber && !phoneNumber.trim().match(regexforPhone)) {
+    //     return { status: 400, message: "Please enter valid Phone Number" };
+    // }
     else {
         // var result = {};
         console.log("Inside else and before update================================= ");
