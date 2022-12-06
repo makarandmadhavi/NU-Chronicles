@@ -23,9 +23,9 @@ function Navigationbar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">About Us</Nav.Link>
-            <Nav.Link href="#link">Explore</Nav.Link>
-            <Nav.Link href="#link">Top Hits</Nav.Link>
+            <Nav.Link href="#about">About Us</Nav.Link>
+            <Nav.Link href="#resources">Explore</Nav.Link>
+            <Nav.Link href="#tophits">Top Hits</Nav.Link>
             <Button variant='danger' onClick={sessionStorage.removeItem('user')}>Logout</Button>
 
           </Nav>
