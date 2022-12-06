@@ -26,6 +26,7 @@ function Navigationbar() {
             <Nav.Link href="/">About Us</Nav.Link>
             <Nav.Link href="#link">Explore</Nav.Link>
             <Nav.Link href="#link">Top Hits</Nav.Link>
+            <Button variant='danger' onClick={sessionStorage.removeItem('user')}>Logout</Button>
 
           </Nav>
           <LoginModal/> 
