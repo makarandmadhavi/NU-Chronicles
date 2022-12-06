@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import userapi from "../../apiservice/userapi";
 import { Navigate,Link,useNavigate } from 'react-router-dom';
 import {
@@ -15,8 +15,18 @@ import {
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import Dropzone from "react-dropzone";
 
+import { UserContext } from "../../App";
+import { Navigate } from "react-router-dom";
+
+
+
 
 const Form = () => {
+
+  
+
+  const { state, dispatch } = useContext(UserContext)
+
   const [pageType, setPageType] = useState("login");
   const [value, setValue] = useState("")
 
@@ -39,10 +49,7 @@ const Form = () => {
       alert(response.data.message);
       console.log(response.data.user);
       sessionStorage.setItem('user',response.data.user);
-      if(sessionStorage){
-       <Link to ='/dashboard' />;
-      }
-
+      dispatch({type: "USER", payload: true})
     } catch (error) {
      alert("Unauthorized"); 
      //handle unauthorize scenerio

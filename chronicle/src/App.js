@@ -12,38 +12,46 @@ import Dashboard from './Pages/Dashboard';
 import AdminDash from './Pages/AdminDash';
 import Viewpost from './Pages/Viewpost';
 import { ProtectedRoute } from './components/ProtectedRoute';
+import { createContext, useReducer } from 'react';
+
+import { reducer, initialState } from '../src/reducer/UseReducer'
+
+export const UserContext = createContext();
 
 function App() {
+
+  
+
+  const [ state, dispatch ] = useReducer(reducer, initialState)
+
+
   return (
     <div className="App">
-     
-      <Navigationbar />
+      <UserContext.Provider value={{state, dispatch}}>
+
+        <Navigationbar />
+
       <div>
       <Router>
       <Routes>
           <Route path='/register' element={ <Login />}>Register</Route>
-      </Routes>
-        <Routes>
+      
           <Route path='/' element={<Home />}>Register</Route>
-        </Routes>
-        <Routes>
+        
           <Route path='/profile' element={ <ProtectedRoute> <Profile /></ProtectedRoute>}>Register</Route>
-        </Routes>
-        <Routes>
+       
           <Route path='/admin' element={ <AdminDash />}>Register</Route>
-        </Routes>
-        <Routes>
+        
           <Route path='/dashboard' element={ <Dashboard />}>Register</Route>
-        </Routes>
-        <Routes>
+        
           <Route path='/addpost' element={ <Addpost />}>Register</Route>
-        </Routes>
-        <Routes>
+      
           <Route path='/viewpost' element={ <Viewpost/>}>Register</Route>
         </Routes>
       </Router>
       </div>
       <Footer />
+      </UserContext.Provider>
     </div>
   );
 }
