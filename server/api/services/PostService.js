@@ -1,24 +1,50 @@
 const post = require('../models/post');
-const user = require('../models/user');
 
-
-
+const regexForTitle = /^[\w.()\s?,"\]\[]+$/;
+const regexforOnlyWords = /^[a-zA-Z]+$/;
+const regexforZipcode = /^[\d]{5}$/;
 //Create Data
 async function createPost(data) {
     var title = data.title;
     var address = data.address;
-    var floorPlan = data.floorPlan;
+    var city = data.city;
+    var state = data.state;
+    var zipcode = data.zipcode;
     var description = data.description;
     var rating_list = data.rating_list;
     var QnA_List = data.QnA_List;
     var overall_rating = data.overall_rating;
-    
+
 
     var result = {};
 
+    if (!title.trim().match(regexForTitle)) {
+        return {
+            status: 400,
+            message: "Please use words and special charcters .()\s?,\"\]\[ "
+        };
+    }
+    else if (!city.trim().match(regexforOnlyWords)){
+        return {
+            status: 400,
+            message: "Please use words only "
+        };
+    }
+    else if (!state.trim().match(regexforOnlyWords)){
+        return {
+            status: 400,
+            message: "Please use words only "
+        };
+    }
+    else if (!zipcode.trim().match(regexforZipcode)){
+        return {
+            status: 400,
+            message: "Please use words only "
+        };
+    }
+
     await post.findOne({title : data.title }).then((doc) => {
         if (doc) {
-                
             result.status = 400;
             result.message =  "User already exists with same title: " + title;
         } 
@@ -62,7 +88,53 @@ async function getPost() {
         }
         
         result = data;
-        console.log("Result after data is assignered " + result);
+        console.log("Result after data is assignered ");
+        result.status = 200;
+        console.log(result.status);
+        result.message = "all done";
+        return;
+    });
+    return result;
+    
+}
+
+
+//Get post with params
+async function getPostwithParams(params) {
+    var result = {};
+    var title = params.title;
+    var category = params.category;
+    console.log(title + " " + category);
+    if (!category){
+        console.log(title + " " + category);
+
+        await post.find({title : {$regex: '.*' + title + '.*'}}).then(function(data, error) {
+            if (error){
+                console.log("Error Occured " + error);
+                result.status = 500;
+                result.message =  "could not get data " + data;
+                return;
+            }
+            
+            result = data;
+            console.log("Result after data is assignered in params function");
+            result.status = 200;
+            console.log(result.status);
+            result.message = "all done";
+            return;
+        });
+        return result;
+    }
+    await post.find({title : {$regex: '.*' + title + '.*'}, category: category}).then(function(data, error) {
+        if (error){
+            console.log("Error Occured " + error);
+            result.status = 500;
+            result.message =  "could not get data " + data;
+            return;
+        }
+        
+        result = data;
+        console.log("Result after data is assignered in params function");
         result.status = 200;
         console.log(result.status);
         result.message = "all done";
@@ -377,6 +449,7 @@ async function addAnswer (postID, user_ID, question_Id, answer){
 module.exports = {
     createPost, 
     getPost,
+    getPostwithParams,
     updatePost,
     deletePost,
     addReview,

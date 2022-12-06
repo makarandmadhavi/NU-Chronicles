@@ -1,7 +1,7 @@
 const bodyParser = require('body-parser');
 const Sample = require('../models/user');
 const { addNewUser, deleteExistingUser, getAllUsers, updateExistingUser, login } = require('../controllers/UserController');
-const { addPosting, getPosting, updatePosting, deletePosting, insertReview, deleteReview, getReviews, insertQuestion, deleteQnA, insertAnswer } = require('../controllers/postController');
+const { addPosting, getPosting, updatePosting, deletePosting, insertReview, deleteReview, getReviews, insertQuestion, deleteQnA, insertAnswer, getPostingWithParams } = require('../controllers/postController');
 const post = require('../models/post');
 
 
@@ -39,6 +39,8 @@ module.exports = (app) => {
 
     //get Post Data
     app.get('/post/get', getPosting);
+
+    // app.get('/post/get/:title', getPostingWithParams);
 
     //Update Post
     app.put('/post/update', updatePosting);

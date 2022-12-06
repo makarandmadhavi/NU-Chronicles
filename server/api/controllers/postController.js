@@ -1,4 +1,4 @@
-const { createPost, getPost, updatePost, deletePost, addReview, deleteRating, getRating, addQuestion, deleteQuestionAns, addAnswer } = require('../services/PostService');
+const { createPost, getPost, updatePost, deletePost, addReview, deleteRating, getRating, addQuestion, deleteQuestionAns, addAnswer, getPostwithParams } = require('../services/PostService');
 
 const addPosting = async (req, res) => {
     const post = req.body;
@@ -16,8 +16,16 @@ const addPosting = async (req, res) => {
 
 const getPosting = async (req, res) => {
     try {
-        let result = await getPost();
-
+        let result;
+        console.log(req.query);
+       
+        if (Object.keys(req.query).length != 0){
+            result = await getPostwithParams(req.query);
+        }
+        else{
+            result = await getPost();
+        
+        }
         // console.log("In controller " + result);
         res.status(result.status);
         res.json(result);
@@ -27,6 +35,7 @@ const getPosting = async (req, res) => {
         res.sendStatus(500);
     }
 }
+
 
 const updatePosting = async (req, res) => {
     const data = req.body;

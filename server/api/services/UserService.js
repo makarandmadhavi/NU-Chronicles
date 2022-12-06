@@ -75,6 +75,7 @@ function createUser(data) {
     }
 }
 
+
 async function deleteUser(email) {
     let emailDelete = email;
     console.log(emailDelete + "email delete in services");
