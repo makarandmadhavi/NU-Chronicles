@@ -12,6 +12,7 @@ async function createPost(data) {
     var rating_list = data.rating_list;
     var QnA_List = data.QnA_List;
     var overall_rating = data.overall_rating;
+    
 
     var result = {};
 
@@ -324,6 +325,53 @@ async function deleteQuestionAns (postID, QnA_ID){
     return result;
 }
 
+async function addAnswer (postID, user_ID, question_Id, answer){
+    var result = {};
+    await post.findById(postID).then( async (doc, err) => {
+        if(err){
+            result.status = 500;
+            result.message = "Error occured.";
+            console.log("Error!! failed!");
+        }
+        if(!doc){
+            result.status = 400;
+            result.message = "No post record found!! Please check the details again.";
+        }
+        else{
+            console.log(doc + "===========================DOC===============================");
+            // console.log(doc.rating_list[0]);
+            let list = doc.QnA_List;
+            // list.push(rating)
+            
+            // doc.QnA_List.forEach(element => {
+            //     if (element )
+            // });
+           
+            var data = {};
+            data.userID = user_ID;
+            data.answer = answer;
+           doc.QnA_List.forEach(element => {
+            if (element._id == question_Id){
+                element.answer.push(data);
+                
+            }
+           });  
+
+            let updatedres = await post.findByIdAndUpdate(postID, doc,  {returnOriginal: false });
+            if (!updatedres){
+                result.status = 400;
+                result.message = "Could not add answer";
+                return result;
+            }
+            result.status = 200;
+            result.message = "Answer Added";
+            return result;
+            // console.log(doc.rating_list.push(rating));
+        }
+    })
+    return result;
+}
+
 
 
 module.exports = {
@@ -335,5 +383,6 @@ module.exports = {
     deleteRating,
     getRating,
     addQuestion,
-    deleteQuestionAns
+    deleteQuestionAns,
+    addAnswer
 }

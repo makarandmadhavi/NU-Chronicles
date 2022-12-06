@@ -1,7 +1,7 @@
 const bodyParser = require('body-parser');
 const Sample = require('../models/user');
 const { addNewUser, deleteExistingUser, getAllUsers, updateExistingUser, login } = require('../controllers/UserController');
-const { addPosting, getPosting, updatePosting, deletePosting, insertReview, deleteReview, getReviews, insertQuestion, deleteQnA } = require('../controllers/postController');
+const { addPosting, getPosting, updatePosting, deletePosting, insertReview, deleteReview, getReviews, insertQuestion, deleteQnA, insertAnswer } = require('../controllers/postController');
 const post = require('../models/post');
 
 
@@ -60,7 +60,10 @@ module.exports = (app) => {
     app.post('/question/add', bodyParser.json(), insertQuestion);
 
     //Delete Question
-    app.delete('/question/delete', bodyParser.json(), deleteQnA)
+    app.delete('/question/delete', bodyParser.json(), deleteQnA);
+
+    //Add Answer
+    app.post('/answer/add', bodyParser.json(), insertAnswer);
 
 
 }

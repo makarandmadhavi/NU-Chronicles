@@ -1,4 +1,4 @@
-const { createPost, getPost, updatePost, deletePost, addReview, deleteRating, getRating, addQuestion, deleteQuestionAns } = require('../services/PostService');
+const { createPost, getPost, updatePost, deletePost, addReview, deleteRating, getRating, addQuestion, deleteQuestionAns, addAnswer } = require('../services/PostService');
 
 const addPosting = async (req, res) => {
     const post = req.body;
@@ -124,6 +124,25 @@ const insertQuestion = async (req, res) => {
     }
 }
 
+
+//Add Answer
+const insertAnswer = async (req, res) => {
+    const id  = req.body._id; // Post ID to find the Post
+    const userID = req.body.user_id;
+    const question_ID = req.body.question_ID;
+    const answer = req.body.answer;
+    try {
+        let result = await addAnswer(id, userID, question_ID, answer);
+
+        res.status(result.status);
+        res.json(result.message);
+    }
+    catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+}
+
 //delete qna
 const deleteQnA = async (req, res) => {
     const PostID = req.body._id;
@@ -149,5 +168,6 @@ module.exports = {
     deleteReview,
     getReviews,
     insertQuestion,
-    deleteQnA
+    deleteQnA,
+    insertAnswer
 }

@@ -26,7 +26,8 @@ var post = new mongoose.Schema({
     }],
     overall_rating: {type: Number, default:''},
     category: {type: String, default:''},
-    googlemapLink: {type: String, default:''}
+    googlemapLink: {type: String, default:''},
+    user_ID : {type: String, default: ''}
 
     
 }, {timestamps: true});
