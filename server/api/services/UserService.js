@@ -199,6 +199,7 @@ async function getAuthentication(email, password) {
                 loggedInUser.password = null;
                 result.status = 200;
                 result.user = loggedInUser;
+                result.message = "Logged In";
             } else {
                 result.status = 401;
                 result.message = "Unauthorized";
