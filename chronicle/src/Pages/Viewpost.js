@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './css/Viewpost.css'
+import Accordion from 'react-bootstrap/Accordion';
 import { Rating, Button, TextField} from '@mui/material'
 import {Container,Row , Col} from 'react-bootstrap';
 function Viewpost() {
@@ -58,9 +59,43 @@ function Viewpost() {
         variant="contained">Submit</Button>
   </div> 
 </div>
+<br/><br/><br/><br/>
+<div className='row'>
+  <div className="col-md-6">
+      <Accordion>
+            <Accordion.Item eventKey="0">
+              <Accordion.Header>All Reviews</Accordion.Header>
+              <Accordion.Body>
+              <div className="container1">
+                <img src="/images/attra.jpg" alt="Avatar" style={{width: '90px'}} />
+                <p><span>Chris Fox.</span> CEO at Mighty Schools.</p>
+                <p>John Doe saved us from a web disaster.</p>
+              </div>
 
+              </Accordion.Body>
+            </Accordion.Item>
+            </Accordion>
+      </div>
+     
+  <div className="col-md-6">
+    <Accordion>
+      <Accordion.Item eventKey="1">
+        <Accordion.Header>Question and Answers</Accordion.Header>
+        <Accordion.Body>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </Accordion.Body>
+      </Accordion.Item>
+    </Accordion>
 
+    </div>
 
+    </div>
 
 
 

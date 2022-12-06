@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import userapi from "../../apiservice/userapi";
 
 import {
@@ -15,8 +15,18 @@ import {
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import Dropzone from "react-dropzone";
 
+import { UserContext } from "../../App";
+import { Navigate } from "react-router-dom";
+
+
+
 
 const Form = () => {
+
+  
+
+  const { state, dispatch } = useContext(UserContext)
+
   const [pageType, setPageType] = useState("login");
   const [value, setValue] = useState("")
 
@@ -36,9 +46,10 @@ const Form = () => {
         headers: { 'Content-Type': 'application/json' }
       })
       // handle after login
-      alert(response.data.user);
+      alert(response.data.message);
       console.log(response.data.user);
       sessionStorage.setItem('user',response.data.user);
+      dispatch({type: "USER", payload: true})
     } catch (error) {
      alert("Unauthorized"); 
      //handle unauthorize scenerio
@@ -77,13 +88,14 @@ const Form = () => {
               <Button
                 onClick={(handleSubmit)}
                 type="submit"
+                fullWidth
                 sx={{
-                  width: 420,
+                  
                   m: "2rem 0",
-                  p: "1rem",
+                  p: "1rem 5rem",
                   backgroundColor: "#DC143C",
-                  color: "black",
-                  "&:hover": { color: "white", backgroundColor: "#8B0000" },
+                  color: "white",
+                  "&:hover": { color: "white", backgroundColor: "#00BFFF" },
                 }}
               > LOGIN
               </Button>
@@ -189,12 +201,12 @@ const Form = () => {
                 fullWidth
                 type="submit"
                 sx={{
-                  width: 420,
+                 
                   m: "2rem 0",
-                  p: "1rem",
+                  p: "1rem 5rem",
                   backgroundColor: "#DC143C",
-                  color: "black",
-                  "&:hover": { color: "white", backgroundColor: "#8B0000" },
+                  color: "white",
+                  "&:hover": { color: "white", backgroundColor: "#00BFFF" },
                 }}
               > REGISTER
               </Button>
@@ -226,7 +238,7 @@ const Form = () => {
             }}
             sx={{
               textDecoration: "underline",
-              color: "#1E90FF",
+              color: "black",
               "&:hover": {
                 cursor: "pointer",
                 color: "#00BFFF",
