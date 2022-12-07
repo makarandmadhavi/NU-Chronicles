@@ -32,7 +32,7 @@ function Navigationbar() {
   const [ open, setOpen ] = useState(false)
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const name = sessionStorage.getItem("user")
+  const name = sessionStorage.getItem("username")
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
