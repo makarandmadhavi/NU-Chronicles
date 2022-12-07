@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import userapi from "../../apiservice/userapi";
-
+import { Formik } from "formik";
 import {
   Box,
   Button,
@@ -10,7 +10,7 @@ import {
   Radio,
   RadioGroup,
   FormControlLabel,
-  FormControl, FormLabel
+  FormControl, FormLabel,
 } from "@mui/material";
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import Dropzone from "react-dropzone";
@@ -33,7 +33,7 @@ const Form = () => {
   const isLogin = pageType === "login";
   const isRegister = pageType === "register";
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
@@ -44,11 +44,10 @@ const Form = () => {
       {
         headers: { 'Content-Type': 'application/json' }
       })
-      // handle after login
-      alert(response.data.message);
-      console.log(response.data.user);
-      sessionStorage.setItem('username',response.data.user.firstName)
-      sessionStorage.setItem('user',response.data.user)
+      alert(response.data.message)
+      console.log(response.data.user)
+      sessionStorage.setItem('user',JSON.stringify(response.data.user))
+      localStorage.setItem('loggedIn', true)
       dispatch({type: "USER", payload: true})
     } catch (error) {
      alert("Unauthorized"); 
@@ -58,10 +57,10 @@ const Form = () => {
   }
 
   return (
-    <>
+  
       <form >
         <Box
-          display="grid"
+          display="grid "
           gap="30px"
           gridTemplateColumns="repeat(4, minmax(0, 1fr))"
           sx={{
@@ -91,15 +90,15 @@ const Form = () => {
                 sx={{ color: "black" }}
               >
               <Button
-                onClick={(handleSubmit)}
+                onClick={(handleLogin)}
+                type="submit"
                 fullWidth
-              type="submit"
-              sx={{
-                m: "2rem 0",
-                p: "1rem",
-                backgroundColor: "#DC143C",
-                color: "black",
-                "&:hover": { color: "white", backgroundColor: "#8B0000"},
+                sx={{
+                  m: "2rem 0",
+                  p: "1rem 5rem",
+                  backgroundColor: "#DC143C",
+                  color: "white",
+                  "&:hover": { color: "white", backgroundColor: "#00BFFF" },
                 }}
               > LOGIN
               </Button>
@@ -115,62 +114,41 @@ const Form = () => {
                 label="First Name"
                 variant="standard"
                 name="firstName"
-
                 sx={{ gridColumn: "span 2" }}
               />
               <TextField
                 label="Last Name"
-
                 variant="standard"
-
-
                 name="lastName"
-
                 sx={{ gridColumn: "span 2" }}
               />
               <TextField
                 label="Email"
-
                 variant="standard"
-
                 name="email"
-
+     
                 sx={{ gridColumn: "span 4" }}
               />
               <TextField
                 label="Password"
                 type="password"
-
                 variant="standard"
-
-
                 name="password"
-
-                sx={{ gridColumn: "span 4" }}
-              />
-               <TextField
-                label="Confirm Password"
-                type="confirmpassword"
-
-                variant="standard"
-
-
-                name="confirmpassword"
-
+            
                 sx={{ gridColumn: "span 4" }}
               />
               <TextField
                 label="NUID"
-
                 variant="standard"
                 name="nuid"
+      
                 sx={{ gridColumn: "span 4" }}
               />
               <FormControl>
-                <FormLabel id="demo-row-radio-buttons-group-label">Role</FormLabel>
+                <FormLabel id="demo-row-radio-buttons-group-label">Gender</FormLabel>
                 <RadioGroup row>
-                  <FormControlLabel value="female" control={<Radio />} label="Student" />
-                  <FormControlLabel value="male" control={<Radio />} label="Alumini" />
+                  <FormControlLabel value="Student" control={<Radio />} label="Student" />
+                  <FormControlLabel value="Male" control={<Radio />} label="Alumini" />
 
                 </RadioGroup>
               </FormControl>
@@ -276,7 +254,6 @@ const Form = () => {
           </Typography>
         </Box>
       </form>
-    </>
   );
 };
 
