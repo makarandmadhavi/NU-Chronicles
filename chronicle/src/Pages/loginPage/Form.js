@@ -19,6 +19,8 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../App";
 
 
+ 
+
 
 
 
@@ -50,9 +52,9 @@ const Form = () => {
       alert(response.data.message)
       console.log(response.data.user)
       sessionStorage.setItem('user',JSON.stringify(response.data.user))
-      localStorage.setItem('loggedIn', true)
       dispatch({type: "USER", payload: true})
       navigate("/dashboard")
+
 
     } catch (error) {
      alert("Unauthorized"); 

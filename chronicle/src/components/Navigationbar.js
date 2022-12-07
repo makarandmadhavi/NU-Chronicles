@@ -1,4 +1,4 @@
-import React, { useContext, useState} from 'react'
+import React, { useContext, useEffect, useState} from 'react'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav from 'react-bootstrap/Nav';
@@ -33,12 +33,13 @@ function Navigationbar() {
 
   const { state, dispatch } = useContext(UserContext)
 
-  const user = sessionStorage.getItem("user")
-  const data = JSON.parse(user)
+  const name = sessionStorage.getItem("user")
+  const user = JSON.parse(name)
 
 const handlelogout = () => {
     sessionStorage.removeItem("user")
     navigate("/")
+  
     dispatch({type: "USER", payload: false})
   }
 
@@ -47,9 +48,9 @@ const handlelogout = () => {
         <>
           {state &&
           <Box sx={{ flexGrow: 0}}>
-          <Tooltip title={data.email}>
+          <Tooltip title={user.email}>
             <IconButton sx={{ p: 0 }}>
-             <Avatar sx={{bgcolor: "#DC143C"}} alt={data.firstName} src="/static/images/avatar/2.jpg" />
+             <Avatar sx={{bgcolor: "#DC143C"}} alt={user.firstName} src="/static/images/avatar/2.jpg" />
             </IconButton>
           </Tooltip>
           <Button variant="danger" onClick={handlelogout} >
@@ -95,5 +96,7 @@ const handlelogout = () => {
     </>
   )
 }
+
+
 
 export default Navigationbar
