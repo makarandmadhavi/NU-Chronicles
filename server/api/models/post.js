@@ -4,6 +4,7 @@ var post = new mongoose.Schema({
     title: { type: String, default:''},
     address: { type: String, default:''},
     city: {type: String, default: 'Boston'},
+    state: {type: String, default: 'MA'},
     zipcode: {type: String, default: '02120'},
     photos: [{
         path: {type: String, default: ''}
