@@ -27,13 +27,14 @@ function App() {
 
   return (
     <div className="App">
+      <BrowserRouter>
       <UserContext.Provider value={{state, dispatch}}>
 
         <Navigationbar />
 
       <div>
       <br/>
-      <BrowserRouter>
+
       <Routes>
           <Route path='/register' element={ <Login />}>Register</Route>
       
@@ -49,10 +50,11 @@ function App() {
       
           <Route path='/viewpost' element={ <Viewpost/>}>Register</Route>
         </Routes>
-        </BrowserRouter>
+        
       </div>
       <Footer />
       </UserContext.Provider>
+      </BrowserRouter>
     </div>
   );
 }

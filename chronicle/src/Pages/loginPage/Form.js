@@ -24,6 +24,8 @@ import { UserContext } from "../../App";
 
 const Form = () => {
 
+  const navigate = useNavigate()
+
   const { state, dispatch } = useContext(UserContext)
 
   const [pageType, setPageType] = useState("login");
@@ -50,6 +52,8 @@ const Form = () => {
       sessionStorage.setItem('user',JSON.stringify(response.data.user))
       localStorage.setItem('loggedIn', true)
       dispatch({type: "USER", payload: true})
+      navigate("/dashboard")
+
     } catch (error) {
      alert("Unauthorized"); 
      //handle unauthorize scenerio
