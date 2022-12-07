@@ -32,17 +32,15 @@ function Navigationbar() {
   const user = sessionStorage.getItem("user")
   const data = JSON.parse(user)
 
-  const logIn = localStorage.getItem('loggedIn')
-  
-  const handlelogout = () => {
-    localStorage.removeItem("loggedIn")
+const handlelogout = () => {
+    sessionStorage.removeItem("user")
     dispatch({type: "USER", payload: false})
   }
 
   const RenderMenu = () => {
       return(
         <>
-          {state && logIn &&
+          {state &&
           <Box sx={{ flexGrow: 0}}>
           <Tooltip title={data.email}>
             <IconButton sx={{ p: 0 }}>
@@ -54,7 +52,7 @@ function Navigationbar() {
           </Button>
           </Box>
           }
-          {!state && !logIn &&
+          {!state &&
             <LoginModal/>
           }
           
