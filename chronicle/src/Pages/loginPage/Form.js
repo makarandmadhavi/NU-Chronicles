@@ -143,6 +143,17 @@ const Form = () => {
 
                 sx={{ gridColumn: "span 4" }}
               />
+               <TextField
+                label="Confirm Password"
+                type="confirmpassword"
+
+                variant="standard"
+
+
+                name="confirmpassword"
+
+                sx={{ gridColumn: "span 4" }}
+              />
               <TextField
                 label="NUID"
 
@@ -151,7 +162,7 @@ const Form = () => {
                 sx={{ gridColumn: "span 4" }}
               />
               <FormControl>
-                <FormLabel id="demo-row-radio-buttons-group-label">Gender</FormLabel>
+                <FormLabel id="demo-row-radio-buttons-group-label">Role</FormLabel>
                 <RadioGroup row>
                   <FormControlLabel value="female" control={<Radio />} label="Student" />
                   <FormControlLabel value="male" control={<Radio />} label="Alumini" />
