@@ -14,47 +14,90 @@ import {
   Select,
   MenuItem,
   FormControl,
-
+  Avatar,
+  Menu, Box, Tooltip
 } from "@mui/material";
 
 import './css/NavigationBar.css'
 
 import { UserContext } from "../App";
+import { Icon, IconButton } from '@material-ui/core';
+import { bgcolor } from '@mui/system';
+
 
 function Navigationbar() {
 
   const { state, dispatch } = useContext(UserContext)
 
+  const [ open, setOpen ] = useState(false)
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const name = sessionStorage.getItem("user")
+
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
   const RenderMenu = () => {
     if(state){
       return(
         <>
-          <FormControl variant="standard" value="fullname">
-              <Select
-                value="Deep"
+        <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Avatar sx={{bgcolor: "#DC143C"}} alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '50px', ml: 165, width: 110 }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              <MenuItem>
+                  <Typography textAlign="center">{name}</Typography>
+                </MenuItem>
+                <MenuItem onClick={() => dispatch({type: "USER", payload: false})}>
+                  <Typography textAlign="center">LogOut</Typography>
+                </MenuItem>
+            </Menu>
+          </Box>
+         
+        
+        {/* <Select
+                value="fullname"
                 sx={{
-                  backgroundColor: "#FFF",
+                  color: "#FFF",
+                  backgroundColor: "#DC143C",
                   width: "150px",
+                  open: {open},
                   borderRadius: "0.25rem",
-                  p: "0.25rem 1rem",
-                  "& .MuiSvgIcon-root": {
-                    pr: "0.25rem",
-                    width: "3rem",
-                  },
-                  "& .MuiSelect-select:focus": {
-                    backgroundColor: "#FFF",
-                  },
+                  p: "0.25rem 1rem"
                 }}
                 input={<InputBase />}
               >
-                <MenuItem value="fullName">
-                  <Typography>fullName</Typography>
+                <MenuItem value="fullname">
+                  <Typography>Deep Shah</Typography>
                 </MenuItem>
                 <MenuItem onClick={() => dispatch({type: "USER", payload: false})}>
                   Log Out
                 </MenuItem>
-              </Select>
-            </FormControl>
+              </Select> */}
+              
         </>
       )
     }else{

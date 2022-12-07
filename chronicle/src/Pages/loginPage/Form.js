@@ -14,16 +14,15 @@ import {
 } from "@mui/material";
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import Dropzone from "react-dropzone";
+import { useNavigate } from "react-router-dom";
 
 import { UserContext } from "../../App";
-import { Navigate } from "react-router-dom";
+
 
 
 
 
 const Form = () => {
-
-  
 
   const { state, dispatch } = useContext(UserContext)
 
@@ -48,7 +47,7 @@ const Form = () => {
       // handle after login
       alert(response.data.message);
       console.log(response.data.user);
-      sessionStorage.setItem('user',response.data.user);
+      sessionStorage.setItem('user',response.data.user.firstName)
       dispatch({type: "USER", payload: true})
     } catch (error) {
      alert("Unauthorized"); 
