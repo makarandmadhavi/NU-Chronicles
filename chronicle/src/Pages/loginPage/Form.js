@@ -51,8 +51,10 @@ const Form = () => {
 
       alert(response.data.message)
       console.log(response.data.user)
-      sessionStorage.setItem('user',JSON.stringify(response.data.user))
-      dispatch({type: "USER", payload: true})
+      localStorage.setItem('user',JSON.stringify(response.data.user))
+      localStorage.setItem('log',true)
+      // setIsLoggedin(true)
+      // dispatch({type: "USER", payload: true})
       navigate("/dashboard")
 
 
