@@ -1,12 +1,88 @@
-import React from 'react'
+
+import Row from 'react-bootstrap/Row'
+import Button from 'react-bootstrap/Button'
+import { useState, useEffect } from 'react'
 import './css/Profile.css'
 import Accordion from 'react-bootstrap/Accordion';
 import Dropzone from 'react-dropzone';
 import { Box } from '@mui/material'
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
-
+import ElementCard from '../components/ElementCard'
+import housingapi from '../apiservice/housingapi'
+import userapi from "../apiservice/userapi";
 
 function Profile() {
+  var user = JSON.parse(sessionStorage.user);
+  const [postsData, setpostsData] = useState(null);
+  const [editUser, setEditUser] = useState(user);
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setEditUser({
+        ...editUser,
+        [name]: value
+    })
+    
+  }
+  const editData = async(editUser) =>{
+    userapi.put('/updateuser',editUser).then((response) => {
+      console.log(response , "updated");
+      alert(response.data.message)
+     
+    
+  })
+  .catch((error)=> {
+    console.log("Unauthorized! Please enter valid format for each field");
+      
+      if (error.response+"1") {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        //console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+      } else if (error.request+"2") {
+        // The request was made but no response was received
+        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+        // http.ClientRequest in node.js
+        console.log(error.request+"3");
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.log('Error', error.message+"3");
+      }
+  })
+
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(document.getElementById("inputPassword").value!=document.getElementById("inputConfirmPassword").value){
+      alert("Password field and Confirm Password fields do not match !")
+      return
+    }
+    else{
+      console.log(editUser, "submit");
+      setEditUser(editUser);
+      editData(editUser);
+    }
+    
+   
+  }
+
+
+  const getPosts = async () => {
+    const response = await housingapi.get('/get');
+    let data = response.data.filter(value => value.user_ID==
+      "638fbe953ee6a9437de7ee82").map((element,i) => 
+      <div  key={i} className="col-lg-4 mb-3 d-flex align-items-stretch" data-toggle="tooltip" data-placement="right" title="Click to edit the post">
+        <ElementCard data={element}></ElementCard>
+       
+      </div>
+    );
+    setpostsData(data);
+    console.log(data);
+  };
+  useEffect(() => {
+    getPosts();
+   
+  }, []);
   return (
     <div>
         <br/><br/>
@@ -55,19 +131,19 @@ function Profile() {
       <div className="card mb-4">
         <div className="card-header">Account Details</div>
         <div className="card-body">
-          <form>
+          <form onSubmit={handleSubmit}>
             
             {/* Form Row*/}
             <div className="row gx-3 mb-3">
               {/* Form Group (first name)*/}
               <div className="col-md-6">
                 <label className="small mb-1" htmlFor="inputFirstName">First name</label>
-                <input className="form-control" id="inputFirstName" type="text" placeholder="Enter your first name"  />
+                <input className="form-control" id="inputFirstName" type="text" defaultValue={editUser.firstName} onChange={handleChange} name="firstName"  placeholder="Enter your first name"  />
               </div>
               {/* Form Group (last name)*/}
               <div className="col-md-6">
                 <label className="small mb-1" htmlFor="inputLastName">Last name</label>
-                <input className="form-control" id="inputLastName" type="text" placeholder="Enter your last name"  />
+                <input className="form-control" id="inputLastName" type="text" name="lastName" defaultValue={editUser.lastName} onChange={handleChange} placeholder="Enter your last name"  />
               </div>
             </div>
             {/* Form Row        */}
@@ -75,30 +151,30 @@ function Profile() {
               {/* Form Group (organization name)*/}
               <div className="col-md-6">
                 <label className="small mb-1" htmlFor="inputNUID">NUID</label>
-                <input className="form-control" id="inputNUID" type="text" placeholder="Enter your NUID" readOnly />
+                <input className="form-control" id="inputNUID" type="text" defaultValue={editUser.NUID}  readOnly />
               </div>
               {/* Form Group (location)*/}
               <div className="col-md-6">
                 <label className="small mb-1" htmlFor="inputRole">Role</label>
-                <input className="form-control" id="inputRole" type="text" placeholder="Enter your role" readOnly/>
+                <input className="form-control" id="inputRole" type="text" defaultValue={editUser.role}  placeholder="Enter your role" readOnly/>
               </div>
             </div>
             {/* Form Group (email address)*/}
             <div className="mb-3">
               <label className="small mb-1" htmlFor="inputEmailAddress">Email address</label>
-              <input className="form-control" id="inputEmailAddress" type="email" placeholder="@northeastern.edu" readOnly/>
+              <input className="form-control" id="inputEmailAddress" type="email" defaultValue={editUser.email}  readOnly/>
             </div>
             {/* Form Row*/}
             <div className="row gx-3 mb-3">
-              {/* Form Group (phone number)*/}
+              {/* Form Group (phone number)
               <div className="col-md-6">
                 <label className="small mb-1" htmlFor="inputPhone">Phone number</label>
-                <input className="form-control" id="inputPhone" type="tel" placeholder="(555)123-4567"/>
-              </div>
+                <input className="form-control" id="inputPhone" type="tel" defaultValue={user.phoneNumber}  placeholder="(555)123-4567"/>
+              </div> */}
               {/* Form Group (birthday)*/}
               <div className="col-md-6">
-                <label className="small mb-1" htmlFor="inputPassword">Password</label>
-                <input className="form-control" id="inputPassword" type="password" name="password"  />
+                <label className="small mb-1" htmlFor="inputPassword"> New Password</label>
+                <input className="form-control" id="inputPassword" name="password" value={editUser.password}  onChange={handleChange} type="password"   />
               </div>
               <div className="col-md-6">
                 <label className="small mb-1" htmlFor="inputConfirmPassword"> Confirm Password</label>
@@ -109,22 +185,17 @@ function Profile() {
             
             
             {/* Save changes button*/}
-            <button className="btn btn-danger" type="button">Save changes</button>
+            <button className="btn btn-danger"  type="submit">Save changes</button>
           </form>
         </div>
       </div>
     </div>
     <Accordion defaultActiveKey={['0']} alwaysOpen>
       <Accordion.Item eventKey="0">
-        <Accordion.Header>Your Posts</Accordion.Header>
+        <Accordion.Header>You Posts ! Click on any Post to Edit </Accordion.Header>
         <Accordion.Body>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          <Row> {postsData}</Row>
+         
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="1">

@@ -103,27 +103,28 @@ async function deleteUser(email) {
 
 //Update User
 async function updateUser(user_id, newUserData) {
-    var email = newUserData.email;
+   // var email = newUserData.email;
     var password = newUserData.password;
     var firstName = newUserData.firstName;
     var lastName = newUserData.lastName;
     var role = newUserData.role;
     // var phoneNumber = newUserData.phoneNumber;
-    var NUID = newUserData.NUID;
+    //var NUID = newUserData.NUID;
 
     var result = {};
 
-    if (email && !email.trim().match(regexForEmail)) {
-        return {
-            status: 400,
-            message: "Email ID entered is not valid or correct. Please check entered details again."
-        };
-    }
+    // if (email && !email.trim().match(regexForEmail)) {
+    //     return {
+    //         status: 400,
+    //         message: "Email ID entered is not valid or correct. Please check entered details again."
+    //     };
+    // }
 
-    else if (password) {
+   if (password && !password.trim().match(regexForPassword)) {
+       
         return {
             status: 400,
-            message: "Cannot change password with this API "
+            message: "Password should be 8-14 characters long. \n  Must contain an uppercase letter and a lowercase letter \n A special character and a numeric character (0-9) "
         };
     }
 
@@ -135,9 +136,9 @@ async function updateUser(user_id, newUserData) {
         return { status: 400, message: "Please enter valid Last Name" };
     }
 
-    else if (NUID && !NUID.trim().match(regexforNUID)) {
-        return { status: 400, message: "Please enter valid 9 digit NUID number" };
-    }
+    // else if (NUID && !NUID.trim().match(regexforNUID)) {
+    //     return { status: 400, message: "Please enter valid 9 digit NUID number" };
+    // }
 
     // else if (phoneNumber && !phoneNumber.trim().match(regexforPhone)) {
     //     return { status: 400, message: "Please enter valid Phone Number" };
@@ -145,6 +146,7 @@ async function updateUser(user_id, newUserData) {
     else {
         // var result = {};
         console.log("Inside else and before update================================= ");
+        newUserData.password = bcrypt.hashSync(newUserData.password, 10);
         return await user.findByIdAndUpdate(user_id, newUserData).then(function (doc, err) {
             if (err) {
                 console.log(err);
