@@ -18,12 +18,6 @@ import { useNavigate } from "react-router-dom";
 
 import { UserContext } from "../../App";
 
-
- 
-
-
-
-
 const Form = () => {
 
   const navigate = useNavigate()
@@ -41,6 +35,15 @@ const Form = () => {
     e.preventDefault();
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
+
+    try{
+      if(email=="admin" && password=="admin"){
+        navigate("/admin")
+      }
+    }catch(err){
+      alert("Unauthorized");
+    }
+    
     
     try {
       let response = await userapi.post('/loginApi',
@@ -49,7 +52,7 @@ const Form = () => {
         headers: { 'Content-Type': 'application/json' }
       })
 
-      alert(response.data.message)
+      // alert(response.data.message)
       console.log(response.data.user)
       localStorage.setItem('user',JSON.stringify(response.data.user))
       localStorage.setItem('log',true)
@@ -59,7 +62,7 @@ const Form = () => {
 
 
     } catch (error) {
-     alert("Unauthorized"); 
+     
      //handle unauthorize scenerio
     }
     
