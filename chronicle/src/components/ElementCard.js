@@ -19,6 +19,7 @@ function ElementCard(props) {
                 <Card.Text>
                 {data.description}
                 </Card.Text>
+                
             </Card.Body>
             <Card.Footer >
                 <span>

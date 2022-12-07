@@ -44,6 +44,7 @@ const Form = () => {
       {
         headers: { 'Content-Type': 'application/json' }
       })
+
       alert(response.data.message)
       console.log(response.data.user)
       sessionStorage.setItem('user',JSON.stringify(response.data.user))
