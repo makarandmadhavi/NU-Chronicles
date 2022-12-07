@@ -1,9 +1,11 @@
 import { Box } from "@mui/system"
 import { Typography } from "@mui/material";
 import GroupIcon from '@mui/icons-material/Group';
+import Navigationbar from "../components/Navigationbar";
 
 function AdminDash(){
     return(
+ 
         <Box m="100px">
             <Box dsiplay="flex" justifyContent="space-between">
                 <Typography variant="h4" color="#222" fontWeight="bold" sx={{mb: "5px", mr: 150}}>DASHBOARD</Typography>
@@ -53,9 +55,7 @@ function AdminDash(){
                     
 
                 </Box>
-
-
-
+                
                 <Box
                 gridColumn="span 3"
                 backgroundColor="#222"
@@ -173,6 +173,7 @@ function AdminDash(){
                 </Box>
             </Box>
         </Box>
+
        
     )
 }

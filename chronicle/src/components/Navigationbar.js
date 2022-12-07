@@ -8,6 +8,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/Button';
 import LoginModal from './LoginModal';
 import { useNavigate } from 'react-router-dom';
+import { email, password } from '../Pages/loginPage/Form';
 
 import {
   InputBase,
