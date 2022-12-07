@@ -6,7 +6,7 @@ const { createUser, deleteUser, getUsers, updateUser, getAuthentication } = requ
 const addNewUser = async (req, res) => {
     const user = req.body
     try {
-        let result = await createUser(user);
+        let result = await createUser(user)
 
         res.status(result.status);
         res.json(result.message);

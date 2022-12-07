@@ -7,6 +7,8 @@ app.use(cors())
 const bodyParser = require('body-parser');
 const routes = require('./api/routes/routes');
 
+
+
 const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://bhavya:bhavya1234@cluster0.kde993z.mongodb.net/?retryWrites=true&w=majority', { 
     useNewUrlParser: true,
