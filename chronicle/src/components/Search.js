@@ -11,6 +11,7 @@ function Search() {
                     <Form.Select id="category">
                         <option disabled selected>All</option>
                         <option>Housing</option>
+                        <option>Grocery</option>
                         <option>Seasonal Clothing</option>
                         <option>Events</option>
                         <option>Nearby Attractions</option>

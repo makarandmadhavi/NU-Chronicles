@@ -11,7 +11,7 @@ function Tophits() {
 
   const getHousing = async () => {
     const response = await housingapi.get('/get');
-    let data = response.data.map((element,i) => 
+    let data = response.data.slice(0,3).map((element,i) => 
       <div  key={i} className="col-lg-4 mb-3 d-flex align-items-stretch">
         <ElementCard data={element}></ElementCard>
       </div>

@@ -129,6 +129,7 @@ const handleSubmit = (e) => {
                    <Form.Select id="category"  onChange={(e) => setCategory(e.target.value)} >
                       <option disabled>select...</option>
                         <option>Housing</option>
+                        <option>Grocery</option>
                       <option>Seasonal Clothing</option>
                      <option>Events</option>
                        <option>Nearby Attractions</option>
