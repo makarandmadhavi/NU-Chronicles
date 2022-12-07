@@ -31,7 +31,7 @@ export default function ScrollspyComponent() {
             <Link className="list-group-item list-group-item-action" to={{ hash:"#list-item-1", state: { fromScrollspyComponent: true }}}> <i className="fa fa-hashtag" aria-hidden="true" /> Off Campus Housing</Link>
             <Link className="list-group-item list-group-item-action" to={{hash:"#list-item-2", state: { fromScrollspyComponent: true }}}> <i className="fa fa-hashtag" aria-hidden="true" /> Grocery Shopping</Link>
             <Link className="list-group-item list-group-item-action" to={{hash:"#list-item-3", state: { fromScrollspyComponent: true }}}> <i className="fa fa-hashtag" aria-hidden="true" /> Seasonal Clothing</Link>
-            <Link className="list-group-item list-group-item-action" to={{hash:"#list-item-4", state: { fromScrollspyComponent: true }}}> <i className="fa fa-hashtag" aria-hidden="true" /> Live Events</Link>
+            <Link className="list-group-item list-group-item-action" to={{hash:"#list-item-4", state: { fromScrollspyComponent: true }}}> <i className="fa fa-hashtag" aria-hidden="true" /> Events</Link>
             <Link className="list-group-item list-group-item-action" to={{hash:"#list-item-5", state: { fromScrollspyComponent: true }}}> <i className="fa fa-hashtag" aria-hidden="true" /> Nearby Attractions</Link>
             </div>
           </div>
@@ -77,13 +77,13 @@ export default function ScrollspyComponent() {
                 <hr />
               </div>
               <div id="list-item-4">
-                <h4 >Live Events</h4>
-                <p>New students at Northeastern can connect with the campus culture by watching live streams of
+                <h4 >Events</h4>
+                <p>New students at Northeastern can connect with the campus culture by being part of
                   happenings and events on campus.</p>
                 <p>After all, they are the new cultural carriers, therefore knowing their university is
                   essential.</p>
-                <p>In this digital age, everything is aired live, thus our website would allow students to watch
-                  any activities that are being live streamed and connect with other NU students. This would
+                <p>In this digital age, everything is aired live, thus our website would allow students to be notified
+                  any activities that are being organised and connect with other NU students. This would
                   be a great oppurtunity for them to become a part of the university before and prepare
                   themselves with enthusiasm to give thier best as soon as they start here.</p><br /><br /><br />
                 <hr />

@@ -91,14 +91,14 @@ const Form = () => {
               >
               <Button
                 onClick={(handleSubmit)}
-                type="submit"
                 fullWidth
-                sx={{
-                  m: "2rem 0",
-                  p: "1rem 5rem",
-                  backgroundColor: "#DC143C",
-                  color: "white",
-                  "&:hover": { color: "white", backgroundColor: "#00BFFF" },
+              type="submit"
+              sx={{
+                m: "2rem 0",
+                p: "1rem",
+                backgroundColor: "#DC143C",
+                color: "black",
+                "&:hover": { color: "white", backgroundColor: "#8B0000"},
                 }}
               > LOGIN
               </Button>

@@ -14,7 +14,7 @@ const LoginPage = () => {
         border="3px solid #DC143C"
         backgroundColor="#FFF"
       >
-        <Typography fontWeight="500" variant="h3" sx={{ mb: "1.5rem", textAlign: 'center' }}>
+        <Typography fontWeight="500" variant="h4" sx={{ mb: "1.5rem", textAlign: 'center' }}>
           Welcome
         </Typography>
         <Form />

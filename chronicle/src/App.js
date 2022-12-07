@@ -32,6 +32,7 @@ function App() {
         <Navigationbar />
 
       <div>
+      <br/>
       <Router>
       <Routes>
           <Route path='/register' element={ <Login />}>Register</Route>

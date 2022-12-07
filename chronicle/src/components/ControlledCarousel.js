@@ -67,8 +67,8 @@ function ControlledCarousel() {
         />
 
         <Carousel.Caption>
-        <h4>Live Events</h4>
-                        <p>Experience what's going on at the university where the students live streams events.</p>
+        <h4>Events</h4>
+                        <p>Experience what's going on at and around the university where the students get the most out of the places around the university.</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
