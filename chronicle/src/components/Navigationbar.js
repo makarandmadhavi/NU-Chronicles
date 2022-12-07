@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/Container';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/Button';
 import LoginModal from './LoginModal';
+import { useNavigate } from 'react-router-dom';
 
 import {
   InputBase,
@@ -25,7 +26,10 @@ import { Icon, IconButton } from '@material-ui/core';
 import { bgcolor } from '@mui/system';
 
 
+
 function Navigationbar() {
+
+  const navigate = useNavigate()
 
   const { state, dispatch } = useContext(UserContext)
 
@@ -34,6 +38,7 @@ function Navigationbar() {
 
 const handlelogout = () => {
     sessionStorage.removeItem("user")
+    navigate("/")
     dispatch({type: "USER", payload: false})
   }
 
