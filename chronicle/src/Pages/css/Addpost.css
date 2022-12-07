@@ -23,6 +23,10 @@ form {
     font-weight: 20px!important;
 }
 #savepost{
+    width: 100%!important;
+    margin: auto !important;
+}
+#deletepost{
     width: 100% !important;
     margin: auto !important;
 }

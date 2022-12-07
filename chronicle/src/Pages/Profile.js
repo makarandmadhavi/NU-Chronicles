@@ -72,7 +72,7 @@ function Profile() {
   const getPosts = async () => {
     const response = await housingapi.get('/get');
     let data = response.data.filter(value => value.user_ID==
-      "638fbe953ee6a9437de7ee82").map((element,i) => 
+      user._id).map((element,i) => 
       <div  key={i} className="col-lg-4 mb-3 d-flex align-items-stretch" data-toggle="tooltip" data-placement="right" title="Click to edit the post">
         <ElementCard data={element} edit={<button className="btn btn-danger" >Edit</button>}></ElementCard>
        
