@@ -79,7 +79,7 @@ async function createPost(data) {
 // get data
 async function getPost() {
     var result = {};
-    await post.find().then(function(data, error) {
+    await post.find().sort({overall_rating : 1, createdAt: 1}).then(function(data, error) {
         if (error){
             console.log("Error Occured " + error);
             result.status = 500;
@@ -108,7 +108,7 @@ async function getPostwithParams(params) {
     if (!category){
         console.log(title + " " + category);
 
-        await post.find({title : {$regex: '.*' + title + '.*'}}).then(function(data, error) {
+        await post.find({title : {$regex: '.*' + title + '.*'}}).sort({overall_rating : 1, createdAt: 1}).then(function(data, error) {
             if (error){
                 console.log("Error Occured " + error);
                 result.status = 500;
