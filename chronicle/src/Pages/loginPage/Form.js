@@ -84,12 +84,16 @@ const Form = () => {
                 name="password"
                 sx={{ gridColumn: "span 4" }}
               />
+               <Box
+                gridColumn="span 4"
+                borderRadius="5px"
+                sx={{ color: "black" }}
+              >
               <Button
                 onClick={(handleSubmit)}
                 type="submit"
                 fullWidth
                 sx={{
-                  
                   m: "2rem 0",
                   p: "1rem 5rem",
                   backgroundColor: "#DC143C",
@@ -98,6 +102,7 @@ const Form = () => {
                 }}
               > LOGIN
               </Button>
+              </Box>
             </>
           )}
 
@@ -196,19 +201,27 @@ const Form = () => {
                   )}
                 </Dropzone>
               </Box>
-              <Button
-                fullWidth
-                type="submit"
-                sx={{
-                 
-                  m: "2rem 0",
-                  p: "1rem 5rem",
-                  backgroundColor: "#DC143C",
-                  color: "white",
-                  "&:hover": { color: "white", backgroundColor: "#00BFFF" },
-                }}
-              > REGISTER
-              </Button>
+              <Box
+                gridColumn="span 4"
+                borderRadius="5px"
+                sx={{ color: "black" }}
+              >
+                <Button
+              fullWidth
+              type="submit"
+              sx={{
+                m: "2rem 0",
+                p: "1rem",
+                backgroundColor: "#DC143C",
+                color: "black",
+                "&:hover": { color: "white", backgroundColor: "#8B0000"},
+              }}
+            > REGISTER
+            </Button>
+                
+              </Box>
+              
+              
             </>
           )}
 
@@ -219,6 +232,7 @@ const Form = () => {
 
         {/* BUTTONS */}
         <Box>
+          
           {/* <Button
               fullWidth
               type="submit"
