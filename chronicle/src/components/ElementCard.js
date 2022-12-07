@@ -4,9 +4,11 @@ import { Rating } from '@mui/material'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons'
 import './css/ElementCard.css'
+import { useNavigate } from "react-router-dom";
 
 function ElementCard(props) {
     const data = props.data;
+    
     const [ value, setValue ] = useState("5")
     return (
         <Card className='elementCard'>
@@ -19,7 +21,7 @@ function ElementCard(props) {
                 <Card.Text>
                 {data.description}
                 </Card.Text>
-                
+            
             </Card.Body>
             <Card.Footer >
                 <span>
@@ -34,6 +36,7 @@ function ElementCard(props) {
                 />
                 </span>
                 ({data.rating_list.length}) 
+                {props.edit}
             </Card.Footer>
         </Card>
     )

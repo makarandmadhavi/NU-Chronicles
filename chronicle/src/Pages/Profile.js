@@ -11,7 +11,9 @@ import ElementCard from '../components/ElementCard'
 import housingapi from '../apiservice/housingapi'
 import userapi from "../apiservice/userapi";
 
+
 function Profile() {
+ 
   var user = JSON.parse(sessionStorage.user);
   const [postsData, setpostsData] = useState(null);
   const [editUser, setEditUser] = useState(user);
@@ -65,16 +67,16 @@ function Profile() {
     
    
   }
-
+  
 
   const getPosts = async () => {
     const response = await housingapi.get('/get');
     let data = response.data.filter(value => value.user_ID==
       "638fbe953ee6a9437de7ee82").map((element,i) => 
       <div  key={i} className="col-lg-4 mb-3 d-flex align-items-stretch" data-toggle="tooltip" data-placement="right" title="Click to edit the post">
-        <ElementCard data={element}></ElementCard>
+        <ElementCard data={element} edit={<button className="btn btn-danger" >Edit</button>}></ElementCard>
        
-      </div>
+</div>
     );
     setpostsData(data);
     console.log(data);

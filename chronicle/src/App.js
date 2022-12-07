@@ -11,6 +11,7 @@ import Addpost from './Pages/Addpost'
 import Dashboard from './Pages/Dashboard';
 import AdminDash from './Pages/AdminDash';
 import Viewpost from './Pages/Viewpost';
+import Editpost from './Pages/Editpost';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { createContext, useReducer } from 'react';
 
@@ -49,6 +50,8 @@ function App() {
           <Route path='/addpost' element={ <Addpost />}>Register</Route>
       
           <Route path='/viewpost' element={ <Viewpost/>}>Register</Route>
+
+          <Route path='/editpost' element={ <Editpost />}>Register</Route>
         </Routes>
         
       </div>
