@@ -29,86 +29,38 @@ function Navigationbar() {
 
   const { state, dispatch } = useContext(UserContext)
 
-  const [ open, setOpen ] = useState(false)
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const name = sessionStorage.getItem("username")
+  const user = sessionStorage.getItem("user")
+  const data = JSON.parse(user)
 
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
-  const RenderMenu = () => {
-    if(state){
-      return(
-        <>
-        <Box sx={{ flexGrow: 0}}>
-            <Tooltip title={name}>
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar sx={{bgcolor: "#DC143C"}} alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{p: 10, mt: '50px', ml: 169, color: "yellow"}}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              
-                <Typography textAlign="center">{name}</Typography>
-                <MenuItem sx={{p: 10}} onClick={() => dispatch({type: "USER", payload: false})}>
-                  <Typography textAlign="center">LogOut</Typography>
-                </MenuItem>
-            </Menu>
-          </Box>
-         
-        
-        {/* <Select
-                value="fullname"
-                sx={{
-                  color: "#FFF",
-                  backgroundColor: "#DC143C",
-                  width: "150px",
-                  open: {open},
-                  borderRadius: "0.25rem",
-                  p: "0.25rem 1rem"
-                }}
-                input={<InputBase />}
-              >
-                <MenuItem value="fullname">
-                  <Typography>Deep Shah</Typography>
-                </MenuItem>
-                <MenuItem onClick={() => dispatch({type: "USER", payload: false})}>
-                  Log Out
-                </MenuItem>
-              </Select> */}
-              
-        </>
-      )
-    }else{
-      return (
-        <LoginModal/>
-      )
-    }
+const handlelogout = () => {
+    sessionStorage.removeItem("user")
+    dispatch({type: "USER", payload: false})
   }
 
-  
+  const RenderMenu = () => {
+      return(
+        <>
+          {state &&
+          <Box sx={{ flexGrow: 0}}>
+          <Tooltip title={data.email}>
+            <IconButton sx={{ p: 0 }}>
+             <Avatar sx={{bgcolor: "#DC143C"}} alt={data.firstName} src="/static/images/avatar/2.jpg" />
+            </IconButton>
+          </Tooltip>
+          <Button variant="danger" onClick={handlelogout} >
+            Logout
+          </Button>
+          </Box>
+          }
+          {!state &&
+            <LoginModal/>
+          }
+          
+          
+        </>
+      )
+  }
 
- 
   return (
     <>
     
@@ -123,15 +75,12 @@ function Navigationbar() {
 
 
         <Nav className="me-auto">
-          {/* <Nav.Link href="/">About Us</Nav.Link>
+          <Nav.Link href="/">About Us</Nav.Link>
           <Nav.Link href="#link">Explore</Nav.Link>
-          <Nav.Link href="#link">Top Hits</Nav.Link> */}
-
-
+          <Nav.Link href="#link">Top Hits</Nav.Link>
         </Nav>
         {/* <LoginModal/>
         <Button>Click</Button>  */}
-
         <RenderMenu />
       </Navbar.Collapse>
           
