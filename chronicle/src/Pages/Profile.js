@@ -14,7 +14,7 @@ import userapi from "../apiservice/userapi";
 
 function Profile() {
  
-  var user = JSON.parse(sessionStorage.user);
+  var user = JSON.parse(localStorage.user);
   const [postsData, setpostsData] = useState(null);
   const [editUser, setEditUser] = useState(user);
   const handleChange = (e) => {
