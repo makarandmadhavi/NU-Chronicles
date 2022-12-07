@@ -14,16 +14,15 @@ import {
 } from "@mui/material";
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import Dropzone from "react-dropzone";
+import { useNavigate } from "react-router-dom";
 
 import { UserContext } from "../../App";
-import { Navigate } from "react-router-dom";
+
 
 
 
 
 const Form = () => {
-
-  
 
   const { state, dispatch } = useContext(UserContext)
 
@@ -48,7 +47,7 @@ const Form = () => {
       // handle after login
       alert(response.data.message);
       console.log(response.data.user);
-      sessionStorage.setItem('user',response.data.user);
+      sessionStorage.setItem('user',response.data.user.firstName)
       dispatch({type: "USER", payload: true})
     } catch (error) {
      alert("Unauthorized"); 
@@ -85,12 +84,16 @@ const Form = () => {
                 name="password"
                 sx={{ gridColumn: "span 4" }}
               />
+               <Box
+                gridColumn="span 4"
+                borderRadius="5px"
+                sx={{ color: "black" }}
+              >
               <Button
                 onClick={(handleSubmit)}
                 type="submit"
                 fullWidth
                 sx={{
-                  
                   m: "2rem 0",
                   p: "1rem 5rem",
                   backgroundColor: "#DC143C",
@@ -99,6 +102,7 @@ const Form = () => {
                 }}
               > LOGIN
               </Button>
+              </Box>
             </>
           )}
 
@@ -143,6 +147,17 @@ const Form = () => {
 
                 sx={{ gridColumn: "span 4" }}
               />
+               <TextField
+                label="Confirm Password"
+                type="confirmpassword"
+
+                variant="standard"
+
+
+                name="confirmpassword"
+
+                sx={{ gridColumn: "span 4" }}
+              />
               <TextField
                 label="NUID"
 
@@ -151,7 +166,7 @@ const Form = () => {
                 sx={{ gridColumn: "span 4" }}
               />
               <FormControl>
-                <FormLabel id="demo-row-radio-buttons-group-label">Gender</FormLabel>
+                <FormLabel id="demo-row-radio-buttons-group-label">Role</FormLabel>
                 <RadioGroup row>
                   <FormControlLabel value="female" control={<Radio />} label="Student" />
                   <FormControlLabel value="male" control={<Radio />} label="Alumini" />
@@ -197,19 +212,27 @@ const Form = () => {
                   )}
                 </Dropzone>
               </Box>
-              <Button
-                fullWidth
-                type="submit"
-                sx={{
-                 
-                  m: "2rem 0",
-                  p: "1rem 5rem",
-                  backgroundColor: "#DC143C",
-                  color: "white",
-                  "&:hover": { color: "white", backgroundColor: "#00BFFF" },
-                }}
-              > REGISTER
-              </Button>
+              <Box
+                gridColumn="span 4"
+                borderRadius="5px"
+                sx={{ color: "black" }}
+              >
+                <Button
+              fullWidth
+              type="submit"
+              sx={{
+                m: "2rem 0",
+                p: "1rem",
+                backgroundColor: "#DC143C",
+                color: "black",
+                "&:hover": { color: "white", backgroundColor: "#8B0000"},
+              }}
+            > REGISTER
+            </Button>
+                
+              </Box>
+              
+              
             </>
           )}
 
@@ -220,6 +243,7 @@ const Form = () => {
 
         {/* BUTTONS */}
         <Box>
+          
           {/* <Button
               fullWidth
               type="submit"
