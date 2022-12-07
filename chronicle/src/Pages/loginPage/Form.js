@@ -35,16 +35,7 @@ const Form = () => {
     e.preventDefault();
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
-
-    try{
-      if(email=="admin" && password=="admin"){
-        navigate("/admin")
-      }
-    }catch(err){
-      alert("Unauthorized");
-    }
-    
-    
+  
     try {
       let response = await userapi.post('/loginApi',
       JSON.stringify({ email: email, password: password }),
@@ -58,6 +49,13 @@ const Form = () => {
       localStorage.setItem('log',true)
       // setIsLoggedin(true)
       // dispatch({type: "USER", payload: true})
+      try{
+        if(response.data.user.role == "admin"){
+          return navigate("/admin")
+        }
+      }catch(err){
+        alert("Unauthorized")
+      }
       navigate("/dashboard")
 
 
