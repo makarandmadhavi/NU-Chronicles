@@ -123,9 +123,9 @@ function Navigationbar() {
 
 
         <Nav className="me-auto">
-          <Nav.Link href="/">About Us</Nav.Link>
+          {/* <Nav.Link href="/">About Us</Nav.Link>
           <Nav.Link href="#link">Explore</Nav.Link>
-          <Nav.Link href="#link">Top Hits</Nav.Link>
+          <Nav.Link href="#link">Top Hits</Nav.Link> */}
 
 
         </Nav>

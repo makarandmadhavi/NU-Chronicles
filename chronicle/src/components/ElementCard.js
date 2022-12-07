@@ -11,7 +11,7 @@ function ElementCard(props) {
     return (
         <Card className='elementCard'>
             <Card.Header>{data.category}</Card.Header>
-            <Card.Img variant="top" height= "300px" src={data.photos[0].path} />
+            <Card.Img variant="top" height= "250px" width="auto" src={data.photos[0].path} />
             <Card.Body>
                 <Card.Title>
                     {data.title}
@@ -32,7 +32,7 @@ function ElementCard(props) {
                     // }}
                 />
                 </span>
-                (31)
+                ({data.rating_list.length}) 
             </Card.Footer>
         </Card>
     )

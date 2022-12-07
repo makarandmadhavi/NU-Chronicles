@@ -8,10 +8,12 @@ import housingapi from '../apiservice/housingapi'
 function Tophits() {
 
   const [housingData, setHousingData] = useState(null);
+  const [groceryData, setGroceryData] = useState(null);
+
 
   const getHousing = async () => {
     const response = await housingapi.get('/get');
-    let data = response.data.slice(0,3).map((element,i) => 
+    let data = response.data.filter(value => value.category == "Housing").slice(0,3).map((element,i) => 
       <div  key={i} className="col-lg-4 mb-3 d-flex align-items-stretch">
         <ElementCard data={element}></ElementCard>
       </div>
@@ -19,10 +21,20 @@ function Tophits() {
     setHousingData(data);
     console.log(data);
   };
+  const getGrocery = async () => {
+    const response = await housingapi.get('/get');
+    let data = response.data.filter(value => value.category == "Grocery").slice(0,3).map((element,i) => 
+      <div  key={i} className="col-lg-4 mb-3 d-flex align-items-stretch">
+        <ElementCard data={element}></ElementCard>
+      </div>
+    );
+    setGroceryData(data);
+    console.log(data);
+  };
 
   useEffect(() => {
     getHousing();
-
+    getGrocery();
   }, []);
 
 
@@ -56,15 +68,7 @@ function Tophits() {
               <div className="accordion-body">
                 <div className="accordion-body">
                   <div className="row">
-                    {/* <div className="col-lg-4 mb-3 d-flex align-items-stretch">
-                      <ElementCard></ElementCard>
-                    </div>
-                    <div className="col-lg-4 mb-3 d-flex align-items-stretch">
-                      <ElementCard></ElementCard>
-                    </div>
-                    <div className="col-lg-4 mb-3 d-flex align-items-stretch">
-                      <ElementCard></ElementCard>
-                    </div> */}
+                    {groceryData}
                   </div>
                 </div>
               </div>
@@ -80,16 +84,46 @@ function Tophits() {
               <div className="accordion-body">
                 <div className="accordion-body">
                   <div className="row">
-                    {/* <div className="col-lg-4 mb-3 d-flex align-items-stretch">
-                      <ElementCard></ElementCard>
+                  
+                    <div className="col-lg-4 mb-3 d-flex align-items-stretch">
+                      <div className="card" style={{width: '100%'}}>
+                        <img src="images/amritesh.jpeg" className="card-img-top" alt="..." />
+                        <div className="card-body">
+                          <h5 className="card-title">Amritesh Raj <i className="fa fa-check-circle" aria-hidden="true" /> </h5>
+                          <p className="card-text">He graduated from NU in 2019.He is currently working as
+                            a Software Engineer at Google. Look for his reviews and ratings on our
+                            website.</p>
+                         
+                        </div>
+                      </div>
                     </div>
                     <div className="col-lg-4 mb-3 d-flex align-items-stretch">
-                      <ElementCard></ElementCard>
+                      <div className="card" style={{width: '100%'}}>
+                        <img src="images/chris.jpeg" className="card-img-top" alt="..." />
+                        <div className="card-body">
+                          <h5 className="card-title">Chris Martin <i className="fa fa-check-circle" aria-hidden="true"> </i></h5>
+                          <p className="card-text">He graduated from NU in 2015.He is currently working as
+                            a Technical Program Manager at Aspen Technologies. Look for his reviews
+                            and ratings on our website.</p>
+                         
+                        </div>
+                      </div>
                     </div>
                     <div className="col-lg-4 mb-3 d-flex align-items-stretch">
-                      <ElementCard></ElementCard>
-                    </div> */}
+                      <div className="card" style={{width: '100%'}}>
+                        <img src="images/xhua.jpeg" className="card-img-top" alt="..." />
+                        <div className="card-body">
+                          <h5 className="card-title">Xuang Hu <i className="fa fa-check-circle" aria-hidden="true"> </i></h5>
+                          <p className="card-text">He graduated from NU in 2020 .He is currently a PHD
+                            researcher st Sanford University. Look for his reviews and ratings on
+                            our website.</p>
+                          
+                        </div>
+                      </div>
+                    </div>
                   </div>
+
+                  
                 </div>
               </div>
             </div>
