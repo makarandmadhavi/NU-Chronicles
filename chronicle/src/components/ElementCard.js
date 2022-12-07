@@ -10,8 +10,8 @@ function ElementCard(props) {
     const [ value, setValue ] = useState("5")
     return (
         <Card className='elementCard'>
-            <Card.Header>Category</Card.Header>
-            <Card.Img variant="top" src='images/house1.jpg' />
+            <Card.Header>{data.category}</Card.Header>
+            <Card.Img variant="top" height= "300px" src={data.photos[0].path} />
             <Card.Body>
                 <Card.Title>
                     {data.title}
@@ -23,12 +23,13 @@ function ElementCard(props) {
             <Card.Footer >
                 <span>
                 <Rating
+                    readOnly
                     name="simple-controlled"
                     sx={{size: "large"}}
-                    value={value}
-                    onChange={(event, newValue )  => {
-                        setValue(newValue);
-                    }}
+                    value={data.overall_rating}
+                    // onChange={(event, newValue )  => {
+                    //     setValue(newValue);
+                    // }}
                 />
                 </span>
                 (31)
