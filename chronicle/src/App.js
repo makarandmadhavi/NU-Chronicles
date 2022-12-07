@@ -1,6 +1,6 @@
 
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom'
 import Profile from './Pages/Profile';
 import Home from './Pages/Home';
 // import Register from './components/Register';
@@ -33,7 +33,7 @@ function App() {
 
       <div>
       <br/>
-      <Router>
+      <BrowserRouter>
       <Routes>
           <Route path='/register' element={ <Login />}>Register</Route>
       
@@ -49,7 +49,7 @@ function App() {
       
           <Route path='/viewpost' element={ <Viewpost/>}>Register</Route>
         </Routes>
-      </Router>
+        </BrowserRouter>
       </div>
       <Footer />
       </UserContext.Provider>

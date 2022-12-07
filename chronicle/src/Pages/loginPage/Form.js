@@ -47,7 +47,8 @@ const Form = () => {
       // handle after login
       alert(response.data.message);
       console.log(response.data.user);
-      sessionStorage.setItem('user',response.data.user.firstName)
+      sessionStorage.setItem('username',response.data.user.firstName)
+      sessionStorage.setItem('user',response.data.user)
       dispatch({type: "USER", payload: true})
     } catch (error) {
      alert("Unauthorized"); 
