@@ -120,7 +120,7 @@ async function updateUser(user_id, newUserData) {
     //     };
     // }
 
-   if (password && !password.trim().match(regexForPassword)) {
+   if (!password.trim().match(regexForPassword)) {
        
         return {
             status: 400,

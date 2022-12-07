@@ -2,38 +2,51 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import Container from 'react-bootstrap/esm/Container';
 import Dropzone from 'react-dropzone';
-import { Box } from '@mui/material'
+import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './css/Addpost.css'
 import housingapi from '../apiservice/housingapi'
+import {
+  Box,
+  // Button,
+
+  Typography,
+ 
+} from "@mui/material";
 
 function Addpost() {
-  const [category, setCategory] = useState('Housing');
+  const [value, setValue] = useState("")
+  // const [category, setCategory] = useState('Housing');
   
-  useEffect(() =>{
+  // useEffect(() =>{
   
-  if(category=='Housing'){
-   document.getElementById('floorplan').style.display='block';
-   document.getElementById('eventdate').style.display='none';
-  }
-  else if(category=='Events'){
-    document.getElementById('floorplan').style.display='none';
-    document.getElementById('eventdate').style.display='block';
-  }
-  else{
-    document.getElementById('floorplan').style.display='none';
-    document.getElementById('eventdate').style.display='none';
-  }
-  },[category]);
+  //  if(category=='Events'){
+   
+  //   document.getElementById('eventdate').style.display='block';
+  // }
+  // else{
+   
+  //   document.getElementById('eventdate').style.display='none';
+  // }
+  // },[category]);
 
-  const [newHouse, setHouse] = useState(
+  const user = sessionStorage.getItem("user")
+  const data = JSON.parse(user)
+  console.log(data._id);
+  const [newPost, setPost] = useState(
     {
-        title: '',
-        address: '',
-        description: '',
-        floorPlan:'',
-        // images:''
+      title: '',
+      address: '',
+      city: '',
+      state: '',
+      zipcode: '',
+      photos: '',
+      description:'',
+      
+      category: '',
+      
+      user_ID : data._id
 
     }
     
@@ -42,21 +55,21 @@ function Addpost() {
 
 const handleChange = (e) => {
   const { name, value } = e.target
-  setHouse({
-      ...newHouse,
+  setPost({
+      ...newPost,
       [name]: value
   })
   
 }
 
-const addData = async(newHouse) =>{
-  housingapi.post('/create',newHouse).then((response) => {
+const addData = async(newPost) =>{
+  housingapi.post('/create',newPost).then((response) => {
     console.log(response , "created");
    
   
 })
 .catch((error)=> {
-  console.log("byee")
+  alert("Unauthorized")
     
     if (error.response+"1") {
       // The request was made and the server responded with a status code
@@ -79,11 +92,12 @@ const addData = async(newHouse) =>{
 };
 
 const handleSubmit = (e) => {
+  newPost.photos=value;
   e.preventDefault();
-  console.log(newHouse, "submit");
-  setHouse(newHouse);
-  addData(newHouse);
-  setHouse([]);
+  console.log(newPost, "submit");
+  setPost(newPost);
+  addData(newPost);
+  document.getElementById('form1').reset();
 }
   
   return (
@@ -91,42 +105,78 @@ const handleSubmit = (e) => {
     <br></br>
     <Container>
      
-    <Form className='card' onSubmit={handleSubmit}>
+    <Form id ="form1" className='card' onSubmit={handleSubmit}>
     <div className="card-header">Add a New Post</div>
     <fieldset className='card-body'>
     <label className="small mb-1" htmlFor="inputName">Name of the Place</label>
-    <input className="form-control" id="inputName" type="text" name="title" value={newHouse.title} onChange={handleChange} placeholder="Enter name"  /><br/>
-    <label className="small mb-1" htmlFor="inputAddress">Address of the Place</label>
-    <input className="form-control" id="inputAddress" type="text" name="address" value={newHouse.address} onChange={handleChange} placeholder="Enter address"  />
+    <input className="form-control" id="inputName" type="text" name="title" value={newPost.title} onChange={handleChange} placeholder="Enter name"  /><br/>
+    <div className="row gx-3 mb-3">
+              {/* Form Group (first name)*/}
+              <div className="col-md-3">
+              <label className="small mb-1" htmlFor="inputAddress">Address</label>
+              <input className="form-control" id="inputAddress" type="text" name="address" value={newPost.address} onChange={handleChange} placeholder="Enter address"  />
+              
+              </div>
+              <div className="col-md-3">
+              <label className="small mb-1" htmlFor="inputAddress">City</label>
+              <input className="form-control" id="inputCity" type="text" name="city" value={newPost.city} onChange={handleChange} placeholder="Enter city"  />
+              
+              </div>
+              <div className="col-md-3">
+              <label className="small mb-1" htmlFor="inputAddress">State</label>
+              <input className="form-control" id="inputState" type="text" name="state" value={newPost.state} onChange={handleChange} placeholder="Enter state"  />
+              
+              </div>
+              <div className="col-md-3">
+              <label className="small mb-1" htmlFor="inputAddress">Zipcode</label>
+              <input className="form-control" id="inputZipcode" type="text" name="zipcode" value={newPost.zipcode} onChange={handleChange} placeholder="Enter zipcode"  />
+              
+              </div>
+              </div>
     <br/>
     <label className="small mb-1" htmlFor="inputDesc">Description</label>
-    <textarea className="form-control" id="inputDesc" type="text" name="description" value={newHouse.description} onChange={handleChange} placeholder="Enter description"  /><br/>
-    <Dropzone
-      acceptedFiles={"image/*"}
-      multiple={false}
-      onDrop={(acceptedFiles) => 
-       console.log(acceptedFiles[0].path)
-        
-       
-      }
-      
-    >
-      {({ getRootProps, getInputProps }) => (
-        <Box
-          {...getRootProps({onClick: event => console.log(event.target)})}
-          border={`2px dashed red`}
-          p="1rem"
-          sx={{ "&:hover": { cursor: "pointer" } }}
-        >
-          <input {...getInputProps()} name="v" onChange={(e) => console.log(e.target.value)} />
-          <p>Add Picture here</p>
-            
-        </Box>
-      )}
-    </Dropzone> 
+    <textarea className="form-control" id="inputDesc" type="text" name="description" value={newPost.description} onChange={handleChange} placeholder="Enter description"  /><br/>
+    <Box
+                gridColumn="span 4"
+                border={`1px solid #222`}
+                borderRadius="5px"
+                p="1rem"
+                sx={{ color: "black" }}
+              >
+                <Dropzone
+                  acceptedFiles="image/*"
+                  multiple={false}
+                  onDrop={(acceptedFiles) =>
+                    setValue(acceptedFiles[0])
+                  }
+
+                >
+                  {({ getRootProps, getInputProps }) => (
+                    <Box
+                      {...getRootProps()}
+                      border={`2px dashed #DC143C`}
+                      p="1rem"
+                      textAlign="center"
+                      sx={{ "&:hover": { cursor: "pointer" } }}
+                    >
+
+                      <input {...getInputProps()} />
+                      <ArrowCircleUpIcon />
+                      {!value.name ? (
+                        <p style={{ textAlign: "center", margin: "5px" }}>Add Picture Here</p>
+                      ) : (
+                        <Typography sx={{ textAlign: "center" }}>{value.name}</Typography>
+
+                      )}
+
+
+                    </Box>
+                  )}
+                </Dropzone>
+                </Box>
     <br/>
     <label className="small mb-1" htmlFor="category">Category</label>
-                   <Form.Select id="category"  onChange={(e) => setCategory(e.target.value)} >
+                   <Form.Select id="category"  name="category"  value={newPost.category} onChange={handleChange} >
                       <option disabled>select...</option>
                         <option>Housing</option>
                         <option>Grocery</option>
@@ -136,14 +186,11 @@ const handleSubmit = (e) => {
                      </Form.Select>  
                      <br/>
                     
-   <div id='floorplan'>
-      <label className="small mb-1" htmlFor="inputFloorPlan">Floor Plan of the House</label>
-      <input className="form-control" id="inputFloorPlan" type="text" name="floorPlan" value={newHouse.floorPlan} onChange={handleChange} placeholder="Enter floorplan"  />              
-      </div>
-      <div id='eventdate'>
+  
+      {/* <div id='eventdate'>
       <label className="small mb-1" htmlFor="inputDate">Date and Time of the Event</label>
       <Form.Control type="datetime-local" min={new Date().toISOString().slice(0,new Date().toISOString().lastIndexOf(":"))} id="inputDateTime"  name="dateTime" />        
-      </div>
+      </div> */}
     <br/> 
    <button className="btn btn-danger" id='savepost' type="submit">Save </button> 
     </fieldset>
