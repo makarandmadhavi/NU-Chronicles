@@ -2,6 +2,7 @@ const post = require('../models/post');
 
 const regexForTitle = /^[\w.()\s?,"\]\[]+$/;
 const regexforOnlyWords = /^[a-zA-Z]+$/;
+const regexforAddress = /[A-Za-z0-9'\.\-\s\,]/;
 const regexforZipcode = /^[\d]{5}$/;
 //Create Data
 async function createPost(data) {
@@ -21,25 +22,31 @@ async function createPost(data) {
     if (!title.trim().match(regexForTitle)) {
         return {
             status: 400,
-            message: "Please use words and special charcters .()\s?,\"\]\[ "
+            message: "Please use words and special charcters .()\s?,\"\]\[ for Name"
+        };
+    }
+    else if (!address.trim().match(regexforAddress)){
+        return {
+            status: 400,
+            message: "Please enter a valid Address"
         };
     }
     else if (!city.trim().match(regexforOnlyWords)){
         return {
             status: 400,
-            message: "Please use words only "
+            message: "Please enter a valid City name"
         };
     }
     else if (!state.trim().match(regexforOnlyWords)){
         return {
             status: 400,
-            message: "Please use words only "
+            message: "Please enter a valid State name"
         };
     }
     else if (!zipcode.trim().match(regexforZipcode)){
         return {
             status: 400,
-            message: "Please use words only "
+            message: "Please enter a valid Zipcode"
         };
     }
 
