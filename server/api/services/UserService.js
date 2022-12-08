@@ -1,5 +1,6 @@
 const user = require('../models/user');
 const bcrypt = require('bcryptjs');
+const neu_User = require('../models/neu_User');
 
 const regexForEmail = /^([\w.]+)@northeastern\.edu$/;
 const regexforName = /^[\w]+$/;
@@ -50,7 +51,7 @@ function createUser(data) {
     // }
 
     else {
-        return user.findOne({ email: email }).then((doc) => {
+        return user.findOne({ email: email }).then( async (doc) => {
 
             if (doc) {
 
@@ -60,15 +61,34 @@ function createUser(data) {
                 var newUser = new user(data);
 
                 newUser.password = bcrypt.hashSync(data.password, 10);
-                newUser.save(function (message, data) {
-                    if (message) {
-                        result.status = 500;
-                        result.message = "User creation failed ";
+                var neu_Database = {};
+                neu_Database.email = data.email;
+                neu_Database.NUID = data.NUID;
+                var value = await neu_User.findOne({email: neu_Database.email, NUID: neu_Database.NUID}).then((dooc) => {
+                    console.log("Element in findone of neu database " + (!dooc) + dooc);
+                    if (!dooc){
+                        result.status = 401;
+                        result.message = "Unauthorised";
+                        return result;
                     }
-
-                });
-                result.status = 201;
-                result.message = newUser;
+                    result = dooc;
+                    result.status = 200;
+                    result.message = "Found in dtabase"
+                    return result;
+                })
+               console.log(value);
+                if (value.status == 200){
+                    newUser.save(function (message, data) {
+                        if (message) {
+                            result.status = 500;
+                            result.message = "User creation failed ";
+                        }
+    
+                    });
+                    result.status = 201;
+                    result.message = newUser;
+                    return result;
+                }
             }
             return result;
         });

@@ -3,6 +3,7 @@ const Sample = require('../models/user');
 const { addNewUser, deleteExistingUser, getAllUsers, updateExistingUser, login } = require('../controllers/UserController');
 const { addPosting, getPosting, updatePosting, deletePosting, insertReview, deleteReview, getReviews, insertQuestion, deleteQnA, insertAnswer, getPostingWithParams } = require('../controllers/postController');
 const post = require('../models/post');
+const { addneuUser, getneuUser, deleteneuUser } = require('../controllers/verifyController');
 
 
 module.exports = (app) => {
@@ -66,6 +67,16 @@ module.exports = (app) => {
 
     //Add Answer
     app.post('/answer/add', bodyParser.json(), insertAnswer);
+
+
+    //addneu User database
+    app.post('/neu/add', bodyParser.json(), addneuUser);
+
+    // Get NEU User Database
+    app.get('/neu/get', getneuUser);
+
+    // Delete NEU Database
+    app.delete('/neu/delete', bodyParser.json(), deleteneuUser);
 
 
 }
