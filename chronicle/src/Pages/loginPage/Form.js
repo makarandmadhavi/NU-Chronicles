@@ -62,7 +62,7 @@ const Form = () => {
         {
           headers: { 'Content-Type': 'application/json' }
         }).then(()=>{
-          alert("user registered");
+          alert("User Successfully Created");
           setPageType("login");
         }) .catch((error) => {
           document.getElementById("errorDiv").innerHTML = error.response.data;

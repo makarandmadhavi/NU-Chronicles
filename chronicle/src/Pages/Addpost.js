@@ -16,21 +16,8 @@ import {
 } from "@mui/material";
 
 function Addpost() {
+  
   const [value, setValue] = useState("")
-  // const [category, setCategory] = useState('Housing');
-  
-  // useEffect(() =>{
-  
-  //  if(category=='Events'){
-   
-  //   document.getElementById('eventdate').style.display='block';
-  // }
-  // else{
-   
-  //   document.getElementById('eventdate').style.display='none';
-  // }
-  // },[category]);
-
   const user = sessionStorage.getItem("user")
   const data = JSON.parse(user)
   console.log(data._id);
@@ -51,8 +38,6 @@ function Addpost() {
     }
     
 );
-
-
 const handleChange = (e) => {
   const { name, value } = e.target
   setPost({
@@ -63,41 +48,22 @@ const handleChange = (e) => {
 }
 
 const addData = async(newPost) =>{
-  housingapi.post('/create',newPost).then((response) => {
-    console.log(response , "created");
-   
-  
-})
-.catch((error)=> {
-  alert("Unauthorized")
-    
-    if (error.response+"1") {
-      // The request was made and the server responded with a status code
-      // that falls out of the range of 2xx
-      //console.log(error.response.data);
-      console.log(error.response.status);
-      console.log(error.response.headers);
-    } else if (error.request+"2") {
-      // The request was made but no response was received
-      // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-      // http.ClientRequest in node.js
-      console.log(error.request+"3");
-    } else {
-      // Something happened in setting up the request that triggered an Error
-      console.log('Error', error.message+"3");
-    }
-})
- 
-
-};
+  housingapi.post('/create',newPost).then(()=>{
+    alert("Post Successfully Created");
+  }) .catch((error) => {
+    document.getElementById("errorDiv").innerHTML = error.response.data.message;
+    console.log(error.response.data);
+  })}
 
 const handleSubmit = (e) => {
-  newPost.photos=value;
   e.preventDefault();
+  newPost.photos=value;
+ 
   console.log(newPost, "submit");
   setPost(newPost);
   addData(newPost);
-  document.getElementById('form1').reset();
+  
+  document.getElementById("errorDiv").innerHTML = "";
 }
   
   return (
@@ -186,7 +152,9 @@ const handleSubmit = (e) => {
                      </Form.Select>  
                      <br/>
                     
-  
+        <div id="errorDiv" style={{color: "red"}}>
+                
+                </div>
       {/* <div id='eventdate'>
       <label className="small mb-1" htmlFor="inputDate">Date and Time of the Event</label>
       <Form.Control type="datetime-local" min={new Date().toISOString().slice(0,new Date().toISOString().lastIndexOf(":"))} id="inputDateTime"  name="dateTime" />        
