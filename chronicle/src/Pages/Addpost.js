@@ -6,7 +6,7 @@ import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './css/Addpost.css'
-import housingapi from '../apiservice/housingapi'
+import housingapi from '../apiservice/postapi'
 import {
   Box,
   // Button,

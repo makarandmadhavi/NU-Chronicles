@@ -8,7 +8,7 @@ import Dropzone from 'react-dropzone';
 import { Box } from '@mui/material'
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import ElementCard from '../components/ElementCard'
-import housingapi from '../apiservice/housingapi'
+import housingapi from '../apiservice/postapi'
 import userapi from "../apiservice/userapi";
 
 

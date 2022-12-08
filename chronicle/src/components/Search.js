@@ -1,7 +1,9 @@
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import Form from 'react-bootstrap/Form'; 
+import {useState, useEffect} from 'react';
 
-function Search() {
+function Search(props) {
+
     return (
         <Form className='card'>
             <div className="card-header">Look Up Reccomndations</div>
@@ -20,7 +22,7 @@ function Search() {
                 <Form.Group className="mb-3 inputGroup">
                    
                     <Form.Control id="disabledTextInput" placeholder="Search... " />
-                    <Button type="submit" variant='danger'>Search</Button>
+                    <Button type="submit" onClick={props.search} variant='danger'>Search</Button>
                     
                 </Form.Group>
 

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import ElementCard from './ElementCard'
-import housingapi from '../apiservice/housingapi'
+import housingapi from '../apiservice/postapi'
 
 function Tophits() {
 

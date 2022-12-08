@@ -108,7 +108,7 @@ async function getPostwithParams(params) {
     if (!category){
         console.log(title + " " + category);
 
-        await post.find({title : {$regex: '.*' + title + '.*'}}).sort({overall_rating : 1, createdAt: 1}).then(function(data, error) {
+        await post.find({title : {$regex: '.*' + title + '.*', $options: 'i'}}).sort({overall_rating : 1, createdAt: 1}).then(function(data, error) {
             if (error){
                 console.log("Error Occured " + error);
                 result.status = 500;
@@ -125,7 +125,7 @@ async function getPostwithParams(params) {
         });
         return result;
     }
-    await post.find({title : {$regex: '.*' + title + '.*'}, category: category}).then(function(data, error) {
+    await post.find({title : {$regex: '.*' + title + '.*', $options: 'i'}, category: category}).then(function(data, error) {
         if (error){
             console.log("Error Occured " + error);
             result.status = 500;
