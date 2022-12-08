@@ -46,17 +46,29 @@ const handlelogout = () => {
     
     // dispatch({type: "USER", payload: false})
   }
+ const  navigateProfile =()=>{
+  navigate("/profile")
+  
+ }
+ const  navigateAddPost =()=>{
+  navigate("/addpost")
+  
+}
 
   const RenderMenu = () => {
       return(
         <>
           {data && name &&
           <Box sx={{ flexGrow: 0}}>
+            
           <Tooltip title={user.email}>
             <IconButton sx={{ p: 0 }}>
              <Avatar sx={{bgcolor: "#DC143C"}} alt={user.firstName} src="/static/images/avatar/2.jpg" />
             </IconButton>
           </Tooltip>
+          <Button variant="danger" style={{margin:'5px'}} onClick={navigateProfile}>Profile</Button>
+            
+            <Button variant="danger" style={{margin:'5px'}}  onClick={navigateAddPost}>Add Post</Button>
           <Button variant="danger" onClick={handlelogout} >
             Logout
           </Button>
@@ -85,9 +97,9 @@ const handlelogout = () => {
 
 
         <Nav className="me-auto">
-          <Nav.Link href="/">About Us</Nav.Link>
+          
           <Nav.Link href="/dashboard">Explore</Nav.Link>
-          <Nav.Link href="#link">Top Hits</Nav.Link>
+     
         </Nav>
         {/* <LoginModal/>
         <Button>Click</Button>  */}

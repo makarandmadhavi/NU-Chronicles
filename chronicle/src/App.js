@@ -43,15 +43,15 @@ function App() {
         
           <Route path='/profile' element={ <ProtectedRoute> <Profile /></ProtectedRoute>}>Register</Route>
        
-          <Route path='/admin' element={ <AdminDash />}>Register</Route>
+          <Route path='/admin' element={ <ProtectedRoute> <AdminDash /></ProtectedRoute>}>Register</Route>
         
           <Route path='/dashboard' element={ <Dashboard />}>Register</Route>
         
-          <Route path='/addpost' element={ <Addpost />}>Register</Route>
+          <Route path='/addpost' element={ <ProtectedRoute> <Addpost /></ProtectedRoute>}>Register</Route>
       
           <Route path='/viewpost' element={ <Viewpost/>}>Register</Route>
 
-          <Route path='/editpost' element={ <Editpost />}>Register</Route>
+          <Route path='/editpost' element={ <ProtectedRoute>  <Editpost /></ProtectedRoute>}>Register</Route>
         </Routes>
         
       </div>
