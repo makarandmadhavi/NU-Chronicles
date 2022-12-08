@@ -1,4 +1,5 @@
 const post = require('../models/post');
+const user = require('../models/user')
 
 const regexForTitle = /^[\w.()\s?,"\]\[]+$/;
 const regexforOnlyWords = /^[a-zA-Z]+$/;
@@ -53,7 +54,7 @@ async function createPost(data) {
     await post.findOne({title : data.title }).then((doc) => {
         if (doc) {
             result.status = 400;
-            result.message =  "User already exists with same title: " + title;
+            result.message =  "Post already exists with same title: " + title;
         } 
         else{
             var newPost = new post(data);
@@ -73,7 +74,7 @@ async function createPost(data) {
             // result = data;
             
             result.status = 200;
-            result.message = "Saved Successfully";
+            result.message = newPost;
         }
     })
     
@@ -108,7 +109,7 @@ async function getPost() {
 // Get Post By ID
 async function getPostById(params){
     var id = params._id;
-    await post.findOne({_id : id}).then(function(data, error) {
+    await post.findOne({_id : id}).then(async function(data, error) {
         if (error){
             console.log("Error Occured " + error);
             result.status = 500;
@@ -117,6 +118,7 @@ async function getPostById(params){
         }
         
         result = data;
+
         console.log("Result after data is assignered in params function");
         result.status = 200;
         console.log(result.status);

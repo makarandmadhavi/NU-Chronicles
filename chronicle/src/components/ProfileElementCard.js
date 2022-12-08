@@ -6,7 +6,7 @@ import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons'
 import './css/ElementCard.css'
 import { Navigate, useNavigate } from "react-router-dom";
 
-function ElementCard(props) {
+function ProfileElementCard(props) {
     const data = props.data;
     var photoPath = "images/house1.jpg";
     if(data.photos[0]){
@@ -17,9 +17,12 @@ function ElementCard(props) {
     const viewPost = (id)=>{
         return navigate("/viewpost", {state:{id:id}});
     }
+    const editPost = (id)=>{
+        return navigate("/editpost", {state:{id:id}});
+    }
 
     return (
-        <Card onClick={e => viewPost(data._id)} id={data._id} className='elementCard'>
+        <Card  id={data._id} className='elementCard'>
             <Card.Header>{data.category}</Card.Header>
             <Card.Img variant="top" height= "250px" width="auto" src={photoPath} />
             <Card.Body>
@@ -44,10 +47,11 @@ function ElementCard(props) {
                 />
                 </span>
                 ({data.rating_list.length}) 
-                {props.edit}
+                <button onClick={e => viewPost(data._id)} className="btn btn-danger" >View</button>
+                <button onClick={e => editPost(data._id)} className="btn btn-danger" >Edit</button>
             </Card.Footer>
         </Card>
     )
 }
 
-export default ElementCard
+export default ProfileElementCard

@@ -6,6 +6,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import QandA from '../widgets/QandA';
 import { useLocation } from 'react-router-dom';
 import postapi from '../apiservice/postapi';
+import userapi from '../apiservice/userapi';
 
 function Viewpost() {
   const [value, setValue] = useState("5");
@@ -13,18 +14,51 @@ function Viewpost() {
   const [data, setData] = useState({});
   console.log(location.state.id + "State ");
 
-  const getResults =  async () => {
+  const [reviews, setReviews] = useState(null)
+
+  const getResults = async () => {
     const response = await postapi.get('/get', {
       params: {
         _id: location.state.id,
       }
-
     });
+    // const getUserByID = async (id) => {
+    //   const response = await userapi.get("/allusers", { params: { id: id } });
+    //   return response.data;
+    // } 
     // console.log(response.data.title + " <= response");
     setData(response.data);
-    console.log(response.data);
+    // let userreviews = response.data.rating_list.map((rev)=>{
+    //   return {
+    //     rating:rev.rating,
+    //     review:rev.review,
+    //     user: getUserByID(rev.userID)
+    //   }
+    // })
+
+    console.log(response.data.rating_list);
+    let reviewsElements = response.data.rating_list.map((rev) =>
+      <div className="container1">
+        
+        <img src="/images/attra.jpg" alt="Avatar" style={{ width: '90px' }} />
+
+        <p><span>{rev.userID}</span> </p>
+        <p>{rev.review != undefined ? rev.review : null}</p>
+        <Rating readOnly sx={{ mt: 2 }}
+            name="simple-controlled"
+            value={rev.rating}
+            onChange={(event, newValue) => {
+              setValue(newValue);
+            }}
+          />
+
+      </div>);
+    setReviews(reviewsElements);
+    console.log(reviewsElements);
 
   }
+
+
 
   useEffect(() => {
     getResults();
@@ -92,11 +126,13 @@ function Viewpost() {
             <Accordion.Item eventKey="0">
               <Accordion.Header>All Reviews</Accordion.Header>
               <Accordion.Body>
-                <div className="container1">
+                {/* <div className="container1">
                   <img src="/images/attra.jpg" alt="Avatar" style={{ width: '90px' }} />
                   <p><span>Chris Fox.</span> CEO at Mighty Schools.</p>
                   <p>John Doe saved us from a web disaster.</p>
-                </div>
+                </div> */}
+                {reviews}
+
 
               </Accordion.Body>
             </Accordion.Item>

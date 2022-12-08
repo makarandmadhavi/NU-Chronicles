@@ -1,4 +1,4 @@
-const { createUser, deleteUser, getUsers, updateUser, getAuthentication } = require('../services/UserService');
+const { createUser, deleteUser, getUsers, updateUser, getAuthentication, getUserByID } = require('../services/UserService');
 
 /*
  * call other imported services, or same service but different functions here if you need to
@@ -34,7 +34,8 @@ const updateExistingUser = async(req, res) => {
 }
 
 const deleteExistingUser = async (req, res) => {
-    const email = req.body.email;
+    const email = req.query.email;
+    console.log(req);
     console.log(email);
     try {
         let result = await deleteUser(email);
@@ -49,14 +50,29 @@ const deleteExistingUser = async (req, res) => {
 }
 
 const getAllUsers = async (req, res) => {
-    try{
-        let result = await getUsers();
 
+    try {
+        let result;
+        console.log(req.query);
+       
+        if (Object.keys(req.query).length != 0){
+            if (req.query.id){
+                result = await getUserByID(req.query.id);
+            }   
+            else{
+                result = await getUsers();
+            }
+            
+        }
+        else{
+            result = await getUsers();
+        
+        }
+        // console.log("In controller " + result);
         res.status(result.status);
         res.json(result);
-
     }
-    catch(e) {
+    catch(e){
         console.log(e);
         res.sendStatus(500);
     }

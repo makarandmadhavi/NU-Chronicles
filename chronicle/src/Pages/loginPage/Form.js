@@ -93,6 +93,8 @@ const Form = () => {
         JSON.stringify({ email: email, password: password }),
         {
           headers: { 'Content-Type': 'application/json' }
+        }).catch((error)=>{
+          document.getElementById("errorDivlogin").innerText = "Invalid email Id or password";
         })
 
       // alert(response.data.message)
@@ -106,7 +108,7 @@ const Form = () => {
           return navigate("/admin")
         }
       } catch (err) {
-        alert("Unauthorized")
+        document.getElementById("errorDivlogin").innerText = "Invalid email Id or password";
       }
       navigate("/dashboard")
 
@@ -152,6 +154,9 @@ const Form = () => {
               borderRadius="5px"
               sx={{ color: "black" }}
             >
+              <div id="errorDivlogin" style={{color:"red"}}>
+
+              </div>
               <Button
                 onClick={(handleLogin)}
                 type="submit"

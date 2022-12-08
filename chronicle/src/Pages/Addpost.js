@@ -7,6 +7,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './css/Addpost.css'
 import housingapi from '../apiservice/postapi'
+import { Navigate, useNavigate } from "react-router-dom";
+
 import {
   Box,
   // Button,
@@ -18,9 +20,11 @@ import {
 function Addpost() {
   
   const [value, setValue] = useState("")
-  const user = sessionStorage.getItem("user")
+  const user = localStorage.getItem("user")
   const data = JSON.parse(user)
   console.log(data._id);
+  const navigate = useNavigate();
+
   const [newPost, setPost] = useState(
     {
       title: '',
@@ -28,7 +32,6 @@ function Addpost() {
       city: '',
       state: '',
       zipcode: '',
-      photos: '',
       description:'',
       
       category: '',
@@ -39,7 +42,7 @@ function Addpost() {
     
 );
 const handleChange = (e) => {
-  const { name, value } = e.target
+  const { name, value } = e.target;
   setPost({
       ...newPost,
       [name]: value
@@ -48,8 +51,8 @@ const handleChange = (e) => {
 }
 
 const addData = async(newPost) =>{
-  housingapi.post('/create',newPost).then(()=>{
-    alert("Post Successfully Created");
+  housingapi.post('/create',newPost).then((response)=>{
+    return navigate("/viewpost", {state:{id:response.data.message._id}});
   }) .catch((error) => {
     document.getElementById("errorDiv").innerHTML = error.response.data.message;
     console.log(error.response.data);
@@ -57,7 +60,7 @@ const addData = async(newPost) =>{
 
 const handleSubmit = (e) => {
   e.preventDefault();
-  newPost.photos=value;
+  // newPost.photos=value;
  
   console.log(newPost, "submit");
   setPost(newPost);
@@ -142,9 +145,9 @@ const handleSubmit = (e) => {
                 </Box>
     <br/>
     <label className="small mb-1" htmlFor="category">Category</label>
-                   <Form.Select id="category"  name="category"  value={newPost.category} onChange={handleChange} >
+                   <Form.Select id="category"  name="category" onChange={handleChange} >
                       <option disabled>select...</option>
-                        <option>Housing</option>
+                        <option selected>Housing</option>
                         <option>Grocery</option>
                       <option>Seasonal Clothing</option>
                      <option>Events</option>

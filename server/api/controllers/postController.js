@@ -58,7 +58,8 @@ const updatePosting = async (req, res) => {
 }
 
 const deletePosting = async (req, res) => {
-    const id = req.body._id;
+    const id = req.query._id;
+    console.log(req.query._id);
     try{
         let result = await deletePost(id);
 

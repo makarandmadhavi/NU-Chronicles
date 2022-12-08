@@ -51,7 +51,7 @@ function createUser(data) {
     // }
 
     else {
-        return user.findOne({ email: email }).then( async (doc) => {
+        return user.findOne({ email: email }).then(async (doc) => {
 
             if (doc) {
 
@@ -64,9 +64,9 @@ function createUser(data) {
                 var neu_Database = {};
                 neu_Database.email = data.email;
                 neu_Database.NUID = data.NUID;
-                var value = await neu_User.findOne({email: neu_Database.email, NUID: neu_Database.NUID}).then((dooc) => {
+                var value = await neu_User.findOne({ email: neu_Database.email, NUID: neu_Database.NUID }).then((dooc) => {
                     console.log("Element in findone of neu database " + (!dooc) + dooc);
-                    if (!dooc){
+                    if (!dooc) {
                         result.status = 401;
                         result.message = "Unauthorised";
                         return result;
@@ -76,14 +76,14 @@ function createUser(data) {
                     result.message = "Found in dtabase"
                     return result;
                 })
-               console.log(value);
-                if (value.status == 200){
+                console.log(value);
+                if (value.status == 200) {
                     newUser.save(function (message, data) {
                         if (message) {
                             result.status = 500;
                             result.message = "User creation failed ";
                         }
-    
+
                     });
                     result.status = 201;
                     result.message = newUser;
@@ -123,7 +123,7 @@ async function deleteUser(email) {
 
 //Update User
 async function updateUser(user_id, newUserData) {
-   // var email = newUserData.email;
+    // var email = newUserData.email;
     var password = newUserData.password;
     var firstName = newUserData.firstName;
     var lastName = newUserData.lastName;
@@ -139,55 +139,69 @@ async function updateUser(user_id, newUserData) {
     //         message: "Email ID entered is not valid or correct. Please check entered details again."
     //     };
     // }
+    if (password != null && password != '') {
+        if (!password.trim().match(regexForPassword)) {
 
-   if (!password.trim().match(regexForPassword)) {
-       
-        return {
-            status: 400,
-            message: "Password should be 8-14 characters long. \n  Must contain an uppercase letter and a lowercase letter \n A special character and a numeric character (0-9) "
-        };
+            return {
+                status: 400,
+                message: "Password should be 8-14 characters long. \n  Must contain an uppercase letter and a lowercase letter \n A special character and a numeric character (0-9) "
+            };
+        }
+        else if (firstName && !firstName.trim().match(regexforName)) {
+            return { status: 400, message: "Please enter valid First Name" };
+        }
+    
+        else if (lastName && !lastName.trim().match(regexforName)) {
+            return { status: 400, message: "Please enter valid Last Name" };
+        }
     }
 
-    else if (firstName && !firstName.trim().match(regexforName)) {
-        return { status: 400, message: "Please enter valid First Name" };
-    }
-
-    else if (lastName && !lastName.trim().match(regexforName)) {
-        return { status: 400, message: "Please enter valid Last Name" };
-    }
-
-    // else if (NUID && !NUID.trim().match(regexforNUID)) {
-    //     return { status: 400, message: "Please enter valid 9 digit NUID number" };
-    // }
-
-    // else if (phoneNumber && !phoneNumber.trim().match(regexforPhone)) {
-    //     return { status: 400, message: "Please enter valid Phone Number" };
-    // }
-    else {
-        // var result = {};
-        console.log("Inside else and before update================================= ");
+    console.log("Inside else and before update================================= ");
+    if (password != null && password != '') {
         newUserData.password = bcrypt.hashSync(newUserData.password, 10);
-        return await user.findByIdAndUpdate(user_id, newUserData).then(function (doc, err) {
-            if (err) {
-                console.log(err);
-                result.status = 500;
-                result.message = "Could not update " + err;
-            }
-            else {
-                console.log("Updated User : ", doc);
-                result.status = 200;
-                result.message = "User Updated";
-            }
-            return result;
-        });
-        //    return result;
     }
+    return await user.findByIdAndUpdate(user_id, newUserData).then(function (doc, err) {
+        if (err) {
+            console.log(err);
+            result.status = 500;
+            result.message = "Could not update " + err;
+        }
+        else {
+            console.log("Updated User : ", doc);
+            result.status = 200;
+            result.message = "User Updated";
+        }
+        return result;
+    });
+    //    return result;
+
 
 }
 
 async function getUsers() {
     var result = {};
     await user.find().then(function (data, error) {
+        if (error) {
+            console.log("Error Occured " + error);
+            result.status = 500;
+            result.message = "could not get data " + data;
+            return;
+        }
+
+        result = data;
+        console.log("Result after data is assignered " + result);
+        result.status = 200;
+        console.log(result.status);
+        result.message = "all done";
+        return;
+    });
+    return result;
+
+}
+
+async function getUserByID(id) {
+    var result = {};
+    await user.find({_id: id}).then(function (data, error) {
         if (error) {
             console.log("Error Occured " + error);
             result.status = 500;
@@ -214,9 +228,9 @@ async function getAuthentication(email, password) {
             result.message = "error with server";
             console.log(error);
         }
-        else if(doc){
-            if( await bcrypt.compare(password, doc.password)){
-                
+        else if (doc) {
+            if (await bcrypt.compare(password, doc.password)) {
+
                 loggedInUser = doc;
                 delete loggedInUser[password];
                 loggedInUser.password = null;
@@ -231,7 +245,7 @@ async function getAuthentication(email, password) {
             result.status = 401;
             result.message = "Unauthorized";
         }
-        
+
     });
     return result;
 }
@@ -243,5 +257,6 @@ module.exports = {
     deleteUser,
     getUsers,
     updateUser,
-    getAuthentication
+    getAuthentication,
+    getUserByID
 }

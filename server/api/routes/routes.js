@@ -26,7 +26,7 @@ module.exports = (app) => {
     app.post('/user/loginApi', bodyParser.json(), login);
 
     //delete User
-    app.delete('/user/delete', bodyParser.json(), deleteExistingUser);
+    app.delete('/user/delete', deleteExistingUser);
 
     //Get user
     app.get('/user/allusers', getAllUsers);
@@ -47,7 +47,7 @@ module.exports = (app) => {
     app.put('/post/update', updatePosting);
 
     //Delete post
-    app.delete('/post/delete', bodyParser.json(), deletePosting);
+    app.delete('/post/delete', deletePosting);
 
 
     //add Review/ Rating
