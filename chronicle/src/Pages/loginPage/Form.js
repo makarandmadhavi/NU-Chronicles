@@ -235,7 +235,7 @@ const Form = () => {
               </RadioGroup>
             </FormControl>
 
-            <Box
+            {/* <Box
               gridColumn="span 4"
               border={`1px solid #222`}
               borderRadius="5px"
@@ -272,7 +272,7 @@ const Form = () => {
                   </Box>
                 )}
               </Dropzone>
-            </Box>
+            </Box> */}
             <Box
               gridColumn="span 4"
               borderRadius="5px"

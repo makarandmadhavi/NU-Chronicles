@@ -60,8 +60,7 @@ const addData = async(newPost) =>{
 
 const handleSubmit = (e) => {
   e.preventDefault();
-  // newPost.photos=value;
- 
+   newPost.photos=value;
   console.log(newPost, "submit");
   setPost(newPost);
   addData(newPost);

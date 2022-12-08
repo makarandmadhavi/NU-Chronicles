@@ -49,7 +49,7 @@ function App() {
         
           <Route path='/addpost' element={ <ProtectedRoute> <Addpost /></ProtectedRoute>}>Register</Route>
       
-          <Route path='/viewpost' element={ <Viewpost/>}>Register</Route>
+          <Route path='/viewpost' element={<ProtectedRoute> <Viewpost/></ProtectedRoute>}>Register</Route>
 
           <Route path='/editpost' element={ <ProtectedRoute>  <Editpost /></ProtectedRoute>}>Register</Route>
         </Routes>

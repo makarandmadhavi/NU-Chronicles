@@ -1,0 +1,859 @@
+[
+    {
+        "_id": "639209a60d63234d13476edc",
+        "title": "J vue 2",
+        "address": "75 saint",
+        "city": "boston",
+        "state": "ksnfs",
+        "zipcode": "02020",
+        "description": "sfsfsfsfs",
+        "overall_rating": null,
+        "category": "",
+        "googlemapLink": "",
+        "user_ID": "63920601642c6e2e021f0ac1",
+        "photos": [],
+        "rating_list": [],
+        "QnA_List": [],
+        "createdAt": "2022-12-08T15:58:30.327Z",
+        "updatedAt": "2022-12-08T15:58:30.327Z",
+        "__v": 0
+    },
+    {
+        "_id": "63924d91a4155860fe46de64",
+        "title": "Snell Library",
+        "address": "Northeastern",
+        "city": "Boston",
+        "state": "MA",
+        "zipcode": "02120",
+        "description": "sjkhfkjdshf kdshf dshfidshfiks",
+        "overall_rating": null,
+        "category": "Housing",
+        "googlemapLink": "",
+        "user_ID": "63921a29aca52711b939b4df",
+        "photos": [],
+        "rating_list": [],
+        "QnA_List": [],
+        "createdAt": "2022-12-08T20:48:17.173Z",
+        "updatedAt": "2022-12-08T20:48:17.173Z",
+        "__v": 0
+    },
+    {
+        "_id": "63925d0e667a2829e7875db7",
+        "title": "SNL",
+        "address": "SNL",
+        "city": "SNL",
+        "state": "SNL",
+        "zipcode": "02120",
+        "description": "kjnfjkhnkfjhnksfs",
+        "overall_rating": null,
+        "category": "Housing",
+        "googlemapLink": "",
+        "user_ID": "63921709aca52711b939aa80",
+        "photos": [],
+        "rating_list": [],
+        "QnA_List": [],
+        "createdAt": "2022-12-08T21:54:22.010Z",
+        "updatedAt": "2022-12-08T21:54:22.010Z",
+        "__v": 0
+    },
+    {
+        "_id": "63925d8d667a2829e7875e08",
+        "title": "SDL",
+        "address": "SDL",
+        "city": "SDL",
+        "state": "SDL",
+        "zipcode": "02120",
+        "photos": [
+            {
+                "path": "house3.jpg",
+                "_id": "63925d8d667a2829e7875e09"
+            }
+        ],
+        "description": "jksdbjdbsf",
+        "overall_rating": null,
+        "category": "Housing",
+        "googlemapLink": "",
+        "user_ID": "63921709aca52711b939aa80",
+        "rating_list": [],
+        "QnA_List": [],
+        "createdAt": "2022-12-08T21:56:29.311Z",
+        "updatedAt": "2022-12-08T21:56:29.311Z",
+        "__v": 0
+    },
+    {
+        "_id": "63925e7e667a2829e7875e7a",
+        "title": "Mission Main apartments",
+        "address": "MM",
+        "city": "MM",
+        "state": "MM",
+        "zipcode": "02120",
+        "photos": [
+            {
+                "path": "house1.jpg",
+                "_id": "63925e7e667a2829e7875e7b"
+            }
+        ],
+        "description": "Mission main hahshas",
+        "overall_rating": null,
+        "category": "Housing",
+        "googlemapLink": "",
+        "user_ID": "63921709aca52711b939aa80",
+        "rating_list": [],
+        "QnA_List": [],
+        "createdAt": "2022-12-08T22:00:30.427Z",
+        "updatedAt": "2022-12-08T22:00:30.427Z",
+        "__v": 0
+    },
+    {
+        "_id": "638fbfa83ee6a9437de7ee8d",
+        "title": "Fenway Triangle Apartments",
+        "address": "180 Brookline Ave,",
+        "city": "Boston",
+        "zipcode": "02215",
+        "photos": [
+            {
+                "path": "https://images1.forrent.com/i2/dr-cJ5ewzm1pKoWFW6of0IO0T4LRvIQ3G7_EAWkmUK0/117/image.jpg",
+                "_id": "638fbfa83ee6a9437de7ee8e"
+            }
+        ],
+        "description": "Triangle Trilogy you will enjoy not only a stylish and luxurious home, but also first-class, convenient Amenities and Services that quite simply make your life easier. ",
+        "rating_list": [
+            {
+                "userID": "Bhavya",
+                "rating": 4,
+                "review": "Very beautiful",
+                "_id": "638fbfa83ee6a9437de7ee8f"
+            },
+            {
+                "userID": "Mak",
+                "rating": 3,
+                "review": "Small rooms but good society",
+                "_id": "638fbfa83ee6a9437de7ee90"
+            },
+            {
+                "userID": "Makarand Madhavi",
+                "rating": null,
+                "review": "jsdbjfbdsfsf",
+                "_id": "63925a3f667a2829e78750ce"
+            },
+            {
+                "userID": "Makarand Madhavi",
+                "rating": null,
+                "review": "Test rating",
+                "_id": "63925a5e667a2829e78750f1"
+            },
+            {
+                "userID": "Makarand Madhavi",
+                "rating": 5,
+                "review": "Test rating3232",
+                "_id": "63925ab3667a2829e7875119"
+            },
+            {
+                "userID": "Mak Jets (Student)",
+                "rating": 3,
+                "review": "Test review2",
+                "_id": "63925bc5667a2829e7875937"
+            }
+        ],
+        "QnA_List": [
+            {
+                "question": {
+                    "userID": "638b9a89639ec0aa85818a56",
+                    "value": "What is the range of rent?"
+                },
+                "answer": [
+                    {
+                        "userID": "638fbe953ee6a9437de7ee82",
+                        "answer": "500-600 dollars",
+                        "_id": "638fbfa83ee6a9437de7ee92"
+                    }
+                ],
+                "_id": "638fbfa83ee6a9437de7ee91"
+            }
+        ],
+        "overall_rating": 3,
+        "category": "Housing",
+        "googlemapLink": "",
+        "user_ID": "638fbe953ee6a9437de7ee82",
+        "createdAt": "2022-12-06T22:18:16.284Z",
+        "updatedAt": "2022-12-08T21:48:53.227Z",
+        "__v": 0,
+        "state": "MA"
+    },
+    {
+        "state": "MA",
+        "_id": "638fc61d3ee6a9437de7ef01",
+        "title": "Star Market",
+        "address": "53 Huntington Ave",
+        "city": "Boston",
+        "zipcode": "02199",
+        "photos": [
+            {
+                "path": "data:image/jpeg;base64,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",
+                "_id": "638fc61d3ee6a9437de7ef02"
+            }
+        ],
+        "description": "Supermarket chain offering meat, produce, staples, deli & bakery items (some with pharmacies",
+        "rating_list": [
+            {
+                "userID": "638fbe953ee6a9437de7ee82",
+                "rating": 5,
+                "review": "Has many options, vegetables, fruits, and meat.",
+                "_id": "638fc61d3ee6a9437de7ef03"
+            },
+            {
+                "userID": "638fd3ed3ee6a9437de7ef39",
+                "rating": 3,
+                "review": "Could not find japanese options",
+                "_id": "638fc61d3ee6a9437de7ef04"
+            }
+        ],
+        "QnA_List": [
+            {
+                "question": {
+                    "userID": "638b9a89639ec0aa85818a56",
+                    "value": "Does this place have frozen rotis items ?"
+                },
+                "answer": [
+                    {
+                        "userID": "638fbe953ee6a9437de7ee82",
+                        "answer": "Yes a lot of options available",
+                        "_id": "638fc61d3ee6a9437de7ef06"
+                    }
+                ],
+                "_id": "638fc61d3ee6a9437de7ef05"
+            }
+        ],
+        "overall_rating": 3,
+        "category": "Grocery",
+        "googlemapLink": "",
+        "user_ID": "638fbe953ee6a9437de7ee82",
+        "createdAt": "2022-12-06T22:45:49.918Z",
+        "updatedAt": "2022-12-06T22:45:49.918Z",
+        "__v": 0
+    },
+    {
+        "state": "MA",
+        "_id": "638fc7cb3ee6a9437de7ef09",
+        "title": "Marshalls",
+        "address": "126 Brookline Ave",
+        "city": "Boston",
+        "zipcode": "02215",
+        "photos": [
+            {
+                "path": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Marshall%27s_at_Millenia_Plaza.JPG",
+                "_id": "638fc7cb3ee6a9437de7ef0a"
+            }
+        ],
+        "description": "Retail chain offering brand-name clothing, accessories, shoes & housewares.",
+        "rating_list": [
+            {
+                "userID": "638fbe953ee6a9437de7ee82",
+                "rating": 5,
+                "review": "Has many options, sweaters and snow boots are available in good range",
+                "_id": "638fc7cb3ee6a9437de7ef0b"
+            },
+            {
+                "userID": "638fd3ed3ee6a9437de7ef39",
+                "rating": 3,
+                "review": "The quality of goods are not up to the mark but can work for student years",
+                "_id": "638fc7cb3ee6a9437de7ef0c"
+            }
+        ],
+        "QnA_List": [
+            {
+                "question": {
+                    "userID": "638b9a89639ec0aa85818a56",
+                    "value": "Does this place have all essebtials needed during winter ?"
+                },
+                "answer": [
+                    {
+                        "userID": "638fbe953ee6a9437de7ee82",
+                        "answer": "Yes a lot of options available",
+                        "_id": "638fc7cb3ee6a9437de7ef0e"
+                    }
+                ],
+                "_id": "638fc7cb3ee6a9437de7ef0d"
+            }
+        ],
+        "overall_rating": 3,
+        "category": "Seasonal Clothing",
+        "googlemapLink": "",
+        "user_ID": "638fbe953ee6a9437de7ee82",
+        "createdAt": "2022-12-06T22:52:59.849Z",
+        "updatedAt": "2022-12-06T22:52:59.849Z",
+        "__v": 0
+    },
+    {
+        "_id": "638fbec63ee6a9437de7ee85",
+        "title": "Park 151 Apartments",
+        "address": "151 N First St",
+        "city": "Cambridge",
+        "zipcode": "02141",
+        "photos": [
+            {
+                "path": "https://images1.forrent.com/i2/7iSmFgbwSiHIKI6HJtk1LxWO1VTGJHC4Mrx-0SrOOSo/117/image.jpg",
+                "_id": "638fbec63ee6a9437de7ee86"
+            }
+        ],
+        "description": "Park 151 offers the freedom of parkside living with world-class amenities, and just kick up your feet and enjoy the view. Not expensive.",
+        "rating_list": [
+            {
+                "userID": "638fbe953ee6a9437de7ee82",
+                "rating": 4,
+                "review": "good",
+                "_id": "638fbec63ee6a9437de7ee87"
+            },
+            {
+                "userID": "638fd3ed3ee6a9437de7ef39",
+                "rating": 3,
+                "review": "nice",
+                "_id": "638fbec63ee6a9437de7ee88"
+            }
+        ],
+        "QnA_List": [
+            {
+                "question": {
+                    "userID": "638b9a89639ec0aa85818a56",
+                    "value": "Is this area safe ?"
+                },
+                "answer": [
+                    {
+                        "userID": "638fbe953ee6a9437de7ee82",
+                        "answer": "Yes! Its a safe community",
+                        "_id": "638fbec63ee6a9437de7ee8a"
+                    }
+                ],
+                "_id": "638fbec63ee6a9437de7ee89"
+            }
+        ],
+        "overall_rating": 4,
+        "category": "Housing",
+        "googlemapLink": "",
+        "user_ID": "638fbe953ee6a9437de7ee82",
+        "createdAt": "2022-12-06T22:14:31.000Z",
+        "updatedAt": "2022-12-06T22:14:31.000Z",
+        "__v": 0,
+        "state": "Massachussets"
+    },
+    {
+        "state": "MA",
+        "_id": "638fc15d3ee6a9437de7ee95",
+        "title": "Wollaston's Market",
+        "address": " 369 Huntington Ave,",
+        "city": "Boston",
+        "zipcode": "02115",
+        "photos": [
+            {
+                "path": "https://www.rd.com/wp-content/uploads/2021/10/GettyImages-1141996490-ADedit.jpg",
+                "_id": "638fc15d3ee6a9437de7ee96"
+            }
+        ],
+        "description": "Northeastern University on campus grocery store and deli! Deli open same hours as the rest of the store",
+        "rating_list": [
+            {
+                "userID": "638fbe953ee6a9437de7ee82",
+                "rating": 4,
+                "review": "Great options available here !",
+                "_id": "638fc15d3ee6a9437de7ee97"
+            },
+            {
+                "userID": "638fd3ed3ee6a9437de7ef39",
+                "rating": 3,
+                "review": "Could not find much indian cusine items ! Otherwise good",
+                "_id": "638fc15d3ee6a9437de7ee98"
+            }
+        ],
+        "QnA_List": [
+            {
+                "question": {
+                    "userID": "638b9a89639ec0aa85818a56",
+                    "value": "Does this place have asian items ?"
+                },
+                "answer": [
+                    {
+                        "userID": "638fbe953ee6a9437de7ee82",
+                        "answer": "Yes a lot of options available",
+                        "_id": "638fc15d3ee6a9437de7ee9a"
+                    }
+                ],
+                "_id": "638fc15d3ee6a9437de7ee99"
+            }
+        ],
+        "overall_rating": 4,
+        "category": "Grocery",
+        "googlemapLink": "",
+        "user_ID": "638fbe953ee6a9437de7ee82",
+        "createdAt": "2022-12-06T22:25:33.722Z",
+        "updatedAt": "2022-12-06T22:25:33.722Z",
+        "__v": 0
+    },
+    {
+        "_id": "63920a5a38c36daa335cc3ff",
+        "title": "J vue3",
+        "address": "Boston",
+        "city": "Boston",
+        "state": "Massachussets",
+        "zipcode": "02120",
+        "photos": [
+            {
+                "path": "/some/path",
+                "_id": "63920a5a38c36daa335cc400"
+            }
+        ],
+        "description": "good hoppusing",
+        "rating_list": [
+            {
+                "userID": "",
+                "rating": 4,
+                "review": "good",
+                "_id": "63920a5a38c36daa335cc401"
+            },
+            {
+                "userID": "",
+                "rating": 3,
+                "review": "nice",
+                "_id": "63920a5a38c36daa335cc402"
+            }
+        ],
+        "QnA_List": [
+            {
+                "question": {
+                    "userID": "638b9a89639ec0aa85818a56",
+                    "value": "Test Question1"
+                },
+                "answer": [
+                    {
+                        "userID": "",
+                        "answer": "",
+                        "_id": "63920a5a38c36daa335cc404"
+                    }
+                ],
+                "_id": "63920a5a38c36daa335cc403"
+            }
+        ],
+        "overall_rating": 4,
+        "category": "Housing",
+        "googlemapLink": "",
+        "user_ID": "",
+        "createdAt": "2022-12-08T16:01:30.100Z",
+        "updatedAt": "2022-12-08T16:01:30.100Z",
+        "__v": 0
+    },
+    {
+        "_id": "6392149e1c189dd8a8f91589",
+        "title": "title122",
+        "address": "Boston",
+        "city": "Boston",
+        "state": "Massachussets",
+        "zipcode": "02120",
+        "photos": [
+            {
+                "path":"�PNG\r\n\n   \rIHDR   �   �\b   e�5   �PLTE   d��a��a��a��a��a��a��a��a��a��a��a��a��a��a��a��a��a��a��`��a��a��a��a��a��a��a��`��a��a��a��a��a��a��a��a��a��a��a��f��a��c��e��h��H�Ɣ   'tRNS \b�#�,���_����E��Ln?X�4Qg�yt�:�Ň���!�  �IDATx��[�r�0.l.;>��i���?_-,�)�������L'��ޫ��o��o��o��o��o�*x-��F?����&�?B�Y>���MOq�����8�r����1�O��'� ��<��\rx��h�>�[�q�@L��) �ݑ׼\"7����$݌��/��I�k�*���T�wϢ �O�V�B8��O_���YI��.�\f e��0�5SH\r��|\fܮ�/�e8=vbu�\\5������}7r��l.hյOO p'8?i�3\t�O�-ȗ㔛��6 \nCS �3u�qHc6I��)(�����k��LV�� �#���,<��фןt�pz��Ӟ��!��YQ�yZ��C:ǒa\tx�D�Ż�|�\\��M�Q�46b.�O9�Q�X�����wt3�\b�~�0�͌��̥@��K�d�[T�r��k�\bʳ@�O�X6$J����\f\f��,5���F��#�0�_o���Iy����S���*�>mߐ�K9%�m�9�W֌�VJ��uX��Cc���p+�\"��Ŧ��򖂪>��)>x\u000b�!\"#s3���d�'����4{���H�n��fP���\t#�����8C�b�� \"������\\@\b�˴F���P��Mul�v�&� ��2᷽�n~�P#��g�L˚����K��7C���IOͭ--������I)@�`'��KOY ؉2r?�C�\nC(��8��7���M|68��y��Э��D�*U:R����܊�7��G��W�.mT#t�\t�;�[�ς<)������W��S3��\b�?�kS�&���1�)[x��u�PG��`<d:���!�k-�?��Z�R~4��\r�H�/��;u��[7U�r;����]�$o��q�\u000b�B�Lg�����z��\u000b��X張ɰ1���T̐@�Wpk����\r�����}1���� ��&�m��U���$��BJ�A�:��\f�B�1��3\r��V�y�\\��i�<�v�L���Ʃ��N.�=��}:�2g:�3�2\u000b\ft4N�v�@6|*���>�Eꓬf�2�oR\t$s��wkq{�=ޖF���؛ku�dnPPuQ�A�\t�N�}Lr�y$�/��\"���A�Z�t; }�PQ��������fXH��ȼ�B8�շ�~�\u000b��>% ���N�]�n���w�MQw�9wb��������P�c���[/'`ρ������G�8֭m��w��4����@�);���^���^/9UZ��zۏz^�c ����?�������[\fꥦ<<���K���Y���iP�h�0lM&Y@�T��� �&�(k_W\u000b{�6��\"���\r�Q6=�eW0.8�\f�� �Uaq̓�z���.h�qy�Q�%���W��[�� �����(�kX����t�gW�g���i��4���P��W@-a�Y�&���\r*����w>�C^�a���nB�8jD���+)����y�P쩨f{��r��t���AsL{�w��:*n��u��-8���wY�*�:�+�Cn\t��>�ꁘ�<���ݴ�x//���a��/f��z}�g��L�I���s�mX�\t\t����R�����a�� ytN뚣�Tz��CI��xM�]2\b�4K7#'\rn�����Ph�$<�C�*4�o�[H�PҜp%�`:͏a��@�9\u000b\"���A�k�p_VT�h���~,7�i�1T�GF��)-2�{��:n<��U�9�c������t�M�Sd0�6�&���������TQ�0V��B����������� ��3G�D�U�-'�C�T�m�ъ��\r?k>�v���7�m>�F���_��շi��i�D5fX���O\nhW���~z�^�jyc�EU '�����~�S�:�4�z�\r�E\b�=[�N15GP2_�?F�ꏔ�nݻ�0bQ}*������b�r�3E��\bs�y)/N�|�O˲���qS�jn���Hu�<�_ϼQ%؂�_\\$������e���6��o3Cʂ��-ꡍ�P�x�B����U�|R\u000b����l�s�^l(�ԝ��U�:��jmo�_�\n0���ޞ�4��kDŧA��uMj`�PZL= ss\\��\bwB���h�NcAk�g�;�bڴ��Hu�{T[�$�� �=w�S��p���=�n��|�X�\f0�����l\nS)De\r����d[8��B��h��n�5+�&{n�렄���|-)(����6!`��Ι��V�d[r7���V�sX0\b=�$�FE\t��53�(]�s��A*��f�\fB{JL�Y|S^��LT�}��\to`%=�a���ܪE�_*=B��v���-��!H3]KÞ��0S@0���xLDaL��:��\fB@й;ڀ��Y ݭ?)1@rS�\"���cZYH��Q�(�A�r^W (p�m�FKzi�\b j\u000b-�-���\rxЛ�\\8��<C��#�~�8G\t�y��d��S?�{����瘌��}�5J8{0����B�렀�Zt��������]z1?��T�h��F$�s}���c��ޫ��V��q)yW:du��t�%����\"\t���kE�s���MVd��t����H �\\�*�z�L��g�1)�\t�Z��\u000b��F[\t���%ѧ,���6�������y�]�h�xWRW���s����D mt �(�� �~�y��EC-\b�<����`N��m\b��*f\u000b ��xJ[���ñ/}\u000b;��@� �֯��l�O��(��j�7L��*�� ���-tgů��t;m��E���K���ƒ����X���iD�s�m�-Y���Ν��q���\f�m�m�� ���L^��H��<2H��v��aa�)�/�f&U|:��g���st�=/��Q����)+i� a\r��Ze��v� �V����YsH8MY�x���M�v]~�5��H(�x��\t\rIۅ�3�Y/xP\f�}����tV���Z\t��R�kӮ�Ѱ1���o�s��e��,����\fn-�L��LC��D�n���¶�(���J�i,4���\f���֘n�f�5 �\r���(^�\tk_`rE��HZ􁗁��z�!��f�'�*����Z܀���Gr]P��S���뛚�.��ɰb�F3j�ت�HL^�}���ℌ>+t���\r\n���0��d�}�xn�d�Z$;PH�P�*·>�M�.�dV\f��6h��\t�\n8'J�\fA+\tC�w�F��\f�M�LOw\t���>U�-��H��#�eA\r (��#�:��y5����Tg����<�j/+v2l@���y��Sq�z�-����$Py3�Qm�u!�\f��E��K�n>��������ć�o��U�.T\\�|����R;�*���D>M����,�����h�1���G�!����t���V�Y!���'tA�S��g�C��!�YհC��5�R偯� �8�E)��\u000b&���~Dr ���\fɦ���&�膣�5���+�X}=U<fP~a�Q.π���\"�ɝ��::{�b_)]��զ\u000b��\\(|\";D����t������2���������*y�]��K����R��^��*4�dz؋��A�|p�j���rüc���ȓ�#;k���H�� *x�\f^Non��%���A��/��nO�\f>Q���Ys�\"!�$�M����Tx�%�A�Bf8�d��_���\t�z�7��[Ŀ�B�����Q�Q�3�.#ņ\n���$d���eu�ٮ{�^L=Z�>�������U�y\"�Z\n��%$��`��L����>]~�;߬�9ކ��To�q�~g����I�V9I�6��7�ek��|[�:����w��0Ԗ��*��G�!x���\u000b�F���/���L�_.�﫰�2`��u0���U��n8�J����G�m�U��h��>D��>�N�L�ݷ�ju��<#��\u000bڞ��h;��H���$鎢���hz�)���������?d��;<�YLx��˕��������4:�n��+�r��}��\fE�jo�U�c�\btL������*h�^��q��� ��9\u000b\b@��g�U�:��@IK�S�֮ަkE�}\t��-�h@?9%��7i�L�}�K��[��x6�P$n���F�����{�C/��·6-3I��=�O���@\\�3�Kɡɜ�<a�EF�-�����v�h6��ma��\bD���iGz�2� ��..���\fp�U\r m3�=T�Z����p0��}g��|A�\ni��;��M�V�[*Y��4SP\b�\n�]��U��*t�O8x7��\f�AȳF�S�E'���Ph�DnJ8��ZX�P�E�jdf�H:(�2nU_h^�$R2�]�շU(�b*e� 3ݦȸ�:*�b�SD��KT�p7�:�7�P/E��w�܎GF�F�^�����@F�>� R�?сAin�����?u �A~\u000b�s��t`R�\naK��I��;V�<9����l\nuK� ��<j%^�#h梁�[�JR����BI\"w{B��r�T�u�aw�9�_A���G���N{/�E��u�y�گtDpMg�:R~;�r�C}�����9+�īֱ�C�Q�.�q[쟂�B�Ӌ��M�(@����Xan�!Κ��:�����\n�u�&Ȩ�����s묙@��+GXp�Q��~y�\u000bt��X�g�5S�&��$kq\"��==d�N�������^���u�\f�>.Bc[8ӘeS*�;4�>H'jS���י#�!������\\\u000bC�⣌�\n �շ�ܪ^��7;�s�>×���-��b��&�'\f�-�m�b��\by�8/\n-����4�x�<�u2�j�BΚq��ĻK�%�ˑvBǣ���Z���<�\t������\u000bw����ی�x��|�8�dK�H}�ܽ�\\i�*�$ɩ����]R�\rB8�0�=֑)C�z�@�G *�,��<��H���]�������ew��G�\n�� H�=�R�0��\\��8\\�I�c�,~��mP2��jiB��}�$�W��`�iʽꌯ�~�)q�m�_������c*�x�1j,�]�3~��ʠ\\R�?v��p��Q��B��I\rw�����(3?}�N��S��<�)Oy�S�k�\t��2�$��    IEND�B`�",
+                "_id": "6392149e1c189dd8a8f9158a"
+            }
+        ],
+        "description": "Added using buffer",
+        "rating_list": [
+            {
+                "userID": "",
+                "rating": 4,
+                "review": "good",
+                "_id": "6392149e1c189dd8a8f9158b"
+            },
+            {
+                "userID": "",
+                "rating": 3,
+                "review": "nice",
+                "_id": "6392149e1c189dd8a8f9158c"
+            }
+        ],
+        "QnA_List": [
+            {
+                "question": {
+                    "userID": "638b9a89639ec0aa85818a56",
+                    "value": "Test Question1"
+                },
+                "answer": [
+                    {
+                        "userID": "",
+                        "answer": "",
+                        "_id": "6392149e1c189dd8a8f9158e"
+                    }
+                ],
+                "_id": "6392149e1c189dd8a8f9158d"
+            }
+        ],
+        "overall_rating": 4,
+        "category": "Housing",
+        "googlemapLink": "",
+        "user_ID": "638bcdabd6b910987bd63c54",
+        "createdAt": "2022-12-08T16:45:18.629Z",
+        "updatedAt": "2022-12-08T16:45:18.629Z",
+        "__v": 0
+    },
+    {
+        "state": "MA",
+        "_id": "638fcaf63ee6a9437de7ef11",
+        "title": "UNIQLO",
+        "address": "341 Newbury St",
+        "city": "Boston",
+        "zipcode": "02115",
+        "photos": [
+            {
+                "path": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlRA1vHKq0_oRXABhS3LKVkjmhGUQJV5c4mA&usqp=CAU",
+                "_id": "638fcaf63ee6a9437de7ef12"
+            }
+        ],
+        "description": "Clothing retailer producing a collection of casualwear & accessories for men, women & children.",
+        "rating_list": [
+            {
+                "userID": "638fbe953ee6a9437de7ee82",
+                "rating": 5,
+                "review": "Not to mention they have excellent quality clothing for decent price.",
+                "_id": "638fcaf63ee6a9437de7ef13"
+            },
+            {
+                "userID": "638fd3ed3ee6a9437de7ef39",
+                "rating": 4,
+                "review": "Great clothing good quality and selection but very expensive",
+                "_id": "638fcaf63ee6a9437de7ef14"
+            }
+        ],
+        "QnA_List": [
+            {
+                "question": {
+                    "userID": "638b9a89639ec0aa85818a56",
+                    "value": "Does this place have indian clothes?"
+                },
+                "answer": [
+                    {
+                        "userID": "638fbe953ee6a9437de7ee82",
+                        "answer": "No this place is good for wester summer and winter collection",
+                        "_id": "638fcaf63ee6a9437de7ef16"
+                    }
+                ],
+                "_id": "638fcaf63ee6a9437de7ef15"
+            }
+        ],
+        "overall_rating": 5,
+        "category": "Seasonal Clothing",
+        "googlemapLink": "",
+        "user_ID": "",
+        "createdAt": "2022-12-06T23:06:30.235Z",
+        "updatedAt": "2022-12-06T23:06:30.235Z",
+        "__v": 0
+    },
+    {
+        "state": "MA",
+        "_id": "638fcccd3ee6a9437de7ef19",
+        "title": "Reflecting Pool at the Christian Science Plaza",
+        "address": "93-105 Falmouth St",
+        "city": "Boston",
+        "zipcode": "02115",
+        "photos": [
+            {
+                "path": "https://lh3.googleusercontent.com/p/AF1QipNwIIqw_sYGpKKOVp7tqZ9xUYgGp5_AqwBk0VMv=s1360-w1360-h1020",
+                "_id": "638fcccd3ee6a9437de7ef1a"
+            }
+        ],
+        "description": "Located just between the Prudential Center and the Christian Science Center, the Reflecting Pool in Boston is a great place to take a break.",
+        "rating_list": [
+            {
+                "userID": "638fbe953ee6a9437de7ee82",
+                "rating": 5,
+                "review": "Not to mention this is a must vist place for northeaster students.",
+                "_id": "638fcccd3ee6a9437de7ef1b"
+            },
+            {
+                "userID": "638fd3ed3ee6a9437de7ef39",
+                "rating": 4,
+                "review": "Best view! Best place to take a break ",
+                "_id": "638fcccd3ee6a9437de7ef1c"
+            }
+        ],
+        "QnA_List": [
+            {
+                "question": {
+                    "userID": "638b9a89639ec0aa85818a56",
+                    "value": "What is the best time to visit this place?"
+                },
+                "answer": [
+                    {
+                        "userID": "638fbe953ee6a9437de7ee82",
+                        "answer": "I personally enjoyed the night view! The Church looks beautiful!",
+                        "_id": "638fcccd3ee6a9437de7ef1e"
+                    }
+                ],
+                "_id": "638fcccd3ee6a9437de7ef1d"
+            }
+        ],
+        "overall_rating": 5,
+        "category": "Nearby Attractions",
+        "googlemapLink": "",
+        "user_ID": "",
+        "createdAt": "2022-12-06T23:14:21.218Z",
+        "updatedAt": "2022-12-06T23:14:21.218Z",
+        "__v": 0
+    },
+    {
+        "state": "MA",
+        "_id": "638fcdf23ee6a9437de7ef21",
+        "title": "Prudential Center",
+        "address": "800 Boylston St",
+        "city": "Boston",
+        "zipcode": "02199",
+        "photos": [
+            {
+                "path": "https://lh3.googleusercontent.com/p/AF1QipNXhFQ4iqRfjHctbfUOkR2Vwh4abfHgDLJBGnjd=s1360-w1360-h1020",
+                "_id": "638fcdf23ee6a9437de7ef22"
+            }
+        ],
+        "description": "The Prudential Center is an enclosed shopping mall within the mixed-use Prudential Center complex in the Back Bay neighborhood of Boston, Massachusetts",
+        "rating_list": [
+            {
+                "userID": "638fbe953ee6a9437de7ee82",
+                "rating": 5,
+                "review": "The only and best shopping mall I could find near college !",
+                "_id": "638fcdf23ee6a9437de7ef23"
+            },
+            {
+                "userID": "638fd3ed3ee6a9437de7ef39",
+                "rating": 5,
+                "review": "Must vist place",
+                "_id": "638fcdf23ee6a9437de7ef24"
+            }
+        ],
+        "QnA_List": [
+            {
+                "question": {
+                    "userID": "638b9a89639ec0aa85818a56",
+                    "value": "Does this place have any stores with reasonable range for students?"
+                },
+                "answer": [
+                    {
+                        "userID": "638fbe953ee6a9437de7ee82",
+                        "answer": "There are few stores ! It depends on your interests",
+                        "_id": "638fcdf23ee6a9437de7ef26"
+                    }
+                ],
+                "_id": "638fcdf23ee6a9437de7ef25"
+            }
+        ],
+        "overall_rating": 5,
+        "category": "Nearby Attractions",
+        "googlemapLink": "",
+        "user_ID": "",
+        "createdAt": "2022-12-06T23:19:14.964Z",
+        "updatedAt": "2022-12-06T23:19:14.964Z",
+        "__v": 0
+    },
+    {
+        "state": "MA",
+        "_id": "638fcf873ee6a9437de7ef29",
+        "title": "Copley Square Tree Lighting ",
+        "address": "Copley Square",
+        "city": "Boston",
+        "zipcode": "02199",
+        "photos": [
+            {
+                "path": "https://www.boston-discovery-guide.com/image-files/x800-xmas-tree-common-park-st-church.jpg.pagespeed.ic.tA5t1mjja7.webp",
+                "_id": "638fcf873ee6a9437de7ef2a"
+            }
+        ],
+        "description": "Monday, November 28, 5pm-6pm - Wreaths with red bows decorate Copley Square, and the Old South Church bell tolls when the lights on the Copley Square tree go on - look for appearances by Santa and Rudolph.",
+        "rating_list": [
+            {
+                "userID": "638fbe953ee6a9437de7ee82",
+                "rating": 5,
+                "review": "Must vist! Christmas Experience",
+                "_id": "638fcf873ee6a9437de7ef2b"
+            },
+            {
+                "userID": "638fd3ed3ee6a9437de7ef39",
+                "rating": 5,
+                "review": "Mesmerising",
+                "_id": "638fcf873ee6a9437de7ef2c"
+            }
+        ],
+        "QnA_List": [
+            {
+                "question": {
+                    "userID": "638b9a89639ec0aa85818a56",
+                    "value": "What is this event?"
+                },
+                "answer": [
+                    {
+                        "userID": "638fbe953ee6a9437de7ee82",
+                        "answer": "The christmas tree lights from this given date and at this location.",
+                        "_id": "638fcf873ee6a9437de7ef2e"
+                    }
+                ],
+                "_id": "638fcf873ee6a9437de7ef2d"
+            }
+        ],
+        "overall_rating": 5,
+        "category": "Events",
+        "googlemapLink": "",
+        "user_ID": "638fbe953ee6a9437de7ee82",
+        "createdAt": "2022-12-06T23:25:59.742Z",
+        "updatedAt": "2022-12-06T23:25:59.742Z",
+        "__v": 0
+    },
+    {
+        "_id": "638fd0393ee6a9437de7ef31",
+        "title": "Boston Common Holiday Tree Lighting 2022",
+        "address": "Boston Common",
+        "city": "Boston",
+        "zipcode": "02199",
+        "photos": [
+            {
+                "path": "https://www.boston-discovery-guide.com/image-files/x800-xmas-frog-pond-skaters-5x3.jpg.pagespeed.ic.AWDiRZhLZy.webp",
+                "_id": "638fd0393ee6a9437de7ef32"
+            }
+        ],
+        "description": "Thursday, December 1, at 7:55pm . Boston Mayor Michelle Wu will be joined by Santa Claus, Rudolph, and members of the Royal Canadian Mounted Police. ",
+        "rating_list": [
+            {
+                "userID": "638fbe953ee6a9437de7ee82",
+                "rating": 5,
+                "review": "Beautiful",
+                "_id": "638fd0393ee6a9437de7ef33"
+            },
+            {
+                "userID": "638fd3ed3ee6a9437de7ef39",
+                "rating": 5,
+                "review": "Must visit",
+                "_id": "638fd0393ee6a9437de7ef34"
+            }
+        ],
+        "QnA_List": [
+            {
+                "question": {
+                    "userID": "638b9a89639ec0aa85818a56",
+                    "value": "Does this place have a ice skating rink?"
+                },
+                "answer": [
+                    {
+                        "userID": "638fbe953ee6a9437de7ee82",
+                        "answer": "Yes! You can enjoy there",
+                        "_id": "638fd0393ee6a9437de7ef36"
+                    }
+                ],
+                "_id": "638fd0393ee6a9437de7ef35"
+            }
+        ],
+        "overall_rating": 5,
+        "category": "Events",
+        "googlemapLink": "",
+        "user_ID": "638fbe953ee6a9437de7ee82",
+        "createdAt": "2022-12-06T23:28:57.478Z",
+        "updatedAt": "2022-12-06T23:28:57.478Z",
+        "__v": 0,
+        "state": "Massachussets"
+    },
+    {
+        "_id": "63920542d05b966ed0e294ea",
+        "title": "28 Wadsworth St Rental",
+        "address": "28 Wadsworth St",
+        "city": "Boston",
+        "state": "Massachussets",
+        "zipcode": "02199",
+        "photos": [
+            {
+                "path": "https://images1.forrent.com/i2/M7g9r5OK6WFFPEfF5bGDfmOTwnVthRmJJbtYXxqMcSs/117/image.jpg",
+                "_id": "63920542d05b966ed0e294eb"
+            }
+        ],
+        "description": "The area around this property has good transit with many nearby transportation options.",
+        "rating_list": [
+            {
+                "userID": "6391664ca7f1f0f56e147aa9",
+                "rating": 5,
+                "review": "Good Place",
+                "_id": "63920542d05b966ed0e294ec"
+            },
+            {
+                "userID": "6391fab2091e88bd3892507a",
+                "rating": 5,
+                "review": "Nice society",
+                "_id": "63920542d05b966ed0e294ed"
+            }
+        ],
+        "QnA_List": [
+            {
+                "question": {
+                    "userID": "638b9a89639ec0aa85818a56",
+                    "value": "Does this place have a high rent?"
+                },
+                "answer": [
+                    {
+                        "userID": "638fbe953ee6a9437de7ee82",
+                        "answer": "No",
+                        "_id": "63920542d05b966ed0e294ef"
+                    }
+                ],
+                "_id": "63920542d05b966ed0e294ee"
+            }
+        ],
+        "overall_rating": 5,
+        "category": "Housing",
+        "googlemapLink": "",
+        "user_ID": "",
+        "createdAt": "2022-12-08T15:39:46.472Z",
+        "updatedAt": "2022-12-08T15:39:46.472Z",
+        "__v": 0
+    },
+    {
+        "_id": "6392266ed05b966ed0e29746",
+        "title": "Symphony Mart",
+        "address": "1130 Boylston St",
+        "city": "Boston",
+        "state": "Massachussets",
+        "zipcode": "02199",
+        "photos": [
+            {
+                "path": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYDun5W7oSne8NJbk28ws9rXxMCTHfHqtrWQ&usqp=CAU",
+                "_id": "6392266ed05b966ed0e29747"
+            }
+        ],
+        "description": "This neighborhood stop sells many soft drinks, basic groceries & healthy snacks around the clock.",
+        "rating_list": [
+            {
+                "userID": "6391664ca7f1f0f56e147aa9",
+                "rating": 5,
+                "review": "Good Place",
+                "_id": "6392266ed05b966ed0e29748"
+            },
+            {
+                "userID": "6391fab2091e88bd3892507a",
+                "rating": 5,
+                "review": "Nice inventory",
+                "_id": "6392266ed05b966ed0e29749"
+            }
+        ],
+        "QnA_List": [
+            {
+                "question": {
+                    "userID": "638b9a89639ec0aa85818a56",
+                    "value": "Does this place have a high rent?"
+                },
+                "answer": [
+                    {
+                        "userID": "638fbe953ee6a9437de7ee82",
+                        "answer": "No",
+                        "_id": "6392266ed05b966ed0e2974b"
+                    }
+                ],
+                "_id": "6392266ed05b966ed0e2974a"
+            }
+        ],
+        "overall_rating": 5,
+        "category": "Housing",
+        "googlemapLink": "",
+        "user_ID": "",
+        "createdAt": "2022-12-08T18:01:19.055Z",
+        "updatedAt": "2022-12-08T18:01:19.055Z",
+        "__v": 0
+    }
+]

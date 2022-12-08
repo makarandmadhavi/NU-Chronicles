@@ -14,15 +14,17 @@ function Viewpost() {
   const [value, setValue] = useState("");
   const user = localStorage.getItem("user");
   const loggedInUser = JSON.parse(user);
+  const location = useLocation();
   
   const [newReviews, setNewReviews] = useState({
-    userID: loggedInUser.firstName+" "+loggedInUser.lastName,
+    _id: location.state.id,
+    userID: loggedInUser.firstName+" "+loggedInUser.lastName + " ("+loggedInUser.role+")",
     rating:'',
     review:'',
   })
   
   const addReview = async() =>{
-    newReviews.rating=document.getElementById("newratieng").value
+    newReviews.rating=value;
     newReviews.review=document.getElementById("newreview").value
     setNewReviews(newReviews)
     reviewapi.post('/add',newReviews).then((response)=>{
@@ -32,7 +34,6 @@ function Viewpost() {
       console.log(error.response.data);
     })}
 
-  const location = useLocation();
   const [data, setData] = useState({});
   console.log(location.state.id + "State ");
 
@@ -49,6 +50,7 @@ function Viewpost() {
     //   return response.data;
     // } 
     // console.log(response.data.title + " <= response");
+    response.data.photopath = response.data.photos? '/images/'+response.data.photos[0].path: null;
     setData(response.data);
     // let userreviews = response.data.rating_list.map((rev)=>{
     //   return {
@@ -98,7 +100,7 @@ function Viewpost() {
       <div className="card mb-3" >
         <div className="row no-gutters">
           <div className="col-md-4">
-            <img src='/images/attra.jpg' className="card-img" alt="..." />
+            <img src={data.photopath} className="card-img" alt="..." />
           </div>
           <div className="col-md-8">
             <div className="card-body">
