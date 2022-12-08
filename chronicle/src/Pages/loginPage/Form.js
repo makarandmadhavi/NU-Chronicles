@@ -10,8 +10,9 @@ import {
   Radio,
   RadioGroup,
   FormControlLabel,
-  FormControl, FormLabel,
+  FormControl, FormLabel
 } from "@mui/material";
+import { Formik } from 'formik'
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import Dropzone from "react-dropzone";
 import { useNavigate } from "react-router-dom";
@@ -35,16 +36,7 @@ const Form = () => {
     e.preventDefault();
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
-
-    try{
-      if(email=="admin" && password=="admin"){
-        navigate("/admin")
-      }
-    }catch(err){
-      alert("Unauthorized");
-    }
-    
-    
+  
     try {
       let response = await userapi.post('/loginApi',
       JSON.stringify({ email: email, password: password }),
@@ -58,6 +50,13 @@ const Form = () => {
       localStorage.setItem('log',true)
       // setIsLoggedin(true)
       // dispatch({type: "USER", payload: true})
+      try{
+        if(response.data.user.role == "admin"){
+          return navigate("/admin")
+        }
+      }catch(err){
+        alert("Unauthorized")
+      }
       navigate("/dashboard")
 
 
@@ -69,8 +68,9 @@ const Form = () => {
   }
 
   return (
-  
-      <form >
+     
+        
+        <form >
         <Box
           display="grid "
           gap="30px"

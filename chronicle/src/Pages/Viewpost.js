@@ -3,6 +3,7 @@ import './css/Viewpost.css'
 import Accordion from 'react-bootstrap/Accordion';
 import { Rating, Button, TextField} from '@mui/material'
 import {Container,Row , Col} from 'react-bootstrap';
+import QandA from '../widgets/QandA';
 function Viewpost() {
   const [ value, setValue ] = useState("5")
   return (
@@ -82,13 +83,7 @@ function Viewpost() {
       <Accordion.Item eventKey="1">
         <Accordion.Header>Question and Answers</Accordion.Header>
         <Accordion.Body>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          <QandA />
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>
