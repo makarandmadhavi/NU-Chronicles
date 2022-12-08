@@ -68,7 +68,7 @@ function Dashboard() {
           </Form.Group>
           <Form.Group className="mb-3 inputGroup">
 
-            <Form.Control id="searchInput" placeholder="Search... " />
+            <Form.Control id="searchInput" placeholder="Enter name of the place..." />
             <Button type="submit" onClick={search} variant='danger'>Search</Button>
 
           </Form.Group>
