@@ -10,7 +10,7 @@ function ProfileElementCard(props) {
     const data = props.data;
     var photoPath = "images/house1.jpg";
     if(data.photos[0]){
-        photoPath = data.photos[0].path;
+        photoPath = "images/" + data.photos[0].path;
     }
 
     const navigate = useNavigate();

@@ -30,6 +30,7 @@ function Viewpost() {
     reviewapi.post('/add',newReviews).then((response)=>{
       console.log(response.data)
        alert("Review Successfully Added")
+       window.location.reload(false);
     }) .catch((error) => {
       console.log(error.response.data);
     })}
@@ -146,7 +147,7 @@ function Viewpost() {
       </div>
       <br /><br /><br /><br />
       <div className='row'>
-        <div className="col-md-6">
+        <div className="col-md-12">
           <Accordion>
             <Accordion.Item eventKey="0">
               <Accordion.Header>All Reviews</Accordion.Header>
@@ -164,7 +165,7 @@ function Viewpost() {
           </Accordion>
         </div>
 
-        <div className="col-md-6">
+        {/* <div className="col-md-6">
           <Accordion>
             <Accordion.Item eventKey="1">
               <Accordion.Header>Question and Answers</Accordion.Header>
@@ -174,7 +175,7 @@ function Viewpost() {
             </Accordion.Item>
           </Accordion>
 
-        </div>
+        </div> */}
 
       </div>
 

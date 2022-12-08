@@ -145,8 +145,8 @@ const handleSubmit = (e) => {
     <br/>
     <label className="small mb-1" htmlFor="category">Category</label>
                    <Form.Select id="category"  name="category" onChange={handleChange} >
-                      <option disabled>select...</option>
-                        <option selected>Housing</option>
+                      <option selected disabled>select...</option>
+                        <option >Housing</option>
                         <option>Grocery</option>
                       <option>Seasonal Clothing</option>
                      <option>Events</option>

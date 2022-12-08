@@ -37,7 +37,7 @@ function ElementCard(props) {
                     readOnly
                     name="simple-controlled"
                     sx={{size: "large"}}
-                    value={data.overall_rating}
+                    value={data.rating_list.length}
                     // onChange={(event, newValue )  => {
                     //     setValue(newValue);
                     // }}
