@@ -59,7 +59,7 @@ const addData = async(editPost) =>{
   
 })
 .catch((error)=> {
-  alert("Unauthorized")
+  alert(error.response.data)
     
     if (error.response+"1") {
       // The request was made and the server responded with a status code

@@ -10,9 +10,11 @@ import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import ElementCard from '../components/ElementCard'
 import housingapi from '../apiservice/postapi'
 import userapi from "../apiservice/userapi";
+import { useNavigate } from 'react-router-dom';
 
 
 function Profile() {
+  const navigate = useNavigate()
  
   var user = JSON.parse(localStorage.user);
   const [postsData, setpostsData] = useState(null);
@@ -25,6 +27,7 @@ function Profile() {
     })
     
   }
+ 
   const editData = async(editUser) =>{
     userapi.put('/updateuser',editUser).then((response) => {
       console.log(response , "updated");
@@ -33,7 +36,7 @@ function Profile() {
     
   })
   .catch((error)=> {
-    console.log("Unauthorized! Please enter valid format for each field");
+    alert(error.response.data);
       
       if (error.response+"1") {
         // The request was made and the server responded with a status code
@@ -53,6 +56,39 @@ function Profile() {
   })
 
   };
+  const deleteAccount = async(editUser) =>{
+      userapi.delete('/delete',editUser).then((response) => {
+        console.log(response , "deleted");
+        alert(response.data.message)
+        navigate("/")
+        localStorage.removeItem("user")
+        localStorage.removeItem('log')
+       
+      
+    })
+    .catch((error)=> {
+     alert(error.response.data.message);
+        
+        if (error.response+"1") {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          //console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request+"2") {
+          // The request was made but no response was received
+          // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+          // http.ClientRequest in node.js
+          console.log(error.request+"3");
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log('Error', error.message+"3");
+        }
+    })
+  
+    };
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if(document.getElementById("inputPassword").value!=document.getElementById("inputConfirmPassword").value){
@@ -188,7 +224,7 @@ function Profile() {
             
             {/* Save changes button*/}
             <button className="btn btn-danger" style={{margin:'5px'}} type="submit">Save changes</button>
-            <button className="btn btn-danger" style={{margin:'5px'}} type="button">Delete Account</button>
+            <button className="btn btn-danger" style={{margin:'5px'}} type="button" onClick={deleteAccount}>Delete Account</button>
           </form>
         </div>
       </div>
