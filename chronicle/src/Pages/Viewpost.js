@@ -7,9 +7,31 @@ import QandA from '../widgets/QandA';
 import { useLocation } from 'react-router-dom';
 import postapi from '../apiservice/postapi';
 import userapi from '../apiservice/userapi';
+import reviewapi from '../apiservice/reviewapi';
 
 function Viewpost() {
-  const [value, setValue] = useState("5");
+
+  const [value, setValue] = useState("");
+  const user = localStorage.getItem("user");
+  const loggedInUser = JSON.parse(user);
+  
+  const [newReviews, setNewReviews] = useState({
+    userID: loggedInUser.firstName+" "+loggedInUser.lastName,
+    rating:'',
+    review:'',
+  })
+  
+  const addReview = async() =>{
+    newReviews.rating=document.getElementById("newratieng").value
+    newReviews.review=document.getElementById("newreview").value
+    setNewReviews(newReviews)
+    reviewapi.post('/add',newReviews).then((response)=>{
+      console.log(response.data)
+       alert("Review Successfully Added")
+    }) .catch((error) => {
+      console.log(error.response.data);
+    })}
+
   const location = useLocation();
   const [data, setData] = useState({});
   console.log(location.state.id + "State ");
@@ -98,6 +120,7 @@ function Viewpost() {
             <h6 className="card-title">Leave a Rating</h6>
           </div>
           <Rating sx={{ mt: 2 }}
+            id="newrating"
             name="simple-controlled"
             value={value}
             onChange={(event, newValue) => {
@@ -111,12 +134,12 @@ function Viewpost() {
           </div>
           <TextField sx={{ mt: 2, width: "50%" }}
             hiddenLabel
-            id="filled-hidden-label-normal"
+            id="newreview"
             placeholder='Review... '
             size='small'
           />
           <Button sx={{ ml: 3, mt: 2, backgroundColor: "#DC143C" }}
-            variant="contained">Submit</Button>
+            variant="contained" onClick={addReview}>Submit</Button>
         </div>
       </div>
       <br /><br /><br /><br />
