@@ -132,35 +132,14 @@ function Profile() {
           <div className="col-xl-4">
             {/* Profile picture card*/}
             <div className="card mb-4 mb-xl-0">
-              <div className="card-header">Profile Picture</div>
+              <div className="card-header"></div>
               <div className="card-body text-center">
                 {/* Profile picture image*/}
-                <img className="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
+                <img className="img-account-profile rounded-circle mb-2" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5ArKQ5AIUqacA-5ofQ5nfPevwR0RtI7PBtg&usqp=CAU" alt="" />
                 {/* Profile picture help block*/}
-                <div className="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+             
                 {/* Profile picture upload button*/}
-                <Dropzone
-                  acceptedFiles=".jpg,.jpeg,.png"
-                  multiple={false}
-                  onDrop={(acceptedFiles) =>
-                    console.log(acceptedFiles)
-                  }
-                >
-                  {({ getRootProps, getInputProps }) => (
-                    <Box
-                      {...getRootProps()}
-                      border={`2px dashed #DC143C`}
-                      p="1rem"
-                      textAlign="center"
-                      sx={{ "&:hover": { cursor: "pointer" } }}
-                    >
-                      <ArrowCircleUpIcon />
-                      <input {...getInputProps()} />
-                      <p style={{ textAlign: "center", margin: "5px" }}>Add Picture Here</p>
-
-                    </Box>
-                  )}
-                </Dropzone>
+                
               </div>
             </div>
           </div>
