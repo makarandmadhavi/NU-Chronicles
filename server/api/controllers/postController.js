@@ -1,4 +1,4 @@
-const { createPost, getPost, updatePost, deletePost, addReview, deleteRating, getRating, addQuestion, deleteQuestionAns, addAnswer, getPostwithParams } = require('../services/PostService');
+const { createPost, getPost, updatePost, deletePost, addReview, deleteRating, getRating, addQuestion, deleteQuestionAns, addAnswer, getPostwithParams, getPostById } = require('../services/PostService');
 
 const addPosting = async (req, res) => {
     const post = req.body;
@@ -20,7 +20,13 @@ const getPosting = async (req, res) => {
         console.log(req.query);
        
         if (Object.keys(req.query).length != 0){
-            result = await getPostwithParams(req.query);
+            if (req.query._id){
+                result = await getPostById(req.query);
+            }
+            else{
+                result = await getPostwithParams(req.query);
+            }
+            
         }
         else{
             result = await getPost();

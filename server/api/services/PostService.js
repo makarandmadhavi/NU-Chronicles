@@ -105,6 +105,28 @@ async function getPost() {
     
 }
 
+// Get Post By ID
+async function getPostById(params){
+    var id = params._id;
+    await post.findOne({_id : id}).then(function(data, error) {
+        if (error){
+            console.log("Error Occured " + error);
+            result.status = 500;
+            result.message =  "could not get data " + data;
+            return;
+        }
+        
+        result = data;
+        console.log("Result after data is assignered in params function");
+        result.status = 200;
+        console.log(result.status);
+        result.message = "all done";
+        return;
+    });
+    return result;
+    
+}
+
 
 //Get post with params
 async function getPostwithParams(params) {
@@ -464,5 +486,6 @@ module.exports = {
     getRating,
     addQuestion,
     deleteQuestionAns,
-    addAnswer
+    addAnswer,
+    getPostById
 }
