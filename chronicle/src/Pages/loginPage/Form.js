@@ -10,8 +10,9 @@ import {
   Radio,
   RadioGroup,
   FormControlLabel,
-  FormControl, FormLabel,
+  FormControl, FormLabel
 } from "@mui/material";
+import { Formik } from 'formik'
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import Dropzone from "react-dropzone";
 import { useNavigate } from "react-router-dom";
@@ -67,8 +68,9 @@ const Form = () => {
   }
 
   return (
-  
-      <form >
+     
+        
+        <form >
         <Box
           display="grid "
           gap="30px"
