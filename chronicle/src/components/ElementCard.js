@@ -4,14 +4,17 @@ import { Rating } from '@mui/material'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons'
 import './css/ElementCard.css'
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function ElementCard(props) {
     const data = props.data;
-    
-    const [ value, setValue ] = useState("5")
+    const navigate = useNavigate();
+    const viewPost = (id)=>{
+        return navigate("/viewpost", {state:{id:id}});
+    }
+
     return (
-        <Card className='elementCard'>
+        <Card onClick={e => viewPost(data._id)} id={data._id} className='elementCard'>
             <Card.Header>{data.category}</Card.Header>
             <Card.Img variant="top" height= "250px" width="auto" src={data.photos[0].path} />
             <Card.Body>

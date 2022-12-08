@@ -86,7 +86,7 @@ const handlelogout = () => {
 
         <Nav className="me-auto">
           <Nav.Link href="/">About Us</Nav.Link>
-          <Nav.Link href="#link">Explore</Nav.Link>
+          <Nav.Link href="/dashboard">Explore</Nav.Link>
           <Nav.Link href="#link">Top Hits</Nav.Link>
         </Nav>
         {/* <LoginModal/>

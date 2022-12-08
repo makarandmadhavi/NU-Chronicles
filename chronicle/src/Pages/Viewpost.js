@@ -4,8 +4,12 @@ import Accordion from 'react-bootstrap/Accordion';
 import { Rating, Button, TextField} from '@mui/material'
 import {Container,Row , Col} from 'react-bootstrap';
 import QandA from '../widgets/QandA';
+import {useLocation} from 'react-router-dom';
+
 function Viewpost() {
-  const [ value, setValue ] = useState("5")
+  const [ value, setValue ] = useState("5");
+  const location = useLocation();
+  console.log(location.state);
   return (
  <Container>
    
