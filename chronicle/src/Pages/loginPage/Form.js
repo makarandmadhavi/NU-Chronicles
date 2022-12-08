@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import userapi from "../../apiservice/userapi";
-//import { Formik } from "formik";
 import {
   Box,
   Button,
@@ -12,7 +11,6 @@ import {
   FormControlLabel,
   FormControl, FormLabel
 } from "@mui/material";
-import { Formik } from 'formik'
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import Dropzone from "react-dropzone";
 import { useNavigate } from "react-router-dom";
