@@ -7,14 +7,14 @@ Our website serves as a one-stop solution for all new international students com
 
 ![image](screenshots/Picture1.png)
 
-![image](screenshots/Picture2.png)
+![image](screenshots/Picture2.jpg)
 
-![image](screenshots/Picture3.png)
+![image](screenshots/Picture3.jpg)
 
 ![image](screenshots/Picture4.png)
 
 ![image](screenshots/Picture5.png)
 
-![image](screenshots/Picture6.png)
+![image](screenshots/Picture6.jpg)
 
 ![image](screenshots/Picture7.png)
