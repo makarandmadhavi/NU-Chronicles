@@ -8,22 +8,17 @@ INFO6150 - Web Design and User Experience Engineering - Course Project
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
+	  <a href="#ui-snippets">UI Snippets</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
@@ -39,19 +34,32 @@ Our website serves as a one-stop solution for all new international students com
 
 ## UI Snippets
 
+<details>
+
+<summary>Snippets</summary>
+
+
 ![image](screenshots/Picture1.png)
+
 
 ![image](screenshots/Picture2.jpg)
 
+
 ![image](screenshots/Picture3.jpg)
+
 
 ![image](screenshots/Picture4.png)
 
+
 ![image](screenshots/Picture5.png)
+
 
 ![image](screenshots/Picture6.jpg)
 
+
 ![image](screenshots/Picture7.png)
+</details>
+
 
 
 
